@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.13-windowononload</title>
+	<style type="text/css">
+		#box{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+		}
+	</style>
+	<script type="text/javascript">
+			// 提取事件
+		window.onload=function toRed() {
+			// body...
+			document.getElementById('box').style.width='500px';
+		}
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

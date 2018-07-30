@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.07-对象-属性的定义4-判断是否有更改属性.html</title>
+	<script>
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+		}
+
+		Person.prototype.showObj = function() {
+			console.log(this.name + ' have ' + this.hands + ' hands');
+		}
+		Person.prototype.showAge = function() {
+			console.log(this.age + ' years old');
+		}
+		//属性添加
+		// Person.prototype.hands = 2;
+		var p1 = new Person('Metara',20);
+		p1.hands = 2;
+
+		// console.log(p1.hasOwnProperty('hands'));
+		console.log(p1.hands);
+		console.log('name' in p1);
+		//只判断是否在自己的原型链上
+		function hasPrototypeProperty(obj,attr){
+			return !obj.hasOwnProperty(attr) && (attr in obj);
+		}
+		console.log(hasPrototypeProperty(p1,'hands'));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

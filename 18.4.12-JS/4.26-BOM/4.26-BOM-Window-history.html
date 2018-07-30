@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.26-BOM-Window-history.html</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			document.getElementById('btn1').onclick = function(){
+				//效果相同
+				// window.history.go(-1); 
+				history.back();
+			}
+			document.getElementById('btn2').onclick = function(){
+				//效果相同
+				// window.history.go(1); 
+				history.forward();
+			}
+		}
+	</script>
+</head>
+<body>
+	<a href="https://www.baidu.com">baidu</a>
+	<input type="button" value="上一页" id="btn1" name="">
+	<input type="button" value="下一页" id="btn2" name="">
+</body>
+</html>

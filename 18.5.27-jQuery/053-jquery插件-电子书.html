@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>053-jquery插件-电子书.html</title>
+	<style>
+		.container{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			/*background-color: red;*/
+		}
+		.book{
+			width: 922px;
+			height: 600px;
+			top: -300px;
+			left: -461px;
+			/*background-color: orange;*/
+			position: absolute;
+		}
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script src="plug/turnjs/turnjs4/lib/turn.min.js"></script>
+	<script>
+		$(function(){
+			$('.book').turn();
+		})
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="book">
+			<div style="background-image:url(plug/turnjs/turnjs4/samples/basic/pages/1.jpg)"></div>
+			<div style="background-image:url(plug/turnjs/turnjs4/samples/basic/pages/2.jpg)"></div>
+			<div style="background-image:url(plug/turnjs/turnjs4/samples/basic/pages/3.jpg)"></div>
+			<div style="background-image:url(plug/turnjs/turnjs4/samples/basic/pages/4.jpg)"></div>
+			<div style="background-image:url(plug/turnjs/turnjs4/samples/basic/pages/5.jpg)"></div>
+			<div style="background-image:url(plug/turnjs/turnjs4/samples/basic/pages/6.jpg)"></div>
+		</div>
+	</div>
+</body>
+</html>

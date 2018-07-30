@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>014-canvas-base</title>
+	<style>
+		canvas{
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="200" height="200" id="canvas"></canvas>
+</body>
+<script>
+	// 获取画布
+	var oCanvas = document.getElementById('canvas');
+	// 获取画布 2d 环境
+	var ctx = oCanvas.getContext('2d');
+	// 绘制起始位置
+	ctx.moveTo(0,0);
+	// 获取结束位置
+	ctx.lineTo(100,100);
+	// 绘制描边颜色
+	ctx.strokeStyle = '#ff6700';
+	// 绘制描边宽度
+	ctx.lineWidth = 20;
+	// 调用描边方法
+	ctx.stroke();
+	// console.log(ctx)
+</script>
+</html>

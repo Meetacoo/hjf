@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>046-jquery的ajax请求方法.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('button').click(function(){
+				/*
+				$.get('./046-data.json','name=Metara&age=20',function(data){
+					console.log(data.name);
+				},'json');
+				$.get('./046-data.json',{name:"Metara",age:20},function(data){
+					console.log(data.name);
+				},'json');
+				$.getJSON('./046-data.json',{name:"Metara",age:20},function(data){
+					console.log(data.name);
+				});
+				$.getScript('./047-testjs.js',function(data){
+					console.log(data);
+				})
+				//待定
+				$.post('./postReq',{name:"Metara",age:20},function(data){
+					// console.log(data);
+					//可以接收返回类型
+					console.log(data.name);
+				},"json");
+				*/
+				// $('div').load('./046-data.json');
+				//也可以接收HTML页面
+				$('div').load('./046-jquery-ajax.html');
+			})
+		})
+	</script>
+</head>
+<body>
+	<button>请求数据</button>
+	<div></div>
+</body>
+</html>

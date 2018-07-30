@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>小表单</title>
+</head>
+<body>
+	<table width="600" align="center">
+		<tr>
+			<td>
+				<form>
+					<fieldset>
+						<legend>***注册界面***</legend>
+						<fieldset>
+							<legend>Main</legend>
+							<p>
+								<label for="username">同户名：</label>
+								<input type="text" name="username" >&nbsp&nbsp
+								<label for="password">密&nbsp码：</label>
+								<input type="password" name="password">
+							</p>
+							<p>
+								出生日期：<input type="date" name="birth">&nbsp&nbsp&nbsp&nbsp
+								性&nbsp别：<input type="radio" name="sex" value="male">男&nbsp&nbsp<input type="radio" name="sex" value="female">女
+							</p>
+							<p>
+								出生地址：
+								<select name="address">
+									<optgroup label="河南">
+										<option value="zhengzhou">郑州</option>
+										<option value="xuchang">许昌</option>
+									</optgroup>
+								</select>
+							</p>
+							<p>
+								<label for="Tel">电&nbsp话：</label>
+								<input type="number" name="Tel">&nbsp&nbsp
+								<label for="address">住&nbsp址：</label>
+								<input type="text" name="address">
+							</p>
+						</fieldset><br>
+						<fieldset>
+							<legend>Intresting</legend>
+							<p>
+								爱&nbsp好：<input type="checkbox" name="hobby" value="food">吃饭&nbsp&nbsp<input type="checkbox" name="hobby" value="sleep">睡觉&nbsp&nbsp<input type="checkbox" name="hobby" value="hitdoudou">打豆豆&nbsp&nbsp
+							</p>
+							<p>
+								最喜欢的颜色：<input type="color" name="color" value="FavoriteColor">&nbsp&nbsp
+							</p>
+							<p>
+								留言板：<textarea rows="5">请留下您宝贵的意见~</textarea>
+							</p>
+							<p>
+								<input type="submit">
+								<input type="reset">
+								<input type="button" value="哈哈哈">
+							</p>
+						</fieldset>
+					</fieldset>
+				</form>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

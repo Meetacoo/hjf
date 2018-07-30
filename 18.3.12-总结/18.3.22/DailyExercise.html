@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选择器练习</title>
+	<style type="text/css">
+	/*标签选择器*/
+	/*li{
+		color: red;
+		font-size: 24px;
+	}
+
+	a{
+		color: gray;
+	}*/
+
+	/*类选择器*/
+	.onec{
+		width: 40px;
+		border: 1px dotted;
+		/*text-overflow: clip;*/
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+
+	/*id选择器*/
+	/*#one{
+		color: green;
+	}
+
+	#three{
+		text-indent: 2em;
+	}*/
+
+	/*后代选择器*/
+	/*ul li ul{
+		text-decoration: line-through overline;
+		text-shadow: 5px 5px 5px red;
+	}
+
+	#three a{
+		color: skyblue;
+	}
+
+	#one .twoc #two{
+		color: red;
+	}*/
+
+	/*子选择器*/
+	/*.twoc>p{
+		color: pink;
+	}
+
+	ul>li>ul>li{
+		color: green;
+	}*/
+
+	/*交集选择器*/
+	li.onec{
+		color: red;
+	}
+
+	/*并集选择器*/
+	/*li,a{
+		color: red
+	}*/
+
+	
+	</style>
+</head>
+<body>
+	<ul id="one">
+		<li class="onec">无序列表1</li>
+		<li>无序列表2</li>
+		<li class="twoc">
+			<p>段落
+				<a href="#">链接三</a>
+				<header>header</header>
+			</p>
+			<ul>
+				<li>无序列表三</li>
+				<li id="two">无序列表四</li>
+				<li>无序列表五</li>
+				<li>无序列表六</li>
+				<li><a href="#">链接1</a></li>
+			</ul>
+		</li>
+	</ul>
+	<p id="three"><a href="#">链接2</a></p>
+</body>
+</html>

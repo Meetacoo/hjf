@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.10-正则-邮箱校验.html</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oTxt = document.getElementById('txt');
+			var oBtn = document.getElementById('btn');
+			oBtn.onclick = function () {
+				var reg = /^\w+@[0-9a-z]+\.[a-z]+$/i;
+				if (reg.test(oTxt.value)) {
+					alert('输入正确');
+				} else {
+					alert('输入有误');
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="txt" name="">
+	<input type="button" id="btn" name="" value="afu">
+</body>
+</html>

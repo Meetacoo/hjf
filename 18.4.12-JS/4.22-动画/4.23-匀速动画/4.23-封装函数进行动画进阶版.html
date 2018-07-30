@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.23-封装函数多个物体同时进行动画</title>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+			text-align: center;
+			line-height: 100px;
+			margin-top: 20px;
+		}
+		#box3{
+			opacity: 0.3;
+		}
+	</style>
+	
+	<script type="text/javascript">
+		// var timer = null;
+		function animation(obj,attr,iTarget){
+			// clearInterval(timer);
+			clearInterval(obj.timer);
+			// timer = setInterval(function(){
+			obj.timer = setInterval(function(){
+				var iSpeed = 0;
+				// var curr = getComputedStyle(obj,false)[attr];//取出来的是字符
+				var curr = parseFloat(getComputedStyle(obj,false)[attr]);
+				if(attr == 'opacity'){
+					curr = curr * 100;
+				}
+				//如果有多个属性，就不能用offsetWidth了，应该用getComputed
+				//if (obj.offsetWidth > iTarget) {
+				if (curr > iTarget) {
+					iSpeed = -10;
+				} else {
+					iSpeed = 10;
+				}
+
+				/*if(Math.abs(iTarget - curr) <= Math.abs(iSpeed)){
+					clearInterval(this.timer);
+					obj.style[attr] = iTarget + 'px';
+				}else{
+					obj.style[attr] = curr + iSpeed + 'px';
+				}*/
+
+				if(Math.abs(iTarget - curr) < Math.abs(iSpeed)){
+					// clearInterval(timer);
+					clearInterval(obj.timer);
+					if (attr == 'opacity') {
+						obj.style[attr] = iTarget/100;
+					} else {
+						obj.style[attr] = iTarget + 'px';
+					}
+					
+				}else{
+					if (attr == 'opacity') {
+						obj.style[attr] = (curr + iSpeed)/100;
+					} else {
+						obj.style[attr] = curr + iSpeed + 'px';
+					}
+					
+				}
+			},30);
+		}
+		window.onload = function(){
+			var oBox1 = document.getElementById('box1');
+			var oBox2 = document.getElementById('box2');
+			var oBox3 = document.getElementById('box3');
+
+			oBox1.onmouseover = function(){
+				animation(this,'width',400);
+			}
+			oBox1.onmouseout = function(){
+				animation(this,'width',100);
+			}
+
+			oBox2.onmouseover = function(){
+				animation(this,'height',400);
+			}
+			oBox2.onmouseout = function(){
+				animation(this,'height',100);
+			}
+
+			oBox3.onmouseover = function(){
+				animation(this,'opacity',100);
+			}
+			oBox3.onmouseout = function(){
+				animation(this,'opacity',30);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box1">变宽</div>
+	<div id="box2">变高</div>
+	<div id="box3">变透明度</div>
+</body>
+</html>

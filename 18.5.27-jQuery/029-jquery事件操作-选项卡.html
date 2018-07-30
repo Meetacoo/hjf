@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>029-jquery事件操作-选项卡.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+
+			list-style: none;
+		}
+		.btn{
+			overflow: hidden;
+		}
+		.btn li{
+			width: 50px;
+			height: 20px;
+			border: 1px solid #000;
+			float: left;
+			text-align: center;
+		}
+		.btn li.active{
+			color: #fff;
+			background-color: #000;
+		}
+		.content{
+			position: relative;
+		}
+		.content li{
+			width: 220px;
+			height: 200px;
+			border: 1px solid #000;
+			position: absolute;
+			display: none;
+		}
+		.content li.active{
+			display: block;
+		}
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('.btn li').mouseenter(function(){
+				// console.log(this);
+				var $this = $(this);
+				$this.addClass('active');
+				$this.siblings().removeClass('active');
+				var $index = $this.index();
+				var $conLi = $('.content li').eq($index);
+				$conLi.addClass('active');
+				$conLi.siblings().removeClass('active');
+				// console.log($index);
+			})
+		})
+	</script>
+</head>
+<body>
+	<ul class="btn">
+		<li class="active">li1</li>
+		<li>li2</li>
+		<li>li3</li>
+		<li>li4</li>
+	</ul>
+	<ul class="content">
+		<li class="active">content1</li>
+		<li>content2</li>
+		<li>content3</li>
+		<li>content4</li>
+	</ul>
+</body>
+</html>

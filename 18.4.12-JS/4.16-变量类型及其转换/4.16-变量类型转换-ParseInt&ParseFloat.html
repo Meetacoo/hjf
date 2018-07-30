@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.16-变量类型转换-ParseInt/ParseFloat</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oT1 = document.getElementById('t1');
+			var oT2 = document.getElementById('t2');
+			var oT3 = document.getElementById('t3');
+			var oBtn = document.getElementById('btn');
+
+			oBtn.onclick = function(){
+				alert(parseInt(oT1.value)+parseInt(oT2.value));
+				// alert(typeof oT1);
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	<input type="text" name="" id="t1">
+	+
+	<input type="text" name="" id="t2">
+	<input type="button" name="" value="=" id="btn">
+	<input type="text" name="" id="t3">
+</body>
+</html>

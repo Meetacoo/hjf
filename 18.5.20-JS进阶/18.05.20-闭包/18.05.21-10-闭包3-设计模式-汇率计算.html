@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>18.05.21-10-闭包3-设计模式-汇率计算.html</title>
+	<style type="text/css">
+		div{
+			width: 500px;
+			height: 500px;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<!-- <div id="box"></div> -->
+</body>
+<script type="text/javascript">
+	(function(w){
+		function Local(name){
+			this.foreigns = [];
+			this.name = name;
+			this.init(name);
+		}
+		Local.prototype = {
+			constructor:Local,
+			init:function(name){
+				var oP = document.createElement('p');
+				oP.innerHTML = name;
+				this.oInput = document.createElement('input');
+				oP.appendChild(this.oInput);
+				document.body.appendChild(oP);
+			},
+			register:function(foreign){
+				this.foreigns.push(foreign);
+			},
+			publish:function(){
+				this.oInput.oninput = function(){
+					for (var i = 0; i < this.foreigns.length; i++) {
+						this.foreigns[i].listen(this.oInput.value);
+					}
+				}.bind(this);
+			}
+		}
+		w.Local = Local;
+	})(window);
+
+	(function(w){
+		function Foreign(name,rate,cny){
+			// this.name = name;
+			this.rate = rate;
+			this.oInput = null;
+			// this.foreign = foreign;
+			cny.register(this);
+			this.init(name);
+		}
+		Foreign.prototype = {
+			constructor:Foreign,
+			__proto__:Object.prototype,
+			init:function(name){
+				var oP = document.createElement('p');
+				oP.innerHTML = name;
+				this.oInput = document.createElement('input');
+				oP.appendChild(this.oInput);
+				document.body.appendChild(oP);
+			},
+			listen:function(val){
+				this.oInput.value = val / this.rate;
+			}
+		}
+		w.Foreign = Foreign;
+	})(window);
+	var Cny = new Local('人民币');
+	var usd = new Foreign('美元 ',6,Cny);
+	var usd1 = new Foreign('欧元 ',10,Cny);
+	Cny.publish();
+</script>
+</html>

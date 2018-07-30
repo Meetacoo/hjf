@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绝对定位-参照元素</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.grafather{
+			margin: 100px auto;
+			width: 500px;
+			height: 500px;
+			border: 1px solid #000;
+			/*position: relative;*/
+			/*加下面两个会使上边的margin不起作用*/
+			/*position: absolute;*/
+			/*position: fixed;*/
+		}
+		.father{
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+			/*position: relative;*/
+			/*position: absolute;*/
+			position: fixed;
+			/*不可以加这个
+			position: static;*/
+			margin: 50px;
+		}
+		.son{
+			width: 100px;
+			height: 100px;
+			background-color: skyblue;
+			position: absolute;
+			/*top: 10px;*/
+			left: 10px;
+			bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="grafather">
+		<div class="father">
+			<div class="son">
+			</div>
+		</div>
+	</div>
+</body>
+</html>

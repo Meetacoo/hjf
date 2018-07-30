@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4-26-事件-处理兼容性问题</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			document.onclick = function(ev){
+				/*
+				//此时不能在火狐浏览器上获取到鼠标的X/Y轴位置
+				console.log('X:',event.clientX);//获取鼠标在页面X轴位置
+				console.log('Y:',event.clientY);//获取鼠标在页面Y轴位置
+				*/
+				/*
+				//此时只能在火狐浏览器上获取到鼠标的X/Y轴位置
+				console.log('X:',ev.clientX);//获取鼠标在页面X轴位置
+				console.log('Y:',ev.clientY);//获取鼠标在页面Y轴位置
+				*/
+				
+				//此时可以在任何浏览器上获取到鼠标的X/Y轴位置
+				var oEvent = ev || event;
+				console.log('X:',oEvent.clientX);//获取鼠标在页面X轴位置
+				console.log('Y:',oEvent.clientY);//获取鼠标在页面Y轴位置
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

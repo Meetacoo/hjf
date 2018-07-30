@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.07-对象-改变this指向-继承.html</title>
+	<script type="text/javascript">
+		function Person(name,age) {
+			this.name = name;
+			this.age = age;
+		}
+		
+		Person.prototype.showName = function(){
+			console.log('i am ' + this.name);
+		}
+		Person.prototype.showAge = function(){
+			console.log('i am ' + this.age + ' years old');
+		}
+		var p1 = new Person('Metara',20);
+		p1.showName();
+		p1.showAge();
+
+		/*
+		function Student(name,age,className){
+			this.name = name;
+			this.age = age;
+			this.className = className;
+		}
+		Student.prototype.showName = function(){
+			console.log('i am ' + this.name);
+		}
+		Student.prototype.showAge = function(){
+			console.log('i am ' + this.age + ' years old');
+		}
+		Student.prototype.showClassName = function(){
+			console.log('i am ' + this.className);
+		}
+		var s1 = new Student('Metala',21,'Computer');
+		s1.showName();
+		s1.showAge();
+		s1.showClassName();
+		*/
+
+		function Student(name,age,className){
+			//属性的继承
+			Person.call(this,name,age);
+			// console.log(this);
+			this.className = className;
+		}
+		
+		//前拷贝，通过这种方式创建新对象拷贝，前对象（Person）也将会具有Student的新属性，此时Person也可以调用p1.showClassName()方法
+		//这种方法传递的是地址，此时Student.prototype 和 Person.prototype指的是一个，相同
+		console.log(Student.prototype);
+		Student.prototype = Person.prototype;
+		console.log(Student.prototype);
+
+		/*
+		//通过这种方式创建新对象拷贝，前对象（Person）将不会具有Student的新属性，此时Person将不能再调用p1.showClassName()方法，但是仍有一定的问题
+		for(key in Person.prototype){
+			Student.prototype[key] = Person.prototype[key];
+		}
+		*/
+
+		/*
+		//person(){}会被执行两次
+		Student.prototype = new Person();
+		*/
+		Student.prototype.showClassName = function(){
+			console.log('i am ' + this.className);
+		}
+		var s1 = new Student('Metala',21,'Computer');
+		//看s1是否是Person的实例
+		console.log(s1 instanceof Person);
+		s1.showName();
+		s1.showAge();
+		s1.showClassName();
+		//
+		p1.showClassName();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

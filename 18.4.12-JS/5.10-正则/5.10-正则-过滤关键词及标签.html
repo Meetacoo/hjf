@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.10-正则-过滤关键词及标签.html</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oTxt1 = document.getElementById('txt1');
+			var oTxt2 = document.getElementById('txt2');
+			var oBtn = document.getElementById('btn');
+			oBtn.onclick = function(){
+				// var reg = /a|b/gi;
+				/*所有英文字符 不区分大小写 数字 下划线,只能替换掉一个字符的标签
+				var reg = /<\w>/;
+				var reg = /<\w>/g;
+				*/
+
+				/*
+				能替换掉多个字符的标签
+				var reg = /<\w+>/g;
+				*/
+
+				//能替换掉结束的标签
+				// var reg = /<[\w|\/]+>/g;
+				//^用在[]内意思为除了
+				var reg = /<[^<>]+>/g;
+				oTxt2.value = oTxt1.value.replace(reg,'*');
+				oTxt1.value = '';
+			}
+		}
+	</script>
+</head>
+<body>
+	<textarea name="" id="txt1" cols="30" rows="10"></textarea>
+	<input type="button" value="提交" id="btn">
+	<textarea name="" id="txt2" cols="30" rows="10"></textarea>
+</body>
+</html>

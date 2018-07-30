@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS-002-反三角.html</title>
+	<style type="text/css">
+		span{
+			width: 10px;
+			height: 10px;
+			display: inline-block;
+			margin-right: 10px;
+			color: orange;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			/*document.write('<table>');
+				// for (var i = 9; i > 0; i--) {
+				 for (var i = 1; i <= 10; i++) {
+					document.write('<tr>');
+						for (var j = 1; j <= 10; j++) {
+							document.write('<td>'+"*"+'</td>');
+							// document.write('<td>'+j+'*'+i+'='+j*i+'</td>');
+						}
+					document.write('</tr>');
+				}
+			document.write('</table>');*/
+		}
+		for (var i = 0; i < 10; i++) {
+			var str = '';
+			for (var t = 0; t < 10-i; t++) {
+				str = str + document.write('<span></span>');
+			}
+			for (var j = 0; j < i; j++) {
+				document.write('<span>*</span>');
+			}
+			document.write("<br>");
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

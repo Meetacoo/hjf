@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4-19-去除数组中的重复元素.html</title>
+	<script type="text/javascript">
+		var arr = [22,32,34,32,43,58,65];
+		console.log(arr);
+		function removeDup(arr){
+			var result = [];
+			for (var i = 0; i < arr.length; i++) {
+				var isDup = false;
+				for (var j = 0; j < result.length; j++) {
+					if (arr[i]==result[j]){
+						isDup = true;
+						break;
+					}
+				}
+				if (!isDup){
+					result.push(arr[i]);
+				}
+			}
+			return result;
+		}
+		console.log(removeDup(arr));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.2-事件-跟随鼠标移动的多个物体-补充</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			/*background-color: orange;*/
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		body{
+			height: 2000px;
+			background-color: black;
+		}
+		div img{
+			/*background-size: 50px 50px; */
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+	<script type="text/javascript">
+		//封装函数
+		function getPoint(ev){
+			var iLeft = document.body.scrollLeft || document.documentElement.scrollLeft;
+			var iTop = document.body.scrollTop || document.documentElement.scrollTop;
+			return {x:ev.clientX + iLeft,y:ev.clientY + iTop};
+		}
+		window.onload = function(){
+			var aBox = document.getElementsByTagName('div');
+			document.onmousemove = function(ev){
+				var oEvent = ev || event;
+				var oPoint = getPoint(oEvent);
+				//oBox.style.left = oPoint.x + 'px';
+				//oBox.style.top = oPoint.y + 'px';
+
+				aBox[0].style.left = oPoint.x + 'px';
+				aBox[0].style.top = oPoint.y + 'px';
+
+				for (var i = aBox.length - 1; i > 0; i--) {
+					aBox[i].style.left = aBox[i-1].offsetLeft + 50 + 'px';
+					aBox[i].style.top = aBox[i-1].offsetTop + 50 + 'px';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div><img src="../../../image/star1.png"></div>
+	<div><img src="../../../image/star3.png"></div>
+	<div><img src="../../../image/star2.png"></div>
+	<div><img src="../../../image/star2.png"></div>
+</body>
+</html>

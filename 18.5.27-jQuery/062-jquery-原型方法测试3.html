@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>062-jquery-原型方法测试3.html</title>
+	<style>
+		.box1{
+			width: 100px;
+			height: 100px;
+			background: gray;
+			color: red;
+		}
+		.box2{
+			width: 200px;
+			height: 300px;
+			background: blue;
+			color: yellow;
+		}
+		.box3{
+			background-color: orange;
+		}		
+	</style>
+	<!-- <script src="js/jquery-1.12.4.js"></script> -->
+	<script src="myjs/myQuery-1.0.0.js"></script>
+	<script>
+		$(function(){
+			$('button')[0].onclick = function(){
+				// console.log($('div').css('width'));
+				// console.log($('div').css('width','300px'));
+				// console.log($('div').css({
+				// 	width:'300px',
+				// 	height:'300px'
+				// }));
+				// console.log($('div').hasClass('box1'));
+				// console.log($('div').addClass('box1 box2'));
+				// console.log($('div').removeClass('box2'));
+				// console.log($('div').removeClass());
+				// console.log($('div').toggleClass('box3'));
+				// console.log($('div').toggleClass());
+				console.log($('div').toggleClass('box1 box2'));
+				
+			};
+		})
+	</script>
+</head>
+<body>
+	<button>测试</button>
+	<div class="bbbbox1   box1   ccc " name='bbb'>div1</div>
+	<div class="box2" name='ccc'>div2</div>
+</body>
+</html>

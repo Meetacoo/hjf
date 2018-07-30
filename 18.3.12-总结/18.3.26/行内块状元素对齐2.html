@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>行内块状元素对齐2</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		p{
+			border: 1px solid #000;
+			margin-bottom: 10px;
+			/*line-height: */
+		}
+		.box1{
+			line-height: 40px;
+			background-color: pink;
+			padding-left: 10px;
+		}
+		.dot{
+			display: inline-block;
+			width: 5px;
+			height: 5px;
+			background-color: skyblue;
+		}
+		p:nth-child(2) .dot{
+			vertical-align: baseline;
+		}
+		p:nth-child(3) .dot{
+			vertical-align: top;
+		}
+		p:nth-child(4) .dot{
+			vertical-align: middle;
+		}
+		p:nth-child(5) .dot{
+			vertical-align: bottom;
+		}
+		p:nth-child(6) .dot{
+			vertical-align: text-bottom;
+		}
+	</style>
+</head>
+<body>
+	<p><span class="box1"><span class="dot"></span>行内块状元素对齐  默认</span></p>
+	<p><span class="box1"><span class="dot"></span>行内块状元素对齐  baseline</span></p>
+	<p><span class="box1"><span class="dot"></span>行内块状元素对齐  top</span></p>
+	<p><span class="box1"><span class="dot"></span>行内块状元素对齐  middle</span></p>
+	<p><span class="box1"><span class="dot"></span>行内块状元素对齐  bottom</span></p>
+	<p><span class="box1"><span class="dot"></span>行内块状元素对齐  text-bottom</span></p>
+</body>
+</html>

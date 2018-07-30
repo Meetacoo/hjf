@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>024-jquery事件操作-事件的自动触发.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			// a标签比较特殊
+			$('a').click(function(ev){
+				// return false;
+				// ev.preventDefault();
+				alert('aaa');
+			})
+			$('span').trigger('click');
+			$('input').eq(1).click(function(ev){
+				// return false;
+				ev.preventDefault();
+			})
+			$('input').eq(1).trigger('click');
+		})
+	</script>
+</head>
+<body>
+	<a href="https://www.baidu.com"><span>zou</span></a>
+	<form action="https://www.baidu.com">
+		<input type="text" value="input">
+		<input type="submit" value="提交">
+	</form>
+</body>
+</html>

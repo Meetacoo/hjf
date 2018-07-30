@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.21-DOM搜索元素.html</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oTxt = document.getElementById('txt');
+			var oBtn = document.getElementById('btn');
+			var oBox = document.getElementById('box');
+			var aLi = oBox.getElementsByTagName('li');
+			oBtn.onclick = function(){
+				var sTxt = oTxt.value.toLowerCase();
+				//将sTxt分割成一个数组
+				var aTxt = sTxt.split(' ');
+				/*for (var i = 0; i < aLi.length; i++) {
+					var sLi = aLi[i].innerHTML.toLowerCase();
+					if (sLi.search(sTxt) != -1) {
+						aLi[i].style.backgroundColor = 'pink';
+					} else {
+						aLi[i].style.backgroundColor = '';
+					}
+				}*/
+				//加空格后的进阶版
+				for (var i = 0; i < aLi.length; i++) {
+					for (var i = 0; i < aLi.length; i++) {
+						var sLi = aLi[i].innerHTML.toLowerCase();
+						aLi[i].style.backgroundColor = '';
+						for (var j = 0; j < aTxt.length; j++) {
+							if (sLi.search(sTxt[j]) != -1) {
+								aLi[i].style.backgroundColor = 'pink';
+							}
+						}
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" name="" id="txt">
+	<input type="button" name="" id="btn" value="search">
+	<ul id="box">
+		<li>Meetacoo</li>
+		<li>Meetala</li>
+		<li>Icon</li>
+		<li>While</li>
+		<li>Fangfang</li>
+		<li>Kay</li>
+		<li>十年</li>
+		<li>十天</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.13-表单-表单的重置.html</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oForm = document.forms[0];
+			var oBtn = document.getElementById('btn2');
+			var oFmEle = oForm.elements;
+			
+			oBtn.onclick = function(){
+				oForm.reset();
+				console.log('asfhu')
+			}
+			//input type="button"方法的reset事件可以触发oForm.onreset事件
+			oForm.onreset = function(){
+				return false;
+			}
+		}
+	</script>
+</head>
+<body>
+	<form action="https://www.baidu.com">
+		<input type="text" name="">
+		<input type="reset" name="" value="重置1">
+		<input type="button" name="" value="重置2" id="btn2">
+		<button type="reset" name="">重置3</button>
+	</form>
+</body>
+</html>

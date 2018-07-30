@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.20-DOM插入元素.html</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oUl = document.getElementById('box');
+			var oTxt = document.getElementById('txt');
+			var oBtn = document.getElementById('btn');
+			oBtn.onclick = function(){
+				var oLi = document.createElement('li');
+				oLi.innerHTML = oTxt.value;
+				oUl.appendChild(oLi);
+				// oUl.insertBefore(oLi,oUl.firstElementChild);
+				oUl.insertBefore(oLi,oUl.children[0]);
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="txt" name="">
+	<input type="button" id="btn" name="" value="insert">
+	<ul id="box">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>052-jquery²å¼þ-Ñ¡Ïî¿¨.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 210px;
+			/*overflow: hidden;*/
+			margin:  20px auto;
+		}
+		li{
+			list-style: none;
+		}
+		.btn{
+			position: relative;
+			overflow: hidden;
+		}
+		.btn li{
+			width: 50px;
+			height: 30px;
+			border: 1px solid #000;
+			text-align: center;
+			line-height: 30px;
+			float: left;
+		}
+		.btn li.active{
+			background-color: orange;
+		}
+		.content{
+			width: 206px;
+			height: 200px;
+			position: relative;
+		}
+		.content li{
+			width: 100%;
+			height: 100%;
+			border: 1px solid #000;
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: none;
+		}
+		.content li.active{
+			display: block;
+		}
+
+		.btn li.current{
+			background-color: red;
+		}
+		.content li.current{
+			display: block;
+		}
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script src="myjs/jquery-switch.js">
+		//;(function($){
+			/*
+			$.fn.extend({
+				switch:function(){
+					this.each(function(){
+						var $box = $(this);
+						var $btns = $box.find('.btn>li');
+						console.log($btns);
+						$btns.on('click',function(){
+							// console.log(this);
+							$(this).addClass('active').siblings().removeClass('active');
+							var $index = $(this).index();
+							// console.log($index);
+							$box.find('.content>li').eq($index).show().siblings().hide();
+						})
+					})
+				}
+			})
+		*/
+		/*
+			$.fn.extend({
+				switch:function(options){
+					var defaults = {
+						activeClass:"active",
+						btnSelector:".btn>li",
+						contentSelector:".content>li",
+						eventType:"click"
+					}
+					options = $.extend(defaults,options);
+					this.each(function(){
+						var $box = $(this);
+						var $btns = $box.find(options.btnSelector);
+						console.log($btns);
+						$btns.on(options.eventType,function(){
+							// console.log(this);
+							$(this).addClass(options.activeClass).siblings().removeClass(options.activeClass);
+							var $index = $(this).index();
+							// console.log($index);
+							$box.find(options.contentSelector).eq($index).show().siblings().hide();
+						})
+					})
+				}
+			})
+		})(jQuery);
+		*/
+	</script>
+	<script>
+		$(function(){
+			$('.box').switch({
+				activeClass:"active",
+			});
+			$('.box2').switch({
+				activeClass:"current",
+				btnSelector:"ul.btn>li",
+			});
+		})
+	</script>
+</head>
+<body>
+	<div class="box">
+		<ul class="btn">
+			<li class="active">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<ul class="content">
+			<li class="active">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+	</div>
+	<div class="box">
+		<ul class="btn">
+			<li class="active">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<ul class="content">
+			<li class="active">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+	</div>
+	<div class="box2">
+		<ul class="btn">
+			<li class="current">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<ul class="content">
+			<li class="current">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+	</div>
+	<div class="box2">
+		<ul class="btn">
+			<li class="current">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<ul class="content">
+			<li class="current">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+	</div>
+</body>
+</html>

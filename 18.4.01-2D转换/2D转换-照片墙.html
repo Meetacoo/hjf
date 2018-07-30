@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2D转换-照片墙</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			height: 500px;
+			margin-top: 150px;
+			background-color: pink;
+			list-style: none;
+			text-align: center;
+		}
+		ul li{
+			width: 300px;
+			height: 300px;
+			background-color: skyblue;
+			display: inline-block;
+			margin-top: 100px;
+			margin-left: 10px;
+			border: 5px solid #fff;
+			box-sizing: border-box;
+			box-shadow: 0 0 10px;
+			/*z-index只有在定位流中才可以实现，所以要为其添加position: relative;属性*/
+			position: relative;
+		}
+		ul li img{
+			width: 100%;
+			height: 100%;
+		}
+		ul li:nth-child(1){
+			transform: rotate(-15deg);
+		}
+		ul li:nth-child(2){
+			transform: rotate(15deg);
+		}
+		ul li:nth-child(3){
+			transform: rotate(-10deg);
+		}
+		ul li:nth-child(4){
+			transform: rotate(20deg);
+		}
+		ul:hover li{
+			opacity: 0.5;
+		}
+		ul li:hover{
+			transition: all 1s;
+			transform: rotate(0deg);
+			z-index: 999;
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li><img src="../image/yyqx.jpg"></li>
+		<li><img src="../image/yyqx.jpg"></li>
+		<li><img src="../image/yyqx.jpg"></li>
+		<li><img src="../image/yyqx.jpg"></li>
+	</ul>
+</body>
+</html>

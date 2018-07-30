@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>017-jquery操作代码/文本/值.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			console.log($('div').html());
+			// $('div').html('<h1>标题</h1>');
+			console.log($('div').text());
+			// $('div').text('<h1>标题</h1>');
+			//不是谁都有value的
+			console.log('qqq;',$('input').val());
+			$('input').val('设置内容');
+		})
+	</script>
+</head>
+<body>
+	<div>
+		div
+		<p>段落</p>
+	</div>
+	<input type="text" value="aaa">
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.06-函数方式创建对象.html</title>
+	<script type="text/javascript">
+		function person(name,age) {
+			// body...
+			var obj = new Object();
+			obj.name = name;
+			obj.age = age;
+			obj.showName = function(){
+				console.log('I am ' + this.name);
+			}
+			obj.showAge = function(){
+				console.log('I am ' + this.age +' years old');
+			}
+			return obj;
+		}
+		var p1 = person('metara',20);
+		p1.showName();
+		p1.showAge();
+		var p2 = person('meta',20);
+		p2.showName();
+		p2.showAge();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

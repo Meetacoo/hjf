@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.06-对象-属性的定义3-一次定义多个属性.html</title>
+	<script>
+		var obj = {};
+		Object.defineProperties(
+			obj,{
+				'name':{
+					value:'meta',
+					enumerable:true,
+					writable:true,
+					configurable:true
+				},
+				'age':{
+					value:20,
+					// enumerable:true,
+					enumerable:false,
+					writable:true,
+					configurable:true
+				}
+			}
+		)
+		for(key in obj){
+			console.log(key + ': ' + obj[key]);
+		}
+		obj.name = 'Metara';
+		// delete obj.name;
+		console.log(obj.name);
+		//获取对象描述属性
+		console.log(Object.getOwnPropertyDescriptor(obj,'name'));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>045-jquery的ajax请求方法.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('button').click(function(){
+				$.ajax({
+					// 'http://localhost:3000/2018.05.25-003-datajosn.josn',
+					url:'http://127.0.0.1:3000/046-data.json',
+					type:'POST',//大小写无所谓
+					//data:"name=Metara&age=20",//server中处理：var pramsStr = JSON.stringify(prams);
+					//res.end(pramsStr);//如果有问号，原封不动返回回去
+					data:{"name":"Metara","age":20},
+					dataType:"json",
+					//创建一个Ajax对象
+					// var oAjax = new XMLHttpRequest();//XHR
+					success:function(data,stasusMsg,jqXHR){
+						console.log('success',data,stasusMsg,jqXHR);
+						console.log(data.name);
+					},
+					error:function(jqXHR,stasusMsg){
+						console.log('error',jqXHR,stasusMsg);
+					},
+					//不论正确还是错误都可以返回的语句
+					complete:function(jqXHR,stasusMsg){
+						console.log('complete',jqXHR,stasusMsg);
+					},
+					//timeout:1000,//超过1秒就失败
+					stasusCode:{
+						//接受一个对象
+						404:function(){
+							console.log('not found');
+						}
+					},
+					headers:{
+						'test':'baidu'
+					}
+				})
+			})
+		})
+	</script>
+</head>
+<body>
+	<button>请求数据</button>
+</body>
+</html>

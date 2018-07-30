@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2D转换-倒下案例</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 450px;
+			height: 300px;
+			border: 1px solid #000;
+			margin: 100px auto;
+			perspective: 500px;
+		}
+		div img{
+			transform-origin: center bottom;
+			transition: transform 1s;
+		}
+		div:hover img{
+			transform: rotateX(80deg);
+		}
+	</style>
+</head>
+<body>
+	<div><img src="../image/yyqx.jpg" alt=""></div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3新增属性-过渡-速度</title>
+	<style type="text/css">
+		ul{
+			width: 800px;
+			height: 800px;
+			margin: 0 auto;
+			border: 1px solid #000;
+			list-style: none;
+		}
+		li{
+			width: 200px;
+			height: 100px;
+			margin-top: 10px;
+			background-color: pink;
+			transition-property: margin-left;
+			transition-duration: 3s;
+			transition-delay: 1s;
+		}
+		ul:hover li{
+			margin-left: 600px;
+		}
+		li:nth-child(2){
+			transition-timing-function: linear;
+		}
+		li:nth-child(3){
+			transition-timing-function: ease;
+		}
+		li:nth-child(4){
+			transition-timing-function: ease-in;
+		}
+		li:nth-child(5){
+			transition-timing-function: ease-out;
+		}
+		li:nth-child(6){
+			transition-timing-function: ease-in-out;
+		}
+		/*贝塞尔函数*/
+		li:nth-child(7){
+			transition-timing-function: cubic-bezier(0.4,0.3,0.2,0.8);
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>默认</li>
+		<li>linear</li>
+		<li>ease</li>
+		<li>ease-in</li>
+		<li>ease-out</li>
+		<li>ease-in-out</li>
+		<li>cubic-bezier</li>
+	</ul>
+</body>
+</html>

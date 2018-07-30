@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.22-DOM内容排序.html</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBtn = document.getElementById('btn');
+			var oUl = document.getElementById('box');
+			var aLi = oUl.children;
+
+			oBtn.onclick = function(){
+				var arr = [];
+				for (var i = 0; i < aLi.length; i++) {
+					arr.push(aLi[i]);
+				}
+				arr.sort(function(aLi1,aLi2){
+					var n1 = aLi1.innerHTML;
+					var n2 = aLi2.innerHTML;
+					return n1 - n2;
+				});
+				for (var i = 0; i < arr.length; i++) {
+					// alert('第'+i+'次将'+arr[i]+'追加到oul最后');
+					alert('第'+i+'次将'+arr[i].innerHTML+'追加到oul最后');
+					oUl.appendChild(arr[i]);
+					// console.log(aLi);
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="btn" value="排序" name="">
+	<ul id="box">
+		<li>22</li>
+		<li>77</li>
+		<li>63</li>
+		<li>4</li>
+		<li>58</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>子选择器</title>
+	<style type="text/css">
+		#a>.b{
+			color: red;
+		}
+
+		#a>li{
+			color: blue;
+		}
+
+		#c>.d{
+			color: green;
+		}
+
+		ul>li>.b{
+			color: gray;
+		}
+
+		#a>#c>.d{
+			color: pink;
+		}
+	</style>
+</head>
+<body>
+	<ul id="a">
+		<li class="b">1</li>
+		<li id="c">
+			<ul class="d">
+				<li>houdai1</li>
+				<li>houdai2</li>
+			</ul>
+		</li>
+		<li>
+			<h1 class="b">biaoti</h1>
+		</li>
+	</ul>
+	
+</body>
+</html>

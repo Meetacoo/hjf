@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.10-正则-是否有汉字.html</title>
+	<script type="text/javascript">
+		var str = 'aaa你v我bbb';
+		/*
+		//这个汉字在计算机中的编码
+		console.log(str.charCodeAt(0));
+		*/
+		
+		//检测str中有没有汉字
+		var reg = /[\u4e00-\u9fa5]+/g;
+		// console.log(reg.test(str));
+		// console.log(str.length);
+		console.log(getLength(str));
+		//将所有汉字替换为*
+		console.log(str.replace(reg,'*'));
+
+		function getLength(str) {
+			return str.replace(/[\u4e00-\u9fa5]/g,'mm').length;
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

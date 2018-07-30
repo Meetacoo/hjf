@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>005-const</title>
+</head>
+<body>
+</body>
+<script>
+	/*var people = {
+		name:'metara',
+		age:21,
+		sex:'female'
+	}
+	console.log(people);*/
+
+	// const 定义常量, 且不存在声明的提升
+	/*const people = {
+		name:'metara',
+		age:21,
+		sex:'female'
+	}
+	console.log(people);*/
+
+	// const 作用域为块级作用域
+	/*{
+		const people = {
+			name:'metara',
+			age:21,
+			sex:'female'
+		}
+	}
+	console.log(people);*/
+
+	// const 不能重复赋值(不能更改地址)
+	/*const people = {
+		name:'metara',
+		age:21,
+		sex:'female'
+	}
+	const people = {};
+	console.log(people);*/
+
+	// const 内的内容可重新赋值
+	/*const people = {
+		name:'metara',
+		age:21,
+		sex:'female'
+	}
+	people.name = 'leo';
+	console.log(people);*/
+
+	/*var people;
+	people = {
+		name:'metara',
+		age:21,
+		sex:'female'
+	}
+	console.log(people);*/
+
+	// 必须赋初值
+	const people;
+	// const people = {};
+	people = {
+		name:'metara',
+		age:21,
+		sex:'female'
+	}
+	console.log(people);
+</script>
+</html>

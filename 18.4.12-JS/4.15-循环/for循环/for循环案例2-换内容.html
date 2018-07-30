@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>for循环案例2-换内容.html</title>
+	<style type="text/css">
+		div{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			background-color: pink;
+			text-align: center;
+			line-height: 200px;
+			display: none;
+		}
+		.active{
+			background-color: orange;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var aBtn = document.getElementsByTagName('input');
+			var aDiv = document.getElementsByTagName('div');
+
+			for (var i = 0; i < aBtn.length; i++) {
+				aBtn[i].index=i;
+				aBtn[i].onclick=function(){
+				for (var j = 0; j < aBtn.length; j++) {
+					aBtn[j].className = '';
+					aDiv[j].style.display = 'none';
+					}
+					this.className = 'active';
+					// index.className = 'active';
+					aDiv[this.index].style.display = 'block';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" name="" value="按钮1" class="active">
+	<input type="button" name="" value="按钮2">
+	<input type="button" name="" value="按钮3"><br><br>
+	<div style="display: block;">内容1</div>
+	<div>内容2</div>
+	<div>内容3</div>
+</body>
+</html>

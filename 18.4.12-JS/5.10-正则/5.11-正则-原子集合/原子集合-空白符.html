@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>原子集合-空白符.html</title>
+	<script type="text/javascript">
+		var str = '112 23afaf 43r4';
+		// var reg = /\s/g;
+		/*
+		var reg = /\r/g;
+		var reg = /\n/g;
+		var reg = /\t/g;
+		var reg = /\f/g;
+		*/
+		/*
+		var reg = /^\r/g;
+		var reg = /^\t/g;
+		var reg = /^\f/g;
+		var reg = /^\n/g;
+		*/
+		var reg = /\S/g;
+		console.log(str.replace(reg,'*'));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

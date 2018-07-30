@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006-drag-drop-image.html</title>
+	<style>
+		.container{
+			width: 400px;
+			height: 400px;
+			border: 1px solid #000;
+		}
+		.target{
+			width: 100px;
+			height: 100px;
+			background: pink;
+		}
+		.hide{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="container" id="container"></div>
+	<div class="target" id="target" draggable = "true"></div>
+	<img src="../image/bird.png" class="hide" id="img" alt="">
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('#target')
+		.on('dragstart',function(ev){
+			ev.originalEvent.dataTransfer.setData('idName',ev.target.id);
+			// 后边加了个 [0] 是为了将 jQuery 对象转换为 DOM 节点
+			ev.originalEvent.dataTransfer.setDragImage($('#img').clone().removeClass('hide')[0],0,0);
+		});
+
+		$('#container')
+		.on('drop',function(ev){
+			var iTarget = ev.originalEvent.dataTransfer.getData('idName');
+			$('#container').append($('#' + iTarget));
+		})
+		.on('dragover',function(ev){
+			ev.preventDefault();
+		})
+	})
+</script>
+</html>

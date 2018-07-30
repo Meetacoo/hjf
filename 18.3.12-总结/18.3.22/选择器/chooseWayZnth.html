@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>序选择器</title>
+	<style type="text/css">
+		/*p:first-child{
+			color: red;
+		}
+
+		p:last-child{
+			color: blue;
+		}
+
+		p:nth-child(3){
+			color: gray;
+		}
+
+		p:nth-child(2n+0){
+			color: green;
+		}
+
+		p:nth-child(odd){
+			color: pink;
+		}
+
+		p:nth-child(even){
+			color: yellow;
+		}
+
+		p:nth-last-child(1){
+			color: blue;
+		}*/
+
+		p:first-of-type{
+			color: red;
+		}
+
+		p:last-of-type{
+			color: blue;
+		}
+		/*第多少个*/
+		p:nth-of-type(3){
+			color: gray;
+		}
+
+		p:nth-of-type(2n+0){
+			color: green;
+		}
+
+		p:nth-of-type(odd){
+			color: pink;
+		}
+
+		p:nth-of-type(even){
+			color: yellow;
+		}
+
+		p:nth-last-of-type(2){
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+	<p>段落1</p>
+	<p>段落2</p>
+	<p>段落3</p>
+	<p>段落4</p>
+	<p>段落5</p>
+	<p>段落6</p>
+	<ul>
+		<li>序选择器li1</li>
+		<li>序选择器li2</li>
+		<li>序选择器li3</li>
+		<li>序选择器li4
+			<p>段落1</p>
+			<h1>标题</h1>
+			<p>段落2</p>
+			<p>段落3</p>
+			<p>段落4</p>
+			<p>段落5</p>
+			<p>段落6</p>
+			<p>段落7</p>
+		</li>
+		<li>序选择器li5</li>
+		<header>页眉</header>
+	</ul>
+	<div>
+		<p>段落1</p>
+		<p>段落2</p>
+		<p>段落3</p>
+		<p>段落4</p>
+		<p>段落5</p>
+		<p>段落6</p>
+	</div>
+</body>
+</html>

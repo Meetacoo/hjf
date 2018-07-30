@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>051-jquery插件-扩展插件-对象级别.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		
+		/*
+		;(function($){
+			$.fn.setColor = function(options){
+				console.log(this);
+				// this.css('color','orange');
+				// this.css('color',options.color);
+				var defaults = {
+					color:'red'
+				};
+				options = $.extend(defaults,options);
+				// this.css('color',options.color);
+				this.each(function(){
+					this.style.color = options.color;
+				})
+			}
+		})(jQuery);
+		
+		*/
+		;(function($){
+			$.fn.extend({
+				setColor: function(options){
+					console.log(this);
+					// this.css('color','orange');
+					// this.css('color',options.color);
+					var defaults = {
+						color:'red'
+					};
+					options = $.extend(defaults,options);
+					this.css('color',options.color);
+					this.each(function(){
+						this.style.color = options.color;
+					})
+				}
+			})
+		})(jQuery);
+	</script>
+	<script>
+		
+		$(function(){
+		
+		/*
+			$.prototype.setColor = function(options){
+				console.log(this);
+				// this.css('color','orange');
+				// this.css('color',options.color);
+				var defaults = {
+					color:'red'
+				};
+				options = $.extend(defaults,options);
+				// this.css('color',options.color);
+				this.each(function(){
+					this.style.color = options.color;
+				})
+			}
+		
+		*/
+			$('button').click(function(){
+				// $('div').css('color','orange');
+				$('div').setColor({color:'orange'});
+			})
+			$('button').click(function(){
+				// $('div').css('color','orange');
+				$.fn.setColor({color:'orange'});
+			})
+		})
+	</script>
+</head>
+<body>
+	<button>对象级别插件</button>
+	<div>有内容</div>
+</body>
+</html>

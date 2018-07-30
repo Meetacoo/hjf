@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.03-事件-事件对象常用属性-阻止冒泡</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#mask{
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,0.5);
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: none;
+		}
+		#box{
+			width: 200px;
+			height: 200px;
+			background-color: orange;
+			line-height: 200px;
+			text-align: center;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -100px;
+			margin-top: -100px;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript">
+		function $(id){
+			return document.getElementById(id);
+		}
+		window.onload = function(){
+			/*
+			var oEnter = document.getElementById('enter');
+			var oMask = document.getElementById('mask');
+			var oBox = document.getElementById('box');
+			var oLogin = document.getElementById('login');
+			*/
+			//或者
+			var oEnter = $('enter');
+			var oMask = $('mask');
+			var oBox = $('box');
+			var oLogin = $('login');
+			oEnter.onclick = function(ev){
+				var oEvent = ev || event;
+				oMask.style.display = 'block';
+				oBox.style.display = 'block';
+				document.body.style.overflow = 'hidden';
+				oEvent.stopPropagation();
+			}
+			document.onclick = function(){
+				oMask.style.display = 'none';
+				oBox.style.display = 'none';
+				document.body.style.overflow = 'auto';
+			}
+			oBox.onclick = function(ev){
+				var oEvent = ev || event;
+				// oMask.style.display = 'block';
+				// oBox.style.display = 'block';
+				// document.body.style.overflow = 'auto';
+				oEvent.stopPropagation();
+			}
+			oLogin.onclick = function(ev){
+				/*
+				var oEvent = ev || event;
+				oMask.style.display = 'none';
+				oBox.style.display = 'none';
+				oEvent.stopPropagation();
+				*/
+				//或者
+				window.location = 'https://www.baidu.com';
+			}
+		}
+	</script>
+</head>
+<body style="height: 3000px">
+	<input type="button" id="enter" value="登录" name="">
+	<div id="mask"></div>
+	<div id="box">
+		<input type="button" id="login" value="登录" name="">
+	</div>
+</body>
+</html>

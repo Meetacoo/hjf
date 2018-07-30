@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>002-cookie的设置.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// 存储
+	function setCookie(key,value,iDate){
+		var oDate = new Date();
+		oDate.setDate(oDate.getDate() + iDate);
+		document.cookie = key + "=" + value + ";expires" + "=" + oDate;
+	}
+	setCookie('name','Metara',5);
+
+	// 获取
+	function getCookie(key){
+		var str1 = document.cookie;
+		str1 = str1.split(';');
+		for (var i = 0; i < str1.length; i++) {
+			var str2 = str1[i].split('=');
+			if (str1[0].trim() == key.trim()) {
+				return str1[1];
+				break;
+			}
+		}
+	}
+	var res = getCookie('name');
+	console.log(res);
+	
+	// 删除
+	/*function removeCookie(key){
+		// return setCookie(key,false,-1);
+		return setCookie('name',false,-1);
+	}
+	removeCookie("name");*/
+	console.log(document.cookie);
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>049-jquery-ajax-jqXHR.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('button').click(function(){
+				var $jqXHR = $.ajax({
+					url:'http://127.0.0.1:3000/046-data.json',
+					type:'POST',
+					dataType:"json"
+				})
+				console.log($jqXHR);
+				$jqXHR.done(function(data,stasusMsg,jqXHR){
+					console.log('done',data,stasusMsg,jqXHR);
+				})
+				$jqXHR.fail(function(jqXHR,stasusMsg){
+					console.log('fail',jqXHR,stasusMsg);
+				})
+				$jqXHR.always(function(arg1,arg2,arg3){
+					console.log('always',arg1,arg2,arg3);
+				})
+			})
+		})
+	</script>
+</head>
+<body>
+	<button>jqXHR</button>
+</body>
+</html>

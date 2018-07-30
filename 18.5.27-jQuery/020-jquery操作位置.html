@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>020-jquery操作位置.html</title>
+	<style>
+		.box1{
+			border: 1px solid #000;
+			margin: 100px auto;
+			width: 200px;
+			height: 200px;
+			position: relative;
+		}
+		.box2{
+			border: 1px solid #000;	
+			width: 100px;
+			height: 100px;
+			margin: 10px;
+			background-color: orange;
+		}
+		.box3{
+			border: 1px solid #000;
+			margin: 100px auto;
+			width: 200px;
+			height: 200px;
+			position: relative;
+			overflow: auto;
+		}
+		.box4{
+			border: 1px solid #000;	
+			width: 800px;
+			height: 800px;
+			margin: 10px;
+			background-color: orange;
+		}
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			console.log($('.box2').offset());
+			// $('.box2').offset({
+			// 	left:50,
+			// 	top:50
+			// });
+			console.log($('.box2').position());
+			$('.box3').click(function(){
+				console.log($('.box3').scrollTop(),$('.box3').scrollLeft(),);
+			})
+			$('.box3').scrollTop(200);
+			$('.box3').scrollLeft(200);
+		})
+	</script>
+</head>
+<body>
+	<div class="box1">
+		<div class="box2"></div>
+	</div>
+	<div class="box3">
+		<div class="box4"></div>
+	</div>
+</body>
+</html>

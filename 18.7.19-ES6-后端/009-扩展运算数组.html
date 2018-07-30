@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>009-扩展运算数组</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr = [1,2,3,4];
+	// console.log(arr);
+	// console.log(...arr);
+
+	/*function show(){
+		for (var i = 0; i < arguments.length; i++) {
+			console.log(arguments[i]);
+		}
+		console.log(arguments);
+	}*/
+
+	/*function show(){
+		for (var i = 0; i < arr.length; i++) {
+			console.log(arr[i]);
+		}
+		console.log(arr);
+	}
+	show(...arr);*/
+
+	/*for (var i = 0; i < arr.length; i++) {
+		console.log(arr[i]);
+	}*/
+
+	/*var arr1 = [11,22,33,44];
+	var arr2 = arr1;
+	arr2.push(55);
+	console.log(arr1,arr2);*/
+
+	/*var arr1 = [11,22,33,44];
+	var arr2 = [];
+	for (var i = 0; i < arr1.length; i++) {
+		arr2.push(arr1[i]);
+	}
+	arr2.push(55);
+	console.log(arr1,arr2);*/
+
+	/*var arr1 = [11,22,33,44];
+	var arr2 = arr1.slice();
+	arr2.push(55);
+	console.log(arr1,arr2);*/
+
+	/*var arr1 = [11,22,33,44];
+	var arr2 = arr1.concat();
+	arr2.push(55);
+	console.log(arr1,arr2);*/
+
+	/*var arr1 = [11,22,33,44];
+	arr2 = [...arr1];
+	arr2.push(55);
+	console.log(arr1,arr2);*/
+
+	/*function sum(n1,n2){
+		return n1 + n2;
+	}
+	console.log(sum(1,2));*/
+
+	function sum(arr){
+		for (var i = 0; i < arr.length; i++) {
+			// arr[i] = arr[i] + arr[i+1];
+			console.log(arr[i]);
+		}
+		// console.log(arr);
+	}
+	console.log(sum(...arr));
+</script>
+</html>

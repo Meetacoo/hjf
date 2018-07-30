@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006-结构解析-数组</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// 等号左右两边的值是对应的
+	// let [a,b,c] = [1,2,3];
+	// let [a,[b,c],d] = [1,[2,3],4];
+
+	// 没有对应的值时为 undefined
+	// let [a,[b,c],d] = [1,[2],4];
+	// let [a,[b,c],d] = [1,[],2];
+
+	// 在等号左边赋初始值
+	// let [a,[b=55,c=22],d] = [1,[],2];
+
+	// 在等号右边对应值为 undefined 时，等号左边初始值起作用
+	// let [a,[b=55,c=22],d] = [1,[undefined],2];
+
+	// 在等号右边对应值不为 undefined 时，等号右边对应值起作用
+	// let [a,[b=55,c=22],d] = [1,[null],2];
+	let [a,[b=55,c=22],d] = [1,[33,44],2];
+
+	// 等号右边不为数组时会报错
+	// let [a,b,c,d] = 11;
+	console.log(a,b,c,d);
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>024-canvas-fontText</title>
+	<style>
+		#canvas{
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="600" id="canvas"></canvas>
+</body>
+<script>
+	// 获取画布
+	var oCanvas = document.getElementById('canvas');
+	// 获取画布 2d 环境
+	var ctx = oCanvas.getContext('2d');
+	ctx.beginPath();
+	var str = 'I Love Jackson Yee';
+	// 设置字号、字体
+	ctx.font = '50px sans-serif';
+	// 水平居中
+	ctx.textAlign = 'left';
+	// ctx.textAlign = 'right';
+	// ctx.textAlign = 'center';
+	// 垂直居中
+	// ctx.textBaseLine = 'top';
+	// ctx.textBaseline = 'middle';
+	ctx.textBaseLine = 'bottom';
+	// 填充文字 被填充文字 
+	ctx.fillText(str,0,200);
+	// 描边文字 被描边文字 
+	ctx.strokeText(str,0,300);
+</script>
+</html>

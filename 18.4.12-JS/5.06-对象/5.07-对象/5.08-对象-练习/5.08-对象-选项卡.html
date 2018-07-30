@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.08-对象-选项卡</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#btn,#btn1{
+			overflow: hidden;
+		}
+		li{
+			list-style: none;
+		}
+		#btn li,#btn1 li{
+			width: 50px;
+			height: 30px;
+			background-color: #000;
+			border-radius: 10px;
+			color: #fff;
+			text-align: center;
+			line-height: 30px;
+			margin-right: 10px;
+			float: left;
+			cursor: pointer;
+		}
+		#content li,#content1 li{
+			width: 300px;
+			height: 200px;
+			border: 1px solid #000;
+			display: none;
+			margin-top: 20px;
+		}
+		#btn li.active,#btn1 li.active{
+			background-color: rgba(255,255,0,0.5);
+			color: #000;
+		}
+	</style>
+	<script type="text/javascript">
+		/*
+		window.onload = function(){
+			var aBtn = document.getElementById('btn').children;
+			var aContent = document.getElementById('content').children;
+			for (var i = 0; i < aBtn.length; i++) {
+				aBtn[i].index = i;
+				aBtn[i].onclick = function(){
+					for (var j = 0; j < aBtn.length; j++) {
+						aBtn[j].className = '';
+						aContent[j].style.display = 'none';
+					}
+					// this.className = 'active';
+					aBtn[this.index].className = 'active';
+					// console.log(this.index);
+					aContent[this.index].style.display = 'block';
+				}
+			}
+		}
+		*/
+
+		/*
+		var aBtn = null;
+		var aContent = null;
+		window.onload = function(){
+			aBtn = document.getElementById('btn').children;
+			aContent = document.getElementById('content').children;
+			for (var i = 0; i < aBtn.length; i++) {
+				aBtn[i].index = i;
+				aBtn[i].onclick = fnClick;
+			}
+		}
+		function fnClick(){
+			for (var j = 0; j < aBtn.length; j++) {
+					aBtn[j].className = '';
+					aContent[j].style.display = 'none';
+				}
+				this.className = 'active';
+				aContent[this.index].style.display = 'block';
+		}
+		*/
+		
+		/*
+		window.onload = function(){
+			new Tab();
+			// console.log(Tab.__proto__.constructor);
+		}
+		function Tab(){
+			aBtn = document.getElementById('btn').children;
+			aContent = document.getElementById('content').children;
+			for (var i = 0; i < aBtn.length; i++) {
+				aBtn[i].index = i;
+				aBtn[i].onclick = fnClick;
+			}
+		}
+		function fnClick() {
+			for (var j = 0; j < aBtn.length; j++) {
+				aBtn[j].className = '';
+				aContent[j].style.display = 'none';
+			}
+			aBtn[this.index].className = 'active';
+			aContent[this.index].style.display = 'block';
+		}; 
+		*/
+
+		/*
+		window.onload = function(){
+			new Tab();
+		}
+		function Tab(){
+			this.aBtn = document.getElementById('btn').children;
+			this.aContent = document.getElementById('content').children;
+			var _self = this;
+			for (var i = 0; i < this.aBtn.length; i++) {
+				this.aBtn[i].index = i;
+				this.aBtn[i].onclick = function(){
+					// console.log('111',this);
+					console.log('111',this);
+					_self.fnClick(this);
+
+				}
+			}
+		}
+		//此时的aBtn指的是上面匿名函数传的this，用aBtn代替this
+		Tab.prototype.fnClick = function(aBtn) {
+				console.log('222',this);
+			for (var j = 0; j < this.aBtn.length; j++) {
+				this.aBtn[j].className = '';
+				this.aContent[j].style.display = 'none';
+			}
+			this.aBtn[aBtn.index].className = 'active';
+			this.aContent[aBtn.index].style.display = 'block';
+		}; 
+		*/
+
+		/*
+		window.onload = function(){
+			new Tab();
+		}
+		function Tab(){
+			this.aBtn = document.getElementById('btn').children;
+			this.aContent = document.getElementById('content').children;
+			console.log(this);
+			for (var i = 0; i < this.aBtn.length; i++) {
+				this.aBtn[i].index = i;
+				this.aBtn[i].onclick = this.fnClick.bind(this,this.aBtn[i]);
+			}
+		}
+
+		Tab.prototype.fnClick = function(oBtn) {
+			console.log('222',this);
+			for (var j = 0; j < this.aBtn.length; j++) {
+				this.aBtn[j].className = '';
+				this.aContent[j].style.display = 'none';
+			}
+			this.aBtn[oBtn.index].className = 'active';
+			this.aContent[oBtn.index].style.display = 'block';
+		}; 
+		*/
+
+		window.onload = function(){
+			new Tab('btn','content');
+			//传进参数后，可以满足多个btn的调用
+			new Tab('btn1','content1');
+		}
+		function Tab(btnId,contentId){
+			this.aBtn = document.getElementById(btnId).children;
+			this.aContent = document.getElementById(contentId).children;
+			console.log(this);
+			for (var i = 0; i < this.aBtn.length; i++) {
+				this.aBtn[i].index = i;
+				this.aBtn[i].onclick = this.fnClick.bind(this,this.aBtn[i]);
+			}
+		}
+
+		Tab.prototype.fnClick = function(oBtn) {
+			for (var j = 0; j < this.aBtn.length; j++) {
+				// console.log('222',this);
+				this.aBtn[j].className = '';
+				this.aContent[j].style.display = 'none';
+			}
+			this.aBtn[oBtn.index].className = 'active';
+			this.aContent[oBtn.index].style.display = 'block';
+		};
+	</script>
+</head>
+<body>
+	<ul id="btn">
+		<li class="active">btn1</li>
+		<li>btn2</li>
+		<li>btn3</li>
+		<li>btn4</li>
+	</ul>
+	<ul id="content">
+		<li style="display: block;">content1</li>
+		<li>content2</li>
+		<li>content3</li>
+		<li>content4</li>
+	</ul>
+	<ul id="btn1">
+		<li class="active">btn1</li>
+		<li>btn2</li>
+		<li>btn3</li>
+		<li>btn4</li>
+	</ul>
+	<ul id="content1">
+		<li style="display: block;">content1</li>
+		<li>content2</li>
+		<li>content3</li>
+		<li>content4</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.06-字面量创建对象-去除数组重复值.html</title>
+	<script type="text/javascript">
+		var arr = [1,2,3,1,4,3,5];
+
+		function removeDup(arr){
+			var result = [];
+			//创建一个字面量，利用字面量的唯一性使数组在其中循环
+			var obj = {};
+			//把arr的值赋给obj
+			for(var i = 0; i <arr.length; i++){
+				obj[arr[i]] = '';
+			}
+			//将 obj 中的 key 循环，利用唯一性去掉重复值
+			for(key in obj){
+				result.push(parseInt(key));
+			}
+			//将结果返回到result数组
+			//这样循环出来的结果在数组中是字符串，想要是数字，还是要转换属性
+			return result;
+		}
+		console.log(arr);
+		console.log(removeDup(arr));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

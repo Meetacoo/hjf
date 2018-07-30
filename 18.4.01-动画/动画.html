@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			margin: 100px auto;
+			animation-name: sport;
+			animation-duration: 2s;
+			animation-delay: 1s;
+			animation-timing-function: ease;
+			animation-iteration-count: infinite;
+			animation-direction: alternate;
+			}
+		@keyframes sport{
+			from{
+				width: 100px;
+				height: 100px;
+			}
+			to{
+				width: 500px;
+				height: 500px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

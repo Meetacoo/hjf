@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4-26-事件-阻止事件冒泡.html</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oFbox = document.getElementById('fbox');
+			var oSbox = document.getElementById('sbox');
+			var oTbox = document.getElementById('tbox');
+			oFbox.onclick = function(ev){
+			// document.onclick = function(ev){
+				var oEvent = ev || event;
+				//采用此种方式后，第二个不再alert，待考究
+				// oEvent.stopPropagation();
+				// oSbox.oEvent.stopPropagation();
+				// oTbox.oEvent.stopPropagation();
+				alert('ABC');
+			}
+			oSbox.onclick = function(ev){
+			// document.onclick = function(ev){
+				var oEvent = ev || event;
+				//采用此种方式后，第二个不再alert，待考究
+				oEvent.stopPropagation();
+				// oSbox.oEvent.stopPropagation();
+				// oTbox.oEvent.stopPropagation();
+				alert('ABC');
+				
+			}
+			oTbox.onclick = function(ev){
+			// document.onclick = function(ev){
+				var oEvent = ev || event;
+				//采用此种方式后，第二个不再alert，待考究
+				oEvent.stopPropagation();
+				// oSbox.oEvent.stopPropagation();
+				alert('ABC');
+				// oTbox.oEvent.stopPropagation();
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="fbox" style="width: 500px; height: 500px; background-color: orange" onclick="alert('a')">
+		<div id="sbox" style="width: 300px; height: 300px; background-color: skyblue" onclick="alert('b')">
+			<div id="tbox" style="width: 100px; height: 100px; background-color: pink" onclick="alert('c')"></div>
+		</div>
+	</div>
+</body>
+</html>

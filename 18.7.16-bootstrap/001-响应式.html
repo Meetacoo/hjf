@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001-响应式</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			height: 50px;
+			background: skyblue;
+			margin: 0 auto;
+		}
+		/*@media screen and (max-width: 768px) {
+			.container{
+				width: 100%;
+			}
+		}
+		@media screen and (min-width: 768px) and (max-width: 992px) {
+			.container{
+				width: 750px;
+			}
+		}
+		@media screen and (min-width: 992px) and (max-width: 1200px) {
+			.container{
+				width: 960px;
+			}
+		}
+		@media screen and (min-width: 1200px) {
+			.container{
+				width: 1170px;
+			}
+		}*/
+	</style>
+</head>
+<body>
+	<div class="container"></div>
+</body>
+<script>
+	(function(win,doc){
+		var oContainer = doc.querySelector('.container');
+		var iWidth = doc.body.clientWidth || doc.documentElement.clientWidth;
+		// console.log(iWidth);
+		function resize(){
+			if (iWidth >= 1200) {
+				oContainer.style.width = 1170 + 'px';
+			} else if (iWidth >= 992) {
+				oContainer.style.width = 960 + 'px';
+			} else if (iWidth >= 768) {
+				oContainer.style.width = 750 + 'px';
+			} else {
+				oContainer.style.width = 100 + '%';
+			}
+		}
+		win.addEventListener('resize',resize,false);
+		// doc.addEventListener('resize',resize,false);
+		
+	})(window,document);
+</script>
+</html>

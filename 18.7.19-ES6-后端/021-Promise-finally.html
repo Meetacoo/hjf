@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>021-Promise-finally</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let getLoadImgPromise = (url) => {
+		let promise = new Promise((resolve,reject) => {
+			let img = new Image();
+			img.onload = function(){
+				resolve(url);
+				console.log(promise);// 2
+			};
+			img.onerror = function(){
+				reject();
+				console.log(promise);
+			}
+			img.src = url;
+		})
+		return promise;
+	}
+	let okPromise = getLoadImgPromise('img/l-1.jpg');
+	okPromise.then((url)=>{
+		console.log(url + ' success loaded ...');// 3
+		throw new Error('this is wrong'); 
+	},(url)=>{
+		console.log(url + ' failed loaded ...');
+	})
+	.catch((err)=>{
+		console.log('error::',err);
+	})
+	// finally 接收一个回调函数，不传参
+	// 无论成功还是失败都会执行
+	.finally(()=>{
+		console.log('finally...');
+	})
+	console.log(okPromise);// 1
+</script>
+</html>

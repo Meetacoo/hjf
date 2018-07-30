@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.10-正则-URL解析.html</title>
+	<script type="text/javascript">
+		var str = 'This is a website name is https://www.baidu.com';
+		// var reg = /\w+:\/\/\w+\.[0-9a-z-]+\.\w+/;
+		//分组提取
+		var reg = /(\w+):\/\/(\w+)\.([0-9a-z-]+)\.(\w+)/;
+		//查看是否可以匹配到
+		// console.log(reg.test(str));
+		// console.log(str.match(reg));
+		// var encode = 'https://www.baidu.com';
+		console.log(encodeURIComponent(str));
+		console.log(decodeURIComponent(str));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

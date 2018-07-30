@@ -1,0 +1,309 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+.widHei {
+  height: 1.40625rem;
+  line-height: 1.40625rem;
+  font-size: 0.4375rem;
+  border-bottom: 1px solid #aaaaaa;
+}
+.icon {
+  width: 7.5rem;
+  padding-left: 0.3125rem;
+  float: left;
+  box-sizing: border-box;
+}
+.desc {
+  padding-top: 0.625rem;
+  padding-bottom: 0.3125rem;
+  font-weight: bold;
+}
+.com {
+  display: inline-block;
+  width: 0.9375rem;
+  height: 0.9375rem;
+  line-height: 0.9375rem;
+  text-align: center;
+  background: #f7f7f7;
+}
+.price-box .price {
+  color: #fe002b;
+  font-size: 0.5625rem;
+}
+.price-box .price-icon,
+.price-box .price-min {
+  color: #fe002b;
+  font-size: 0.375rem;
+}
+.price-box .price-minus {
+  display: inline-block;
+  width: 0.9375rem;
+  height: 0.9375rem;
+  line-height: 0.9375rem;
+  text-align: center;
+  background: #f7f7f7;
+  margin-left: 0.46875rem;
+  font-size: 0.9375rem;
+  color: #ebebeb;
+}
+.price-box .num {
+  display: inline-block;
+  width: 0.9375rem;
+  height: 0.9375rem;
+  line-height: 0.9375rem;
+  text-align: center;
+  background: #f7f7f7;
+  width: 1.25rem;
+  font-size: 0.625rem;
+  vertical-align: 0.125rem;
+  color: #999;
+}
+.price-box .price-plus {
+  display: inline-block;
+  width: 0.9375rem;
+  height: 0.9375rem;
+  line-height: 0.9375rem;
+  text-align: center;
+  background: #f7f7f7;
+  font-size: 0.9375rem;
+  color: #999;
+}
+.move {
+  margin-left: 3rem;
+  margin-right: 0.375rem;
+}
+.move,
+.del {
+  display: inline-block;
+  height: 0.9375rem;
+  line-height: 0.9375rem;
+  color: #999;
+  font-size: 0.375rem;
+}
+.serve {
+  padding-left: 0.3125rem;
+  box-sizing: border-box;
+}
+.main-desc {
+  color: #999;
+}
+.main-more {
+  margin-left: 3.125rem;
+}
+.header {
+  height: 1.25rem;
+  line-height: 1.25rem;
+  font-size: 0.5625rem;
+  border-bottom: 1px solid #aaaaaa;
+}
+.header .header-back {
+  width: 1.25rem;
+  text-align: center;
+}
+.header .header-title {
+  display: inline-block;
+  width: 7.5rem;
+  text-align: center;
+}
+.edit {
+  height: 1.40625rem;
+  line-height: 1.40625rem;
+  font-size: 0.4375rem;
+  border-bottom: 1px solid #aaaaaa;
+}
+.edit .edit-left {
+  width: 7.5rem;
+  padding-left: 0.3125rem;
+  float: left;
+  box-sizing: border-box;
+}
+.edit .edit-icon {
+  color: #ccc;
+}
+.edit .edit-local {
+  color: #999;
+}
+.edit .edit-right {
+  width: 2.5rem;
+  display: inline-block;
+  float: left;
+  text-align: center;
+  color: #fe002b;
+}
+.selfRun {
+  height: 1.40625rem;
+  line-height: 1.40625rem;
+  font-size: 0.4375rem;
+  border-bottom: 1px solid #aaaaaa;
+  width: 7.5rem;
+  padding-left: 0.3125rem;
+  float: left;
+  box-sizing: border-box;
+  width: 10rem;
+  font-size: 0.5rem;
+}
+.selfRun .selfRun-jd {
+  color: #999;
+  margin-left: 0.15625rem;
+  vertical-align: -0.0625rem;
+}
+.selfRun .selfRun-check {
+  color: #fe002b;
+  font-size: 0.625rem;
+}
+.describe {
+  font-size: 0.4375rem;
+  line-height: 1.40625rem;
+  font-size: 0.375rem;
+  border-bottom: 1px solid #aaaaaa;
+}
+.describe .describe-jd {
+  width: 7.5rem;
+  padding-left: 0.3125rem;
+  float: left;
+  box-sizing: border-box;
+  color: #999;
+  width: 7.8125rem;
+}
+.describe .describe-icon {
+  color: #ccc;
+  font-size: 0.4375rem;
+}
+.main {
+  height: 5rem;
+  font-size: 0.4375rem;
+  border-bottom: 1px solid #aaaaaa;
+}
+.main .main-check i {
+  width: 7.5rem;
+  padding-left: 0.3125rem;
+  float: left;
+  width: 1.25rem;
+  height: 5rem;
+  color: #fe002b;
+  font-size: 0.625rem;
+  padding-top: 1.5625rem;
+  box-sizing: border-box;
+}
+.main .main-right {
+  width: 8.75rem;
+  height: 5rem;
+  margin-left: 1.25rem;
+}
+.main .main-right .main-right-top {
+  width: 8.75rem;
+  height: 3.75rem;
+}
+.main .main-right .main-right-top .main-img {
+  margin-top: 0.625rem;
+  margin-right: 0.3125rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  float: left;
+  overflow: hidden;
+  display: inline-block;
+}
+.main .main-right .main-right-top .main-img img {
+  width: 2.5rem;
+}
+.main .main-right .main-right-top .desc {
+  padding-top: 0.625rem;
+  padding-bottom: 0.3125rem;
+  font-weight: bold;
+  display: inline-block;
+}
+.main .main-right .main-right-bottom {
+  width: 8.4375rem;
+  height: 1.25rem;
+  line-height: 1.25rem;
+  background: #fff4f5;
+  float: left;
+}
+.footer {
+  position: fixed;
+  bottom: 0px;
+  height: 1.5625rem;
+  background: #fff;
+  border-top: 1px solid #dfdfdf;
+}
+.footer .footer-check {
+  height: 1.5625rem;
+  float: left;
+}
+.footer .footer-check i {
+  width: 7.5rem;
+  padding-left: 0.3125rem;
+  float: left;
+  width: 1.25rem;
+  height: 0.9375rem;
+  line-height: 0.9375rem;
+  color: #fe002b;
+  font-size: 0.625rem;
+  box-sizing: border-box;
+}
+.footer .footer-check .footer-all {
+  display: block;
+  width: 1.25rem;
+  height: 0.5rem;
+  line-height: 0.5rem;
+  color: #999;
+  font-size: 0.4375rem;
+  text-align: center;
+}
+.footer .footer-mid {
+  float: left;
+  width: 5.3125rem;
+  height: 1.5625rem;
+  padding: 0.15625rem;
+  padding-right: 0.3125rem;
+  box-sizing: border-box;
+}
+.footer .footer-mid .mid-top {
+  font-size: 0.5rem;
+  float: right;
+}
+.footer .footer-mid .mid-top .top-total {
+  font-weight: bold;
+}
+.footer .footer-mid .mid-top .top-total-price,
+.footer .footer-mid .mid-top .price-icon {
+  color: #fe002b;
+}
+.footer .footer-mid .mid-bottom {
+  font-size: 0.375rem;
+  float: right;
+}
+.footer .footer-mid .mid-bottom .bottom-total-price,
+.footer .footer-mid .mid-bottom .price-icon {
+  color: #999;
+}
+.footer .footer-go {
+  width: 3.4375rem;
+  height: 1.5625rem;
+  line-height: 1.125rem;
+  float: left;
+  background: #fe002b;
+  text-align: center;
+}
+.footer .footer-go .go-account {
+  font-size: 0.5rem;
+  color: #fff;
+}
+.footer .footer-go .go-num {
+  font-size: 0.375rem;
+  color: #fff;
+}
+.main-second {
+  height: 5.625rem;
+}
+.main-second .main-right-bottom {
+  margin-top: 0.625rem;
+}
+.main-second .weight {
+  color: #666;
+}
+.main-last {
+  margin-bottom: 1.40625rem;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>001-jquery体验</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		document.jQuery || document.write('<script src="js/jquery-1.12.4.js"><\/script>');
+		$(function(){
+			$("button").click(function(){
+			$("div").css ({
+					background:'orange',
+					width:'200px',
+				})
+			});
+		})
+		
+	</script>
+</head>
+<body>
+	<button>体验</button>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

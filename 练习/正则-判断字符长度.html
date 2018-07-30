@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则-判断字符长度</title>
+	<script>
+		var str = 'abcdefghijklmnopqrstuvwxyz';
+		var reg = /\w/g;
+		
+		function Length(){
+			
+			for (var i = 0; i < str.length; i++) {
+				// n = str[i].match(reg).length;
+				// return str;
+				console.log('222',str[i].length);
+			}
+			return str[3].length;
+			// return str.replace(/[\u4e00-\u9fa5]/g,'mm').length;
+		}
+		console.log('111',Length(str.o));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

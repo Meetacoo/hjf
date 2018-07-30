@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>037-jquery动画-自定义-停止动画.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 150px;
+			height: 150px;
+			background-color: orange;
+		}
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('button').eq(0).click(function(){
+				$('div').animate({
+					width:400
+				},1000);
+				$('div').animate({
+					height:400
+				},1000);
+				$('div').animate({
+					opacity:0.5
+				},1000);
+			})
+			$('button').eq(1).click(function(){
+				//停止当前动画，继续进行下一动画
+				$('div').stop();
+			})
+			$('button').eq(2).click(function(){
+				//为true时停止所有动画
+				//为false时停止当前动画，继续进行下一动画
+				$('div').stop(true);
+				// $('div').stop(false);
+			})
+			$('button').eq(3).click(function(){
+				//第二个值为true时停止当前动画，并跳到当前动画截止状态
+				//第二个值为false时停止所有动画
+				// $('div').stop(true,true);
+				$('div').stop(true,false);
+			})
+		})
+	</script>
+</head>
+<body>
+	<button>开始动画</button>
+	<button>停止当前动画</button>
+	<button>停止所有动画</button>
+	<button>停止所有动画，并跳到当前动画截止状态</button>
+	<div></div>
+</body>
+</html>

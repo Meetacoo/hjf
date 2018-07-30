@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.06-对象-改变this指向.html</title>
+	<script type="text/javascript">
+		/*
+		function show(){
+			console.log(this);
+		}
+		*/
+		function show(n1,n2){
+			console.log(this,n1,n2);
+		}
+		//此时this指window
+		show();
+		// 当不传任何参数时 == window.show(); == show.call(); == show.apply();
+		//此时this指{name:'Metara'}
+		show.call({name:'Metara'});
+		show.call({name:'Metara'},200,300);
+		//apply()中要传数组
+		show.apply({name:'Metara'},[200,300]);
+		//没有关于this的指向,传出来是一个函数
+		show.bind();
+		var fn = show.bind({name:'Metala'},200,300);
+		fn();
+		show.bind({name:'Metala'},200,300)();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

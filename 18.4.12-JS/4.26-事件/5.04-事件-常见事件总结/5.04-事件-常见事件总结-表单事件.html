@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.04-事件-常见事件总结-表单事件.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+			width: 200px;
+			height: 20px;
+		}
+		label{
+			position: absolute;
+			left: 200px;
+			top: 0;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oInput = document.getElementById('input');
+			var oTxt = document.getElementById('txt');
+			var oBtn = document.getElementById('btn');
+			var data = ['Metacoo','Metala','Meeta','Meela','Mya'];
+			var oList = document.getElementById('list');
+			var oForm = document.getElementById('form1');
+			var isOk = false;
+			var isLoaded = false;
+			oTxt.innerHTML = '请输入用户名';
+			oTxt.style.color = 'red';
+			oInput.onfocus = function(){
+				oTxt.style.color = 'orange';
+				oTxt.innerHTML = '请输入3-6位用户名';
+			}
+			oInput.onblur = function(){
+				var l = oInput.value.length;
+				if (l >= 3 && l <=6) {
+					oTxt.style.color = 'green';
+					oTxt.innerHTML = '输入完成';
+					isOk = true;
+				} else {
+					oTxt.style.color = 'red';
+					oTxt.innerHTML = '用户名错误！';
+					isOk = false;
+				}
+			}
+			oBtn.onclick = function(){
+				if (!isOk) {
+					return false;
+				} /*else {
+					return true;
+				}*/
+			}
+
+			//测试表单事件
+			/*
+			//当内容改变时被触发
+			oInput.onchange = function(){
+				console.log(1);
+			}
+			//只有在英文模式下且为字符才可被触发
+			oInput.onkeypress = function(){
+				console.log(2);
+			}
+			//按任意键时触发
+			oInput.onkeyup = function(){
+				console.log(2);
+			}*/
+			//只要是字符，中英文都可被检测（Ctrl等不可以）
+			oInput.oninput = function(){
+				// console.log(2);
+				var sTxt = oInput.value.toLowerCase();
+				var aTxt = sTxt.split(' ');
+				if (isLoaded) {
+					return false;
+				}
+				/*var sTxt = oTxt.value.toLowerCase();
+				var aTxt = sTxt.split(' ');
+					for (var k = 0; k < aLi.length; k++) {
+						for (var k = 0; k < aLi.length; k++) {
+							var sLi = aLi[k].innerHTML.toLowerCase();
+							aLi[i].style.backgroundColor = '';
+							for (var j = 0; j < aTxt.length; j++) {
+								if (sLi.search(sTxt[j]) != -1) {
+									aLi[i].style.backgroundColor = 'pink';
+								}
+							}
+						}
+					}*/
+				for (var i = 0; i < data.length; i++) {
+					var aLi = document.createElement('li');
+					/*
+					for (var i = 0; i < aLi.length; i++) {
+						for (var i = 0; i < aLi.length; i++) {
+							var sLi = aLi[i].innerHTML.toLowerCase();
+							aLi[i].style.backgroundColor = '';
+							for (var j = 0; j < aTxt.length; j++) {
+								if (sLi.search(sTxt[j]) != -1) {
+									aLi[i].style.backgroundColor = 'pink';
+								}
+							}
+						}
+					}
+					*/
+					aLi.innerHTML = data[i];
+					oList.appendChild(aLi);
+					/*
+					oLi.onclick = function(){
+						oInput.value = this.innerHTML;
+						oTxt.style.color = 'green';
+						oTxt.innerHTML = '输入完成';
+						isOk = true;
+					}
+					*/
+				}
+				isLoaded = true;
+			}
+			oList.onclick = function(ev){
+
+				
+				var oEvent = ev || event;
+				
+
+				console.log(oEvent.target);
+				oInput.value = oEvent.target.innerHTML;
+				oTxt.style.color = 'green';
+				oTxt.innerHTML = '输入完成';
+				isOk = true;
+			}
+			//form 自带的onsubmit事件
+			oForm.onsubmit = function(){
+				alert(1);
+			}
+			//form 自带的onreset事件
+			oForm.onreset = function(){
+				alert(1);
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<form action="https://www.baidu.com" id="form1">
+		<input type="text" id="input" name="username">
+		<ul id="list">
+			<!-- <li>Meta</li> -->
+		</ul>
+		<label id="txt"></label><br>
+		<input type="submit" id="btn" value="提交" name="sub">
+		<input type="reset" id="btn" value="重置" name="sub">
+	</form>
+</body>
+</html>

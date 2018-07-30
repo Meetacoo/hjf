@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.10-正则-正则体验</title>
+	<script type="text/javascript">
+		var str = 'af21a234 rwji4 4tr 23 9089t  gjeigj09';
+		/*
+		var result = [];
+		var tmp = '';
+		for (var i = 0; i < str.length; i++) {
+			// console.log(str.charAt(i));
+			if(!isNaN(parseInt(str.charAt(i)))){
+				// console.log(str.charAt(i));
+				tmp += str.charAt(i);
+			}else if(tmp){
+				result.push(tmp);
+				tmp = '';
+			}
+		}
+		if(tmp){
+			result.push(tmp);
+			tmp = '';
+		}
+		console.log(result);
+		*/
+		var reg = /\d+/g;
+		console.log(str.match(reg));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

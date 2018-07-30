@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>018-canvas-drawRect</title>
+	<style>
+		#canvas{
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+<script>
+	// 获取画布
+	var oCanvas = document.getElementById('canvas');
+	// 获取画布 2d 环境
+	var ctx = oCanvas.getContext('2d');
+	ctx.beginPath();
+	// 绘制起始位置
+	ctx.strokeStyle = '#f0f';
+	// 绘制矩形第二种方法
+	// x,y,width,height
+	// x/y为起始坐标
+	ctx.strokeRect(50,50,50,50);
+	ctx.fillStyle = '#0ff';
+	// 绘制矩形第二种方法
+	ctx.fillRect(100,100,100,200);
+	// 调用描边方法
+	ctx.stroke();
+</script>
+</html>

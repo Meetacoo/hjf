@@ -1,0 +1,59 @@
+@rem: 32;
+@border-color: #aaa;
+@col: #fe002b;
+
+.rem(@attr,@px1){
+	@{attr}: unit(@px1 / @rem, rem);
+}
+.rem(@attr,@px1,@px2){
+	@{attr}: unit(@px1 / @rem, rem) unit(@px2 / @rem, rem);
+}
+.rem(@attr,@px1,@px2,@px3){
+	@{attr}: unit(@px1 / @rem, rem) unit(@px2 / @rem, rem) unit(@px3 / @rem, rem);
+}
+.rem(@attr,@px1,@px2,@px3,@px4){
+	@{attr}: unit(@px1 / @rem, rem) unit(@px2 / @rem, rem) unit(@px3 / @rem, rem) unit(@px4 / @rem, rem);
+}
+
+ .mask{
+	position: absolute;
+	.rem(width,320);
+	.rem(height,568);
+	.rem(left,0);
+	.rem(top,0);
+	background: rgba(100,100,100,0.3);
+	.mask-delbox{
+		.rem(width,270);
+		.rem(height,175);
+		.rem(margin-top,194);
+		.rem(margin-left,25);
+		.rem(border-radius,10);
+		background: #fff;
+		.sureDel{
+			.rem(width,270);
+			.rem(height,130);
+			.rem(font-size,16);
+			.rem(padding-top,90);
+			text-align: center;
+			box-sizing: border-box;
+		}
+		.sure-tab{
+			.rem(width,270);
+			border-top: 1px solid #ddd;
+			box-sizing: border-box;
+			.rem(font-size,14);
+			.tab-option{
+				display: inline-block;
+				.rem(width,135);
+				.rem(height,45);
+				.rem(line-height,45);
+				text-align: center;
+			}
+			.sure{
+				color: #fe002b;
+				box-sizing: border-box;
+				border-left: 1px solid #ddd;
+			}
+		}
+	}
+} 

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.06-对象-添加和删除属性.html</title>
+	<script type="text/javascript">
+		/*
+		//用字面量方式新建对象
+		var obj = {
+			name:'Metara',
+			age:20,
+		}
+
+		obj.hands = 2;
+		obj.showObj = function () {
+			console.log(this.name + ' is ' + this.age + ' years old' + ' and have ' + this.hands + ' hands')
+		}
+		obj.showObj();
+		*/
+		//用构造函数方式创建对象
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+		}
+
+		Person.prototype.showObj = function() {
+			console.log(this.name + ' have ' + this.hands + ' hands');
+		}
+		Person.prototype.showAge = function() {
+			console.log(this.age + ' years old');
+		}
+		//属性添加
+		Person.prototype.hands = 2;
+		var p1 = new Person('Metara',20);
+		/*
+		//如果用实例方法定义在p1上，将会覆盖原来的person上的原型对象上的同名属性hands
+		//实例方法定义
+		// p1.hands = 3;
+		*/
+
+		//属性删除，这时name将会变成undefined
+		//delete方法判断对象上有没有该属性，若有，则删除该属性，返回true，若没有，则直接返回true，所以delete也可以删除没有的属性
+		console.log(p1.name);
+		console.log(delete p1.sex);
+		delete p1.name;
+		//Person.prototype.hands也将变为undefined,如果将原型对象上属性删除，所有的实例上也将找不到该属性，则为undefined
+		delete Person.prototype.hands;
+		p1.showObj();
+		var p2 = new Person('Meta',20);
+		p2.showObj();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

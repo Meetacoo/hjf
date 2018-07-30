@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>031-jquery动画-卷入和卷出.html</title>
+	<style>
+		div{
+			width: 150px;
+			height: 150px;
+			border: 1px solid #000;
+			background-color: orange;
+			display: none;
+		}
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('button').eq(0).click(function(){
+				$('div').slideUp(1000,function(){
+					alert('slideUp');
+				});
+			})
+			$('button').eq(1).click(function(){
+				$('div').slideDown(1000,function(){
+					alert('slideDown');
+				});
+			})
+			$('button').eq(2).click(function(){
+				$('div').slideToggle(1000,function(){
+					alert('slideToggle');
+				});
+			})
+		})
+	</script>
+</head>
+<body>
+	<button>卷入</button>
+	<button>卷出</button>
+	<button>切换</button>
+	<div></div>
+</body>
+</html>

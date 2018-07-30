@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.03-事件-放大镜-完整版.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 450px;
+			position: relative;
+			top: 50px;
+			left: 50px;
+		}
+		#smallBox{
+			width: 100%;
+			height: 300px;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#smallBox img{
+			width: 100%;
+			height: 100%;
+		}
+		#list{
+			width: 100%;
+			height: 40px;
+			/*float: left;*/
+			position: absolute;
+			left: 0;
+			top: 320px;
+		}
+		#list li{
+			width: 62px;
+			height: 42px;
+			list-style: none;
+			float: left;
+			margin-right: 130px;
+			cursor: pointer;
+			box-sizing: border-box;
+		}
+		#list li:last-child{
+			margin-right: 0;
+		}
+		#list li img{
+			width: 60px;
+			height: 40px;
+		}
+		#list li.active{
+			border: 1px solid #b00;
+		}
+		#bigBox{
+			width: 600px;
+			height: 400px;
+			position: absolute;
+			left: 460px;
+			top: 0;
+			overflow: hidden;
+			display: none;
+			border: 1px solid #000;
+			box-sizing: border-box;
+		}
+		#bigBox img{
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#mask{
+			width: 300px;
+			height: 200px;
+			background-color: rgba(255,200,0,0.2);
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript">
+		function $(id){
+			return document.getElementById(id);
+		}
+		window.onload = function(){
+			var oSmallBox =$('smallBox');
+			var aLi = $('list').getElementsByTagName('li');
+			var oBigBox = $('bigBox');
+			var oMask = $('mask');
+			var oBox = $('box');
+
+			for (var i = 0; i < aLi.length; i++) {
+				aLi[i].index = i;
+				aLi[i].onmouseover = function(){
+					for (var j = 0; j < aLi.length; j++) {
+						aLi[j].className = '';
+					}
+					this.className = 'active';
+					oSmallBox.children[0].src = '../../../image/l-' + (this.index + 1) + '.jpg';
+					oBigBox.children[0].src = '../../../image/l-' + (this.index + 1) + '-l.jpg';
+				}
+			}
+
+			oSmallBox.onmouseover = function(){
+				oBigBox.style.display = 'block';
+				oMask.style.display = 'block';
+				oSmallBox.onmousemove = function(ev){
+					var oEvent = ev || event;
+					var l = oEvent.clientX - oBox.offsetTop - oMask.offsetWidth * 0.5;
+					var h = oEvent.clientY - oBox.offsetTop - oMask.offsetHeight * 0.5;
+
+					if(l < 0){
+						l = 0;
+					}else if(l >= oSmallBox.offsetWidth - oMask.offsetWidth){
+						l = oSmallBox.offsetWidth - oMask.offsetWidth;
+					}
+
+					if(h < 0){
+						h = 0;
+					}else if(h >= oSmallBox.offsetHeight - oMask.offsetHeight){
+						h = oSmallBox.offsetHeight - oMask.offsetHeight;
+					}
+
+					oMask.style.left = l + 'px';
+					oMask.style.top = h + 'px';
+
+					var oBigImg = oBigBox.children[0];
+					
+					/*
+					oMask.offsetLeft / oBigImg.style.left = oMask.offsetWidth / oBigImg.offsetWidth;
+					oBigImg.style.left = oMask.offsetLeft / (oMask.offsetWidth / oBigImg.offsetWidth);
+					*/
+					//oBigImg.style.left = oMask.offsetLeft / (oMask.offsetWidth/oBigImg.offsetWidth);
+					oBigImg.style.left = - l / (oMask.offsetWidth/oBigImg.offsetWidth) + l + 'px';
+					oBigImg.style.top = - h / (oMask.offsetHeight/oBigImg.offsetHeight) + h + 'px';
+					// oBigImg.style.left = - l / (oMask.offsetWidth/oBigImg.offsetWidth)  + 'px';
+					// oBigImg.style.top = - h / (oMask.offsetHeight/oBigImg.offsetHeight)  + 'px';
+				}
+			}
+			oSmallBox.onmouseout = function(){
+				oBigBox.style.display = 'none';
+				oMask.style.display = 'none';
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<div id="smallBox">
+			<img src="../../../image/l-1.jpg" alt="">
+			<span id="mask"></span>
+		</div>
+		<div id="list">
+			<ul>
+				<li><img src="../../../image/l-1-s.jpg" alt=""></li>
+				<li class="active"><img src="../../../image/l-2-s.jpg" alt=""></li>
+				<li><img src="../../../image/l-3-s.jpg" alt=""></li>
+			</ul>
+		</div>
+		<div id="bigBox"><img src="../../../image/l-1-l.jpg" alt=""></div>
+	</div>
+</body>
+</html>

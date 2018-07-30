@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>018-箭头函数和一般函数的区别</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*function show(){
+		console.log(arguments);
+	}
+	show();*/
+
+	/*function show(){
+		console.log(arguments);
+	}
+	show(1,2,3);*/
+
+	// 用箭头函数定义的函数没有 arguments
+	/*let show = () => console.log(arguments);
+	show();*/
+
+	// 箭头函数可以采用传扩展对象的方式传参，将arguments传入
+	/*let show = (...args) => console.log(args);
+	show(1,2,3);*/
+
+	// 
+	/*let fact = (n) => {
+		if (n<=1) {
+			return 1;
+		} else {
+			return n * fact(n-1);
+		}
+	}
+	console.log(fact(5));*/
+
+	/*function fact(n){
+		if (n<=1) {
+			return 1;
+		} else {
+			return n * fact(n-1);
+		}
+	}
+	console.log(fact(5));
+	let cocl = fact;
+	console.log(cocl(5));*/
+
+	// 不行
+	/*function fact(n){
+		if (n<=1) {
+			return 1;
+		} else {
+			return n * fact(n-1);
+		}
+	}
+	let fnFact = fact;
+	fact = null;
+	console.log(fnFact(5));*/
+
+	// 使用函数自带的 arguments.callee()
+	// arguments.callee() 就代表了 fact() 即函数本身
+	function fact(n){
+		if (n<=1) {
+			return 1;
+		} else {
+			return n * arguments.callee(n-1);
+		}
+	}
+	let fnFact = fact;
+	fact = null;
+	console.log(fnFact(5));
+</script>
+</html>

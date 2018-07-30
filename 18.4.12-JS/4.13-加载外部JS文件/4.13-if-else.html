@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.13-if-else.html</title>
+	<style type="text/css">
+		input{
+			width: 200px;
+			height: 50px;
+			/*line-height: 50px;	*/
+			text-align: center;
+		}
+		div{
+			width: 500px;
+			height: 500px;
+			border: 1px solid #000;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			// body...
+			var hiT=document.getElementById('hit');
+			var appear=document.getElementById('box');
+			hiT.onclick=function(){
+				if (appear.style.display=='none') {
+					appear.style.display='block';
+				}else{
+					appear.style.display='none';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="点我有惊喜哟~" id="hit">
+	<div id="box" style="display: none;">惊喜>*^*<</div>
+</body>
+</html>

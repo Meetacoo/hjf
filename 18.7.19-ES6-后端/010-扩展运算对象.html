@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010-扩展运算对象</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*var obj1 = {
+		name:'Metara',
+		age:21,
+		friend:'John'
+	};
+	var obj2 = obj1;
+	obj2.name = 'meetacoo';*/
+	/*var obj1 = {
+		name:'Metara',
+		age:21,
+		friend:'John'
+	};
+	var obj2 = {...obj1};
+	obj2.name = 'meetacoo';
+	// console.log({obj1},{obj2});
+	console.log({...obj1},{...obj2});*/
+	var obj1 = {
+		name:'Metara',
+		age:21,
+		friends: {
+			name:'baby',
+			age:22,
+		}
+	};
+	var obj2 = {...obj1};
+	var obj2 = {...obj1};
+	obj2.name = 'meetacoo';
+	obj2.friends.name = 'biber';
+	console.log(obj1,obj2);
+	// console.log({...obj1},{...obj2});
+</script>
+</html>

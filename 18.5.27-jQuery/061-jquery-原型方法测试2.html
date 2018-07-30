@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>061-jquery-原型方法测试2.html</title>
+	<!-- <script src="js/jquery-1.12.4.js"></script> -->
+	<script src="myjs/myQuery-1.0.0.js"></script>
+	<script>
+		$(function(){
+			$('button')[0].onclick = function(){
+				/*
+				// 不接收参数
+				console.log($('div').attr());
+				// 接收一个参数
+				console.log($('div').attr('name'));
+				// 接收两个参数
+				console.log($('div').attr('name','aaa'));
+				// 设置全部的，接收对象
+				console.log($('div').attr({
+					class:'box',
+					name:'aaa'
+				}));
+
+				// console.log($('div').removeAttr());
+				console.log($('div').removeAttr('name'));
+				*/
+
+
+				// console.log($('input').val());
+				console.log($('input').val('ccc'));
+			}
+		})
+	</script>
+</head>
+<body>
+	<button>测试</button>
+	<div class="box1" name='bbb'>div1</div>
+	<div class="box2" name='ccc'>div2</div>
+
+	<form action="http://www.kuazhu.com">
+		<input type="text" value="aaa" name="n1">
+		<input type="text" value="bbb" name="n2">
+		<input type="submit" value="提交">
+	</form>
+</body>
+</html>

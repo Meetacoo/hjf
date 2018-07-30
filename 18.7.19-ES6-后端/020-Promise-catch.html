@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>020-Promise-catch</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*let getLoadImgPromise = (url) => {
+		let promise = new Promise((resolve,reject) => {
+			let img = new Image();
+			img.onload = function(){
+				resolve(url);
+				console.log(promise);// 2
+			};
+			img.onerror = function(){
+				reject();
+				console.log(promise);
+			}
+			img.src = url;
+		})
+		return promise;
+	}
+	let okPromise = getLoadImgPromise('img/l-2.jpg');
+	okPromise.then((url)=>{
+		console.log(url + ' success loaded ...');// 3
+	},(url)=>{
+		console.log(url + ' failed loaded ...');
+	})
+	.catch((err)=>{
+		console.log('error::',err);
+	})
+	console.log(okPromise);// 1*/
+
+	/*let getLoadImgPromise = (url) => {
+		let promise = new Promise((resolve,reject) => {
+			let img = new Image();
+			img.onload = function(){
+				resolve(url);
+				console.log(promise);// 2
+			};
+			img.onerror = function(){
+				reject();
+				console.log(promise);
+			}
+			img.src = url;
+		})
+		return promise;
+	}
+	let okPromise = getLoadImgPromise('img/l-2.jpg');
+	okPromise.then((url)=>{
+		console.log(url + ' success loaded ...');// 3
+	})
+	// 接收一个回调函数，失败时 then 的回调函数时执行
+	.catch((err)=>{
+		console.log('error::',err);
+	})
+	console.log(okPromise);// 1*/
+
+	let getLoadImgPromise = (url) => {
+		let promise = new Promise((resolve,reject) => {
+			let img = new Image();
+			img.onload = function(){
+				resolve(url);
+				console.log(promise);// 2
+			};
+			img.onerror = function(){
+				reject();
+				console.log(promise);
+			}
+			img.src = url;
+		})
+		return promise;
+	}
+	let okPromise = getLoadImgPromise('img/l-1.jpg');
+	okPromise.then((url)=>{
+		console.log(url + ' success loaded ...');// 3
+		throw new Error('this is wrong'); 
+	})
+	// 接收一个回调函数，成功时抛出处理异常时执行
+	.catch((err)=>{
+		console.log('error::',err);
+	})
+	console.log(okPromise);// 1
+</script>
+</html>

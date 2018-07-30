@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>2018.05.25-004-Ajax</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			/*
+			var oBtn = document.getElementById('btn');
+			// var oUl = document.getElementById('box');
+			oBtn.onclick = function(){
+				//创建一个Ajax对象
+				var oAjax = new XMLHttpRequest();//XHR
+				oAjax.open('POST','http://127.0.0.1:3000/2018.05.25-004-dataarr.txt',true);
+				oAjax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+				//3.用ajax对象发送请求到服务端
+				oAjax.send("name=Meta&age=20");
+				//4.用ajax对象接收服务端返回的数据
+				//即监听方法，返回数据
+				oAjax.onreadystatechange = function(){
+					if (oAjax.readyState == 4) {
+						if (oAjax.status == 200) {
+							console.log('get data sucess::',oAjax.responseText);
+							
+						}else{
+							console.log('get data failed::',oAjax.status);
+						}
+					}
+				}
+			}
+			*/
+			(function(w){
+				function ajax(method,url,data,fnSucc,fnFaild){
+					//1.创建ajax对象
+					var oAjax = new XMLHttpRequest();//XHR
+					if(method == "POST"){//POST请求
+						//2.和服务器建立连接
+						oAjax.open(method,url,true);
+						oAjax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+						//3.发送请求
+						oAjax.send(data);				
+					}else{//GET请求
+						if(data){
+							url = url + "?" + data;
+						}
+						//2.和服务器建立连接
+						oAjax.open(method,url,true);
+						oAjax.setRequestHeader('text','baidu');
+						//3.发送请求
+						oAjax.send();
+					}
+					//4.监听方法获取数据
+					oAjax.onreadystatechange = function(){
+			            if(oAjax.readyState == 4){//数据完全返回
+			            	if(oAjax.status == 200){
+			            		fnSucc(oAjax.responseText);
+								/*
+			            		//Access-Control-Expose-Headers表示允许客户端通过getResponseHeader方法获取的字段
+			            		//CORS(跨域)方式下默认只能获取6个基础字段，
+			            		1:Cache-Control
+			            		2:Content-Language
+			            		3:Content-Type
+			            		4:Expires
+			            		5:Last-Modified
+			            		6:Pragma
+			            		//除了这六个外，想要拿到的，都要在服务器端进行设置
+			            		*/
+			            		console.log(oAjax.getResponseHeader('Content-Type'));
+			            		console.log(oAjax.getResponseHeader('Date'));
+			            	}else{
+			            		if(fnFaild){
+			            			fnFaild(oAjax.status);
+			            		}
+			            	}
+			            	
+			            }		
+					}
+				}
+				w.ajax = ajax;
+			})(window);
+			var oBtn = document.getElementById('btn');
+			var oUl = document.getElementById('ul1');
+			oBtn.onclick = function(){
+					ajax(//'GET',
+						'POST',
+					 'http://localhost:3000/2018.05.25-003-datajosn.josn',
+					 "",
+					function(val){
+						console.log('get data success ###::',val);
+					});	
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="btn" value="发送POST请求" name="">
+	<!-- <ul id="box"></ul> -->
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.06-函数方式创建对象-new关键字.html</title>
+	<script type="text/javascript">
+		function person(name,age) {
+			// body...
+			// var obj = new Object();
+			this.name = name;
+			this.age = age;
+			/*
+			this.showName = function(){
+				console.log('I am ' + this.name);
+			}
+			console.log(2);
+			this.showAge = function(){
+				console.log('I am ' + this.age +' years old');
+			}
+			*/
+			if(!this.showName){
+				person.prototype.showName = function(){
+					console.log('I am ' + this.name);
+				}
+				console.log(this.showName);
+			}
+			if(!this.showAge){
+				person.prototype.showAge = function(){
+					console.log('I am ' + this.age +' years old');
+				}
+			}
+			//返回值的问题
+			// return obj;
+		}
+		var p1 = new person('metara',20);
+		p1.showName();
+		p1.showAge();
+		var p2 = new person('meta',20);
+		p2.showName();
+		p2.showAge();
+		console.log(p1.showAge == p2.showAge)
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

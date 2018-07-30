@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.06-字面量创建对象.html</title>
+	<script type="text/javascript">
+		var obj = {
+			name:'Metara',
+			age:20,
+			//如果对象上属性重复，那么后一个属性将会覆盖前一个属性--即，属性值唯一
+			name:'Meta',
+			sayHi : function () {
+				// body...
+				//this指当前对象，因为this属于当前对象
+				console.log(this.name + ' sayHi')
+			}
+		}
+		/*obj.name = 'Metara';
+		obj.age = 20;
+		obj.sayHi = function () {
+			// body...
+			console.log('sayHi');
+		}*/
+		console.log(typeof obj);
+		console.log(obj.name);
+		obj.sayHi();
+		for(key in obj){
+			console.log(key);
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

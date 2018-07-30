@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>005-jquery对象与DOM对象相互转换.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//第一种
+			var $div1 = $('div');
+			$($div1[0]).css({
+				color:'red',
+			})
+			// console.log($('div')[0]);
+			console.log($($div1[0]));
+			//第二种
+			var $div2 = $($div1.get(1))
+			console.log($($div2));
+			$div2.css({
+				color:'orange'
+			})
+			// $('div').get(1).style.color = 'orange';
+			//第三种
+			var oBox = document.getElementById('box2');
+			console.log($(oBox));
+			$(oBox).css({
+				color:"green"
+			})
+		})
+	</script>
+</head>
+<body>
+	<div>1</div>
+	<div class="box1">2</div>
+	<div id="box2">3</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>022-canvas-linearGradient</title>
+	<style>
+		#canvas{
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="600" id="canvas"></canvas>
+</body>
+<script>
+	// 获取画布
+	var oCanvas = document.getElementById('canvas');
+	// 获取画布 2d 环境
+	var ctx = oCanvas.getContext('2d');
+	var linearGradient = ctx.createLinearGradient(200,200,300,300);
+	linearGradient.addColorStop(0.1,'#f00');
+	linearGradient.addColorStop(1,'#00f');
+	ctx.fillStyle = linearGradient;
+	ctx.fillRect(200,200,100,100);
+</script>
+</html>

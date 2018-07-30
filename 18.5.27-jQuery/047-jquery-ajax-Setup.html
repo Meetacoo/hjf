@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>047-jquery-ajax-Setup.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$.ajaxSetup({
+				url:'http://127.0.0.1:3000/046-data.json',
+				type:'POST',//大小写无所谓
+				dataType:"json",
+			})
+			$('button').eq(0).click(function(){
+				$.ajax({
+					data:{name:"Laura",age:99},
+					dataType:"json",
+					success:function(data,stasusMsg,jqXHR){
+						console.log('success',data,stasusMsg,jqXHR);
+						console.log(data);
+					},
+					error:function(jqXHR,stasusMsg){
+						console.log('error',jqXHR,stasusMsg);
+					}
+				})
+			})
+			$('button').eq(1).click(function(){
+				$.ajax({
+					dataType:"json",
+					success:function(data,stasusMsg,jqXHR){
+						console.log('success',data,stasusMsg,jqXHR);
+						console.log(data.age);
+					},
+					error:function(jqXHR,stasusMsg){
+						console.log('error',jqXHR,stasusMsg);
+					}
+				})
+			})
+		})
+	</script>
+</head>
+<body>
+	<button>获取数据1</button>
+	<button>获取数据2</button>
+</body>
+</html>

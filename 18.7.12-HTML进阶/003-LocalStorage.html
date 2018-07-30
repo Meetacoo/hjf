@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003-LocalStorage.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// 设置 key 值
+	localStorage.setItem('name','Metara');
+	localStorage.setItem('age',20);
+	// 得到 key 值
+	console.log(localStorage.getItem('name'));
+	// 移除掉为 'name' 的 key 值
+	localStorage.removeItem('name');
+	// 移除掉全部 key 值
+	localStorage.clear();
+	// 可输入索引
+	console.log(localStorage.key(0));
+	console.log(localStorage.key(1));
+	// 可输入字符串，若输入字符串，则默认输入索引 "0"
+	console.log(localStorage.key('name'));
+	// localStorage.length();
+	console.log(localStorage.length);
+</script>
+</html>

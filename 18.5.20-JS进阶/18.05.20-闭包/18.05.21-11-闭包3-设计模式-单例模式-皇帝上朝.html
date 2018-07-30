@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>18.05.21-09-闭包3-设计模式-单例模式-皇帝上朝.html</title>
+	<script type="text/javascript">
+		/*
+		//每次都不一样
+		(function(w){
+			function King(){
+				this.name = '陛下';
+				this.id = Math.random();
+				
+			}
+			King.prototype = {
+				constructor:King,
+				doing:(function(){
+					var King = null;
+					return function(){
+						console.log(this.name + this.id + '::斩立决');
+					}
+					if (!King) {
+						var king = new King('');
+					}
+					return King;
+				})()
+			}
+			w.King = King;
+		})(window)
+		var king = new King;
+		king.doing();
+		for (var i = 0; i < 5; i++) {
+			var king = new King;
+			king.doing();
+			console.log('day' + (i+1));
+		}
+		*/
+
+		/*
+		//方法一
+		//每次都一样
+		(function(w){
+			
+			function King(){
+				this.name = '陛下';
+				this.id = Math.random();
+			}
+			
+			King.prototype = {
+				constructor:King,
+				__proto__:Object.prototype,
+				say:function(){
+					console.log(this.name + this.id + '::斩立决');
+				}
+			}
+			King.getKing = (function(){
+				var king = null;
+				return function(){
+					if (!king) {
+						king = new King;
+					}
+					return king;
+				}
+			})();
+			w.King = King;
+		})(window);
+
+		King.getKing().say();
+		for (var i = 0; i < 5; i++) {
+			King.getKing().say();
+			console.log('day' + (i+1));
+		}
+		*/
+
+		/*
+		//随机
+		(function(w){
+			
+			function King(){
+
+				var king = null;
+				if (!king) {
+					this.name = '陛下';
+					this.id = Math.random();
+				}
+				return king;
+			}
+			
+			King.prototype = {
+				constructor:King,
+				__proto__:Object.prototype,
+				say:function(){
+					console.log(this.name + this.id + '::斩立决');
+				}
+			}
+			King.getKing = (function(){
+				var king = null;
+				return function(){
+					if (!king) {
+						king = new King;
+					}
+					return king;
+				}
+			})();
+			w.King = King;
+		})(window);
+
+		King.getKing();
+		for (var i = 0; i < 5; i++) {
+			// King.getKing().say();
+			// King.say();
+			new King().say();
+			console.log('day' + (i+1));
+		}
+		*/
+
+		/*
+		//随机
+		(function(w){
+			
+			function King(){
+
+
+				var fn = (function(){
+					var king = null;
+					return function(){
+						if (!king) {
+							king = {
+								name : '陛下',
+								id : Math.random()
+							};
+						}
+						return king;
+					}
+				})();
+				console.log(fn());
+				return fn();
+				
+			}
+			King.prototype = {
+				constructor:King,
+				__proto__:Object.prototype,
+				say:function(){
+					console.log(this.name + this.id + '::斩立决');
+				}
+			}
+			King.getKing = (function(){
+				var king = null;
+				return function(){
+					if (!king) {
+						king = new King;
+					}
+					return king;
+				}
+			})();
+			w.King = King;
+		})(window);
+
+		King.getKing();
+		for (var i = 0; i < 5; i++) {
+			// King.getKing().say();
+			// King.say();
+			new King().say();
+			console.log('day' + (i+1));
+		}
+		*/
+
+		/*
+		//方法二
+		(function(w){
+			//随机
+			// function King(){
+			// 	var _self = this;
+			// 	(function(){
+			// 		var king = null;
+			// 		return function(){
+			// 			if (!king) {
+			// 				_self.name = '陛下';
+			// 				_self.id = Math.random();
+			// 				king = _self;
+			// 			}
+			// 			return king;
+			// 		}
+			// 	})()();
+			// }
+			var king = null;
+			function King(){
+				var _self = this;
+				var fn = (function(){
+					return function(){
+						if (!king) {
+							_self.name = '陛下';
+							_self.id = Math.random();
+							king = _self;
+						}
+						return king;
+					}
+				})();
+				return fn();
+			}
+
+			
+			King.prototype = {
+				constructor:King,
+				__proto__:Object.prototype,
+				say:function(){
+					console.log(this.name + this.id + '::斩立决');
+				}
+			}
+			King.getKing = (function(){
+				var king = null;
+				return function(){
+					if (!king) {
+						king = new King;
+					}
+					return king;
+				}
+			})();
+			w.King = King;
+		})(window);
+
+		King.getKing();
+		for (var i = 0; i < 5; i++) {
+			// King.getKing().say();
+			// King.say();
+			new King().say();
+			console.log('day' + (i+1));
+		}
+		*/
+
+		//方法三
+		//精简版
+		(function(w){
+			var king = null;
+			function King(){
+				if (!king) {
+					this.name = '陛下';
+					this.id = Math.random();
+					king = this;//使其唯一
+				}
+				return king;
+			}
+			
+			King.prototype = {
+				constructor:King,
+				__proto__:Object.prototype,
+				say:function(){
+					console.log(this.name + this.id + '::斩立决');
+				}
+			}
+			w.King = King;
+		})(window);
+
+		// King.getKing();
+		for (var i = 1; i <= 5; i++) {
+			console.log('day' + i);
+			new King().say();
+		}
+		
+	</script>
+</head>
+<body>
+
+</body>
+</html>

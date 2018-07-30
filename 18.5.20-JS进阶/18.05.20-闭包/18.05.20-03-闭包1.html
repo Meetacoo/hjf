@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>18.05.20-03-闭包1.html</title>
+	<script type="text/javascript">
+		function na1(){
+			var name1 = 'Laura';
+			return function(){
+				return name1;
+			}
+		}
+		console.log(na1());
+		console.log(na1()());
+	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单加深练习</title>
+</head>
+<body>
+	<form action="../18.3.19/3.19a-href.html">
+		<fieldset>
+			<legend>注册界面</legend>
+			<p>
+				<label for="username">用户名:</label>
+				<input type="text" name="username" id="username" list="usernames">
+				<datalist id="usernames">
+					<option>Meetcoo</option>
+					<option>Meetla</option>
+					<option>laura</option>
+				</datalist>
+			</p>
+			<p>
+				<label for="password">密&nbsp码:</label>
+				<input type="password" name="password">
+			</p>
+			<p>
+				性&nbsp别:<input type="radio" name="sex" value="male" checked>男
+				<input type="radio" value="female" name="sex">女
+			</p>
+			<p>
+				属&nbsp相:<input type="radio" name="shuxiang" value="mouse">鼠
+				<input type="radio" value="cow" name="shuxiang">牛
+			</p>
+			<p>
+				爱&nbsp好:<input type="checkbox" value="food" name="hobby">吃饭
+				<input type="checkbox" value="sleep" name="hobby">睡觉
+				<input type="checkbox" value="hit doudou" name="hobby">打豆豆
+			</p>
+			<p>
+				<input type="hidden" value="ahhhhh...">
+				Email:<input type="email" name="email">
+			</p>
+			<p>
+				WebSite<input type="url" name="url">
+			</p>
+			<p>
+				出生日期<input type="date" name="birth">
+			</p>
+			<p>
+				FavoriteColor<input type="color" name="color">
+			</p>
+			<p>
+				FavoriteNumber<input type="number" name="number">
+			</p>
+			<p>
+				出生地址：
+				<select name="address">
+					<optgroup label="河南">
+						<option value="zhengzhou">郑州</option>
+						<option value="xuchang">许昌</option>
+					</optgroup>
+				</select>
+			</p>
+			<p>
+				留言板:<textarea cols="20" rows="10">请输入您的留言~</textarea>
+			</p>
+			<p>
+				<input type="button" value="点我有惊喜">
+				<input type="submit">
+				<input type="reset">
+				<input type="image" src="emmm.png">
+			</p>
+		</fieldset>
+	</form>
+</body>
+</html>

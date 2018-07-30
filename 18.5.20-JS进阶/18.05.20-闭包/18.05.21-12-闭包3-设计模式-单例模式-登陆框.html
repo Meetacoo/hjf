@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>18.05.21-12-闭包3-设计模式-单例模式-登陆框.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#login{
+			width: 200px;
+			height: 200px;
+			margin: 0 auto;
+			background-color: orange;
+		}
+		#mask{
+			width: 300px;
+			height: 300px;
+			margin: 200px auto;
+			background-color: brown;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBtn = document.getElementById('enter');
+			/*
+			//oBtn会重复添加
+			oBtn.onclick = function(){
+				var oDiv = document.createElement('div');
+				oDiv.id = 'login';
+				document.body.appendChild(oDiv);
+			}
+			*/
+
+			/*
+			//创建一个
+			var obj = null;
+			(function(w){
+				function createLayer(){
+					if (!obj) {
+						var oDiv = document.createElement('div');
+						oDiv.id = 'login';
+						document.body.appendChild(oDiv);
+						obj = oDiv;
+					}
+				}
+				w.createLayer = createLayer;
+			})(window);
+			oBtn.onclick = function(){
+				new createLayer();
+			}
+			*/
+			
+			/*
+			function createLoginLayer(){
+				var oDiv = document.createElement('div');
+				oDiv.id = 'login';
+				document.body.appendChild(oDiv);
+				return oDiv;
+			}
+			function createSingle(fn){
+				var obj = null;
+				return function(){
+					if (!obj) {
+						obj = fn();
+					}
+					return obj;
+				}
+			}
+			var createSingleLayer = createSingle(createLoginLayer);
+			oBtn.onclick = function(){
+				createSingleLayer();
+			}
+			*/
+
+			function createLoginLayer(){
+				var oDiv = document.createElement('div');
+				oDiv.id = 'login';
+				document.body.appendChild(oDiv);
+				return oDiv;
+			}
+			function createMaskLayer(){
+				var oDiv = document.createElement('div');
+				oDiv.id = 'mask';
+				document.body.appendChild(oDiv);
+				return oDiv;
+			}
+			function createSingle(fn){
+				var obj = null;
+				return function(){
+					if (!obj) {
+						obj = fn();
+					}
+					return obj;
+				}
+			}
+			var createSingleLogin = createSingle(createLoginLayer);
+			var createSingleMask = createSingle(createMaskLayer);
+			oBtn.onclick = function(){
+				createSingleLogin();
+				createSingleMask();
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="enter" name="" value="惊喜">
+</body>
+</html>

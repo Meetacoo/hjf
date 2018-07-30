@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.19-DOM操作属性.html</title>
+	<script type="text/javascript">
+		window.onload = function (){
+			var oBtn = document.getElementById('btn');
+			var oText = document.getElementById('text');
+			oBtn.onclick = function(){
+				//设置属性
+				// oText.value = 'abc';
+				// oText['value'] = 'abc';
+				//oText.setAttribute('value','abc');
+				//获取属性(前提是元素上有value属性)
+				//alert(oText.getAttribute('value'))
+				//删除属性
+				oText.removeAttribute('value');
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" name="" id="btn" value="set">
+	<input type="text" name="" id="text" value="abc">
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.06-json和js对象区别</title>
+	<script type="text/javascript">
+		//json{}外要加'',里面的key要加""，不可以定义函数
+		var json = '{"name":"Meetacoo","age":20}';
+		//输出来为string类型
+		console.log(typeof json);
+		//输出来为undefined类型
+		console.log(json.name);
+		//json通过parse转换为obj类型
+		var jsonObj = JSON.parse(json);
+		//输出来为object类型
+		console.log(typeof jsonObj);
+
+		console.log(jsonObj.name);
+		console.log(json);
+		console.log(jsonObj);
+		//obj里的key加不加""都无所谓,但是当定义的变量名不合法时（如@这种特殊字符）则必须加引号
+		var obj = {
+			name:"Meetacoo",
+			age:20,
+			"@":"wuwa",
+			sayHi:function(){}
+		}
+		//输出来为obj类型
+		console.log(typeof obj);
+		console.log(obj.name);
+		//当变量名不合法时，要用""括起来，并且要用[]表属性代“.”
+		console.log(obj["@"]);
+		//obj通过stringigy转换为json类型
+		var objJson = JSON.stringify(obj);
+		//输出来为string类型
+		console.log(typeof objJson);
+		console.log(obj);
+		console.log(objJson);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

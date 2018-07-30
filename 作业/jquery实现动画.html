@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery实现动画</title>
+	<link rel="stylesheet" href="../Font-CSS/css/fontawesome-all.min.css">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: #ccc;
+		}
+		.box{
+			margin: 100px auto;
+			width: 240px;
+			position: relative;
+		}
+		li{
+			list-style: none;
+			width: 120px;
+		}
+		li.active{
+			color: #f70;
+			background-color: #eee;
+		}
+		ul{
+			width: 240px;
+			height: 80px;
+			text-align: center;
+			line-height: 40px;
+			/*border: 1px solid #000;*/
+			background-color: #fff;
+		}
+		.btn{
+			height: 40px;
+		}
+		.btn li{
+			float: left;
+		}
+		.content{
+			width: 120px;
+			float: left;
+			/*display: none;*/
+			height: 0px;
+			overflow: hidden;
+			position: absolute;
+		}
+		.contentbox{
+			height: 80px;
+			overflow: hidden;
+		}
+		.contentbox li.active{
+			color: #000;
+			background-color: #eee;
+		}
+		.content1{
+			left: 0;
+		}
+		.content2{
+			right: 0;
+		}
+		i{
+			margin-left: 10px;
+			transform: rotateZ(0deg);
+			transition: all 0.5s;
+		}
+		i.active{
+			transform: rotateZ(180deg);
+		}
+		i.active1{
+			transform: rotateZ(180deg);
+		}
+	</style>
+	<script src="../18.5.27-jQuery/js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('.btn li').mouseenter(function(){
+				// console.log($('.contentbox li').eq($index).siblings());
+				var $this = $(this);
+				$this.addClass('active');
+				$this.siblings().removeClass('active');
+				var $index = $this.index();
+				// $('ul i').eq($index).addClass('active');
+				// $('ul i').eq($index).removeClass('active');
+				$('ul i').eq($index).toggleClass('active');
+				var $conUl = $('.content').eq($index);
+				$conUl.animate({
+					height:80
+				})
+				$conUl.siblings().animate({
+					height:0
+				})
+			})
+			$('.content li').mouseenter(function(){
+				var $this = $(this);
+				var $index = $this.index();
+				$('.btn li').eq($index).animate({
+					color:"f70"
+				})
+				$('.content1 li').eq($index).addClass('active');
+				$('.content1 li').eq($index).siblings().removeClass('active');
+				$('.content2 li').eq($index).addClass('active');
+				$('.content2 li').eq($index).siblings().removeClass('active');
+			})
+			$('.btn li').mouseleave(function(){
+				var $this = $(this);
+				var $index = $this.index();
+				$this.removeClass('active');
+				$('ul i').eq($index).toggleClass('active');
+			})
+			$('.content li').mouseleave(function(){
+				var $this = $(this);
+				$('.content1 li').removeClass('active');
+				$('.content2 li').removeClass('active');
+			})
+			$('.content').mouseleave(function(){
+				$('.content').animate({
+					height:0
+				})
+			})
+		})
+	</script>
+</head>
+<body>
+	<div class="box">
+		<ul class="btn">
+			<li>我的淘宝<i class="fas fa-angle-down"></i></li>
+			<li>收藏夹<i class="fas fa-angle-down"></i></li>
+		</ul>
+		<div class="contentbox">
+			<ul class="content content1">
+				<li>已买到的宝贝</li>
+				<li>我的足迹</li>
+			</ul>
+			<ul class="content content2">
+				<li>收藏到的宝贝</li>
+				<li>收藏的店铺</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

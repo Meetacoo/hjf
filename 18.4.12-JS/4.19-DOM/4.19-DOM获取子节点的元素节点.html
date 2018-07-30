@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.19-DOM获取子节点的元素节点</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			var oLi = oBox.children;
+			console.log(oBox.children);
+			for (var i = 0; i < oLi	.length; i++) {
+				console.log(oLi[i].nodeType);
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul id="box">
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010-jquery基本过滤器.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		window.onload = function(){
+			$(function(){
+				// var aDiv = document.getElementsByTagName('div');
+				console.log($('div:eq(0)'));
+				console.log($('div:eq(-1)'));
+				console.log($('div:eq(-1)').index());
+			})
+		}
+	</script>
+</head>
+<body>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+</body>
+</html>

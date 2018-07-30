@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery实现动画2</title>
+	<link rel="stylesheet" href="../Font-CSS/css/fontawesome-all.min.css">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: #ccc;
+		}
+		.container{
+			margin: 100px auto;
+			width: 240px;
+			position: relative;
+		}
+		li{
+			list-style: none;
+			width: 120px;
+		}
+		.btn.active{
+			color: #f70;
+			background-color: #fff;
+		}
+		ul{
+			width: 240px;
+			height: 80px;
+			text-align: center;
+			line-height: 40px;
+			/*border: 1px solid #000;*/
+			background-color: #fff;
+		}
+		.btn{
+			width: 120px;
+			height: 40px;
+			text-align: center;
+			background-color: #eee;
+			line-height: 40px;
+		}
+		.box{
+			float: left;
+		}
+		.left,.right{
+			width: 120px;
+		}
+		.content{
+			width: 120px;
+			float: left;
+			/*display: none;*/
+			height: 0px;
+			overflow: hidden;
+			position: absolute;
+		}
+		.content li.active{
+			background-color: #eee;
+		}
+		i{
+			margin-left: 10px;
+			transform: rotateZ(0deg);
+			transition: all 0.5s;
+		}
+		i.active{
+			transform: rotateZ(180deg);
+		}
+	</style>
+	<script src="../18.5.27-jQuery/js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('.left').mouseenter(function(){
+				$('.left .btn').toggleClass('active');
+				$('.left .btn i').toggleClass('active');
+				$('.left ul').stop();
+				$('.left ul').animate({
+					height:80
+				})
+			})
+			$('.left').mouseleave(function(){
+				$('.left .btn').toggleClass('active');
+				$('.left .btn i').toggleClass('active');
+				$('.left ul').stop();
+				$('.left ul').animate({
+					height:0
+				})
+			})
+			$('.content li').mouseenter(function(){
+				var $this = $(this);
+				$this.toggleClass('active');
+			})
+			$('.content li').mouseleave(function(){
+				var $this = $(this);
+				$this.toggleClass('active');
+			})
+			$('.right').mouseenter(function(){
+				$('.right .btn').toggleClass('active');
+				$('.right .btn i').toggleClass('active');
+				$('.right ul').stop();
+				$('.right ul').animate({
+					height:80
+				})
+			})
+			$('.right').mouseleave(function(){
+				$('.right .btn').toggleClass('active');
+				$('.right .btn i').toggleClass('active');
+				$('.right ul').stop();
+				$('.right ul').animate({
+					height:0
+				})
+			})
+		})
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="left box">
+			<div class="btn">我的淘宝<i class="fas fa-angle-down"></i></div>
+			<ul class="content content1">
+				<li>已买到的宝贝</li>
+				<li>我的足迹</li>
+			</ul>
+		</div>
+		<div class="right box">
+			<div class="btn">收藏夹<i class="fas fa-angle-down"></i></div>
+			<ul class="content content2">
+				<li>收藏到的宝贝</li>
+				<li>收藏的店铺</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

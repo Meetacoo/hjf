@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.08-对象-拖拽-扩展.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		
+	</style>
+	<script type="text/javascript">
+		/*
+		window.onload = function(){
+			new Drag({width:100,height:100,background:'orange'});
+			new Drag({width:100,height:100,background:'lime'});
+		}
+		function Drag(option){
+			//初始化
+			this.oBox = document.createElement('div');
+			this.oBox.style.width = option.width + 'px';
+			this.oBox.style.height = option.height + 'px';
+			this.oBox.style.background = option.background;
+			this.oBox.style.position = 'absolute';
+			document.body.appendChild(this.oBox);
+			//罗列属性
+			this.disX = 0;
+			this.disY = 0;
+			//绑定事件
+			this.oBox.onmousedown = this.fnDown.bind(this);
+		}
+		Drag.prototype.fnDown = function(ev){
+			var oEvent = ev || event;
+			this.disX = oEvent.clientX - this.oBox.offsetLeft;
+			this.disY = oEvent.clientY - this.oBox.offsetTop;
+			document.onmousemove = this.fnMove.bind(this);
+			document.onmouseup = this.fnUp;
+		}
+		Drag.prototype.fnMove = function(ev){
+			var oEvent = ev || event;
+			this.oBox.style.left = oEvent.clientX - this.disX + 'px';
+			this.oBox.style.top = oEvent.clientY - this.disY + 'px';
+		}
+		Drag.prototype.fnUp = function(ev){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+		*/
+
+		/*
+		window.onload = function(){
+			new Drag({width:100,height:100,background:'orange'});
+			new Drag({width:100,height:100,background:'lime'});
+		}
+		function Drag(option){
+			//罗列属性
+			this.disX = 0;
+			this.disY = 0;
+			this.width = option.width;
+			this.height = option.height;
+			this.background = option.background;
+			//初始化
+			this.fnInit();
+			//绑定事件
+			var _self = this;
+			this.oBox.onmousedown = function(){
+				_self.fnDown();
+			};
+		}
+		//初始化
+		Drag.prototype.fnInit = function(){
+			this.oBox = document.createElement('div');
+			this.oBox.style.width = this.width + 'px';
+			this.oBox.style.height = this.height + 'px';
+			this.oBox.style.background = this.background;
+			this.oBox.style.position = 'absolute';
+			document.body.appendChild(this.oBox);
+		}
+		
+		Drag.prototype.fnDown = function(ev){
+			var oEvent = ev || event;
+			this.disX = oEvent.clientX - this.oBox.offsetLeft;
+			this.disY = oEvent.clientY - this.oBox.offsetTop;
+			document.onmousemove = this.fnMove.bind(this);
+			document.onmouseup = this.fnUp;
+		}
+
+		Drag.prototype.fnMove = function(ev){
+			var oEvent = ev || event;
+			this.oBox.style.left = oEvent.clientX - this.disX + 'px';
+			this.oBox.style.top = oEvent.clientY - this.disY + 'px';
+		}
+
+		Drag.prototype.fnUp = function(ev){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+		*/
+		
+		/*
+		window.onload = function(){
+			new Drag({width:100,height:100,background:'orange'});
+			new Drag({width:100,height:100,background:'lime'});
+		}
+		function Drag(option){
+			//属性罗列
+			this.disX = 0;
+			this.disY = 0;
+			this.width = option.width;
+			this.height = option.height;
+			this.background = option.background;
+			//初始化
+			this.fnInit();
+			//调用函数，绑定事件
+			this.fnBindEvent();
+		}
+		
+		Drag.prototype.fnInit = function(){
+			this.oBox = document.createElement('div');
+			this.oBox.style.width = this.width + 'px';
+			this.oBox.style.height = this.height + 'px';
+			this.oBox.style.background = this.background;
+			this.oBox.style.position = 'absolute';
+			document.body.appendChild(this.oBox);
+		}
+
+		Drag.prototype.fnBindEvent = function(){
+			this.oBox.onmousedown = this.fnDown.bind(this);
+		}
+		
+		Drag.prototype.fnDown = function(ev){
+			var oEvent = ev || event;
+			this.disX = oEvent.clientX - this.oBox.offsetLeft;
+			this.disY = oEvent.clientY - this.oBox.offsetTop;
+			document.onmousemove = this.fnMove.bind(this);
+			document.onmouseup = this.fnUp;
+		}
+
+		Drag.prototype.fnMove = function(ev){
+			var oEvent = ev || event;
+			this.oBox.style.left = oEvent.clientX - this.disX + 'px';
+			this.oBox.style.top = oEvent.clientY - this.disY + 'px';
+		}
+
+		Drag.prototype.fnUp = function(ev){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+		*/
+
+		window.onload = function(){
+			new Drag({width:100,height:100,background:'orange'});
+			new Drag({width:100,height:100,background:'lime'});
+		}
+		function Drag(option){
+			//属性罗列
+			this.disX = 0;
+			this.disY = 0;
+			this.width = option.width;
+			this.height = option.height;
+			this.background = option.background;
+			//初始化
+			this.fnInit();
+			//调用函数，绑定事件
+			this.fnBindEvent();
+		}
+		
+		Drag.prototype.fnInit = function(){
+			this.oBox = document.createElement('div');
+			this.oBox.style.width = this.width + 'px';
+			this.oBox.style.height = this.height + 'px';
+			this.oBox.style.background = this.background;
+			this.oBox.style.position = 'absolute';
+			document.body.appendChild(this.oBox);
+		}
+
+		/*
+		Drag.prototype.fnBindEvent = function(){
+			this.oBox.onmousedown = function(ev){
+				var oEvent = ev || event;
+				this.disX = oEvent.clientX - this.oBox.offsetLeft;
+				this.disY = oEvent.clientY - this.oBox.offsetTop;
+				document.onmousemove = this.fnMove.bind(this);
+				document.onmouseup = this.fnUp;
+			}.bind(this);
+		}
+		*/
+		Drag.prototype.fnBindEvent = function(){
+			var _self = this;
+			this.oBox.onmousedown = function(ev){
+				var oEvent = ev || event;
+				_self.disX = oEvent.clientX - _self.oBox.offsetLeft;
+				_self.disY = oEvent.clientY - _self.oBox.offsetTop;
+				document.onmousemove = _self.fnMove.bind(_self);
+				document.onmouseup = _self.fnUp;
+			}
+		}
+		/*
+		Drag.prototype.fnDown = function(ev){
+			var oEvent = ev || event;
+			this.disX = oEvent.clientX - this.oBox.offsetLeft;
+			this.disY = oEvent.clientY - this.oBox.offsetTop;
+			document.onmousemove = this.fnMove.bind(this);
+			document.onmouseup = this.fnUp;
+		}
+		*/
+		Drag.prototype.fnMove = function(ev){
+			var oEvent = ev || event;
+			this.oBox.style.left = oEvent.clientX - this.disX + 'px';
+			this.oBox.style.top = oEvent.clientY - this.disY + 'px';
+		}
+
+		Drag.prototype.fnUp = function(ev){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

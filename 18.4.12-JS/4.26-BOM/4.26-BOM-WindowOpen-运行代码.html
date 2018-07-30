@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.26-BOM-WindowOpen-运行代码.html</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oTxt = document.getElementById('txt');
+			var oBtn = document.getElementById('btn');
+			oBtn.onclick = function(){
+				var oVal = oTxt.value;
+				var oWin = window.open('about:blank');
+				oWin.document.write(oVal)
+			}
+		}
+	</script>
+</head>
+<body>
+	<textarea id="txt" cols="30" rows="10"></textarea>
+	<input type="button" id="btn" value="运行代码" name="">
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.08-对象-拖拽-扩展-继承.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		
+	</style>
+	<script>
+		window.onload = function(){
+			new Drag({width:100,height:100,background:'orange'});
+			new Drag({width:100,height:100,background:'lime'});
+			new limitDrag({width:100,height:100,background:'brown'});
+		}
+		function Drag(option){
+			//属性罗列
+			this.disX = 0;
+			this.disY = 0;
+			this.width = option.width;
+			this.height = option.height;
+			this.background = option.background;
+			//初始化
+			this.fnInit();
+			//调用函数，绑定事件
+			this.fnBindEvent();
+		}
+		
+		Drag.prototype.fnInit = function(){
+			this.oBox = document.createElement('div');
+			this.oBox.style.width = this.width + 'px';
+			this.oBox.style.height = this.height + 'px';
+			this.oBox.style.background = this.background;
+			this.oBox.style.position = 'absolute';
+			document.body.appendChild(this.oBox);
+		}
+
+		Drag.prototype.fnBindEvent = function(){
+			this.oBox.onmousedown = function(ev){
+				var oEvent = ev || event;
+				this.disX = oEvent.clientX - this.oBox.offsetLeft;
+				this.disY = oEvent.clientY - this.oBox.offsetTop;
+				document.onmousemove = this.fnMove.bind(this);
+				document.onmouseup = this.fnUp;
+			}.bind(this);
+		}
+		Drag.prototype.fnMove = function(ev){
+			var oEvent = ev || event;
+			this.oBox.style.left = oEvent.clientX - this.disX + 'px';
+			this.oBox.style.top = oEvent.clientY - this.disY + 'px';
+		}
+
+		Drag.prototype.fnUp = function(ev){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+
+		//限制拖拽
+		function limitDrag(option){
+			//对Drag函数属性的继承
+			Drag.call(this,option);
+		}
+		//对Drag函数方法的继承
+		limitDrag.prototype = Object.create(Drag.prototype);
+		limitDrag.prototype.constructor = limitDrag;
+		//需要限制的对象用的move方法
+		limitDrag.prototype.fnMove = function(ev){
+			var oEvent = ev || event;
+			var l = oEvent.clientX - this.disX;
+			var t = oEvent.clientY - this.disY;
+			if(l < 0){
+				l = 0;
+			}else if(l > window.innerWidth - this.oBox.offsetWidth){
+				l = window.innerWidth - this.oBox.offsetWidth;
+			}
+			if(t < 0){
+				t = 0;
+			}else if(t > window.innerHeight - this.oBox.offsetHeight){
+				t = window.innerHeight - this.oBox.offsetHeight;
+			}
+			this.oBox.style.left = l + 'px';
+			this.oBox.style.top = t + 'px';
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>026-canvas-imageBrush</title>
+	<style>
+		#canvas{
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="600" id="canvas"></canvas>
+</body>
+<script>
+	// 获取画布
+	var oCanvas = document.getElementById('canvas');
+	// 获取画布 2d 环境
+	var ctx = oCanvas.getContext('2d');
+	ctx.beginPath();
+	var img = new Image();
+	img.src = 'images/02.png';
+	img.onload = function(){
+		// var pattern = ctx.createPattern(img,'no-repeat');
+		// var pattern = ctx.createPattern(img,'repeat');
+		// var pattern = ctx.createPattern(img,'repeat-x');
+		var pattern = ctx.createPattern(img,'repeat-y');
+		ctx.fillStyle = pattern;
+		ctx.fillRect(0,0,oCanvas.width,oCanvas.height); 
+	}
+</script>
+</html>

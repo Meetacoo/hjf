@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.07-对象-改变this指向-继承3-2</title>
+	<script type="text/javascript">
+		function Person(name,age) {
+			console.log('Person Class in ')
+			this.name = name;
+			this.age = age;
+		}
+		
+		Person.prototype.showName = function(){
+			console.log('i am ' + this.name);
+		}
+		//用这种方法Person.prototype将不能被循环枚举、重新定义、删除
+		Object.defineProperty(Person.prototype,'showAge',{
+			value:function(){
+				console.log('i am ' + this.age + ' years old');
+			}
+		})
+
+		function Student(name,age,className){
+			Person.call(this,name,age);
+			// console.log(this);
+			this.className = className;
+		}
+
+		//person(){}会被执行两次，p1一次，s1一次
+		//传不传值无所谓，只是想用Person()里的__proto__
+		//改变了Student.prototype的指向，所以Student.prototype的construstor也就没有了
+		var obj = Object.create(Person.prototype);
+		//祛除多余属性 
+		Student.prototype = obj;
+		console.log( obj);
+		console.log('1::' , obj.__proto__ == Person.prototype);
+		// Student.prototype = new Person();
+
+		//原本Person上没有constructor，但并未解决person被调用两次的问题
+		Student.prototype.constructor = Student;
+		// console.log(Student.prototype);
+
+		Student.prototype.showClassName = function(){
+			console.log('i am ' + this.className);
+		}
+
+		//改变了S2的指向
+		// var s2 = new s1.__proto__.constructor();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

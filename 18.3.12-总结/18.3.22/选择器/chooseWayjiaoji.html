@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>交集选择器</title>
+	<style type="text/css">
+		#cc .dd{
+			color: red;
+		}
+
+		ul li a{
+			color: gray;
+		}
+
+		a.cc{
+			color: green;
+		}
+
+		a #ee{
+			color: pink;
+		}
+	</style>
+</head>
+<body>
+	<ul id="aa">
+		<li class="bb">1</li>
+		<li id="cc">
+			<ul class="dd">
+				<li>jiaoji1</li>
+				<li>jiaoji2</li>
+			</ul>
+		</li>
+		<li><h1 class="cc">biaoti<a href="#">链接</a></h1></li>
+		<li><a href="#">链接</a></li>
+	</ul>
+	<a href="#"><p id="ee">段落</p></a>
+</body>
+</html>

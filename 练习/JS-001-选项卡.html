@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS-选项卡</title>
+	<style type="text/css">
+		div{
+			width: 200px;
+			height: 200px;
+			text-align: center;
+			line-height: 200px;
+			border: 1px solid #000;
+			display: none;
+		}
+		.act{
+			background-color: orange;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var aBtn = document.getElementsByTagName('input');
+			var aDiv = document.getElementsByTagName('div');
+			for (var i = 0; i < aBtn.length; i++) {
+				// 为aBtn[i]设置一个属性为index,用来储存数值，方便之后使用
+				aBtn[i].index = i;
+				aBtn[i].onclick = function () {
+						// body...
+					for (var j = 0; j < aBtn.length; j++) {
+						aBtn[j].className = '';
+						aDiv[j].style.display = 'none';
+					}
+						this.className = 'act';
+						aDiv[this.index].style.display = 'block';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" name="" value="选项一" class="act">
+	<input type="button" name="" value="选项二">
+	<input type="button" name="" value="选项三">
+	<div style="display: block;">内容1</div>
+	<div>内容2</div>
+	<div>内容3</div>
+</body>
+</html>

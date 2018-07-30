@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001-cookie的设置.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// 存储
+	// document.cookie = 'name:Metara';
+	// 设置过期日期
+	var oDate = new Date();
+	oDate.setDate(oDate.getDate() + 14);
+	document.cookie = "name = Metara;expires = " + oDate;
+	// 获取
+	console.log(document.cookie);
+	// 删除
+</script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>059-jquery-each和map方法测试.html</title>
+	<!-- <script src="js/jquery-1.12.4.js"></script> -->
+	<script src="myjs/myQuery-1.0.0.js"></script>
+	<script>
+		$(function(){
+			var aLi = document.getElementsByTagName('li');
+			var arr = [11,22,33,44];
+			var likeArr = {0:'aaa',1:'bbb',2:'ccc',length:3};
+			var obj = {name:'Metara',age:20,sex:'girl'};
+			// $.each(likeArr,function(index,value){
+
+				/*
+				if (index == 1) {
+					//为false，则结束整个遍历
+					//相当于break
+					return false;
+				}
+				if (index == 1) {
+					//为true，则结束当前遍历
+					//相当于continue
+					return true;
+				}
+				*/
+			$.each(obj,function(index,value){
+				/*
+				if (index == 'age') {
+					//为false，则结束整个遍历
+					return false;
+				}
+				*/
+				if (index == 1) {
+					//为true，则结束当前遍历
+					return true;
+				}
+				console.log(index,value);
+				// console.log(this);
+				// this就是具体的当前遍历的DOM节点
+			})
+		})
+	</script>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+</body>
+</html>

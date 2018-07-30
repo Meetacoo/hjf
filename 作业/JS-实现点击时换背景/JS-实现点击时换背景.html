@@ -1,0 +1,49 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>JS-实现点击时换背景</title>
+		<style type="text/css">
+			.box{
+				width: 100px;
+				height: 20px;
+				border: 1px solid #000;
+				text-align: center;
+				line-height: 20px;
+			}
+			.bg-box{
+				width: 800px;
+				height: 200px;
+				border: 1px solid #000;
+				display: none;
+			}
+			.bg-box img{
+				height: 200px;
+			}
+		</style>
+		<script type="text/javascript">
+			function yyqx(){
+				// body...
+				var yyqx=document.getElementById('bg');
+				yyqx.style.backgroundImage='url(../../image/yyqx.jpg)';
+				yyqx.style.backgroundRepeat='no-repeat';
+				yyqx.style.backgroundSize='100%';
+				// document.getElementById('bg').style.backgroundImage='url(../../image/yyqx.jpg)';
+				// document.getElementById('bg').style.backgroundColor='pink';
+			}
+			function zs(){
+				var zs=document.getElementById('bg');
+				zs.style.backgroundImage='url(../../image/zs.jpeg)';
+				zs.style.backgroundRepeat='no-repeat';
+				zs.style.backgroundSize='100%';
+			}
+		</script>
+	</head>
+	<body id="bg">
+		<div class="box" id="box" onmouseover="document.getElementById('bgbox').style.display='block';">我可以换肤</div>
+		<div class="bg-box" id="bgbox" onmouseleave ="document.getElementById('bgbox').style.display='none';">
+			<img src="../../image/zs.jpeg" onclick="zs()">
+			<img src="../../image/yyqx.jpg" onclick="yyqx()">
+		</div>
+	</body>
+	</html>

@@ -1,0 +1,50 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.fr{
+	float: right;
+}
+.container{
+	width: 1200px;
+	height: 700px;	
+	background: 100% 100% url("../img/bg.jpg") no-repeat;
+	background-size: cover;
+	margin: 30px auto;
+}
+.form{
+	display: inline-block;
+}
+.area{
+	display: block;
+	resize: none;
+	opacity: 0.6;
+}
+.btn{
+	width: 229px;
+	height: 50px;
+	margin-top: 10px;
+	opacity: 0.6;
+}
+.wall{
+	width: 800px;
+	height: 700px;
+	border: 1px solid #000;
+	display: inline-block;
+	position: relative;
+}
+.wish{
+	width: 150px;
+	height: 200px;
+	position: absolute;
+	text-align: center;
+	/*background-color: pink;*/
+}
+.close{
+	width: 20px;
+	height: 20px;
+	font-size: 20px;
+	display: block;
+	text-decoration: none;
+	color: orange;
+}

@@ -1,0 +1,37 @@
+div{
+	width: 50%;
+	margin: auto;
+}
+
+p{
+	text-indent: 2em;
+}
+
+header{
+	text-align: center;
+}
+
+footer{
+	width: 100%;
+}
+
+.left{
+	float: left;
+	border:dotted 1px;
+
+}
+
+section{
+	width: 60%;
+	float: left;
+}
+
+aside{
+	display: block;
+	float: left;
+	width: 19%;
+}
+
+aside p{
+	margin-top: 0px;
+}

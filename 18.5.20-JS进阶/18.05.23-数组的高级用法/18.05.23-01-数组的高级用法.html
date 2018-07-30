@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>18.05.23-数组的高级用法</title>
+	<script type="text/javascript">
+		var arr = [23,67,45,69,82,73];
+		//遍历
+		//没有返回值，不会形成新的数组
+		var res1 = arr.forEach(function(value,index){
+			console.log(index,value);
+		})
+		console.log(res1);
+		//映射
+		//有返回值，会形成新的数组
+		var res2 = arr.map(function(value,index){
+			// return 10;
+			return value + 10;
+			// console.log(index,value);
+		})
+		console.log(res2);
+		//过滤
+		//有返回值，会形成新的数组
+		var res3 = arr.filter(function(value,index){
+			// return 10;
+			return value > 50;//返回一个表达式
+			// console.log(index,value);
+		})
+		console.log(res3);
+		//全真判断
+		//有返回值，返回值为布尔型
+		//有一个为假，则返回false，全部为真时，才返回true
+		var res4 = arr.every(function(value,index){
+			// return 10;
+			return value > 50;//返回一个表达式
+		})
+		console.log(res4);
+		//部分真判断
+		//有返回值，返回值为布尔型
+		//有一个为真，则返回true
+		var res4 = arr.some(function(value,index){
+			// return 10;
+			return value > 50;//返回一个表达式
+		})
+		console.log(res4);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

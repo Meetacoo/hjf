@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.20-DOM创建并追加元素</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oTxt = document.getElementById('txt');
+			var oBtn = document.getElementById('btn');
+			var oUli = document.getElementById('uli');
+			oBtn.onclick = function(){
+				var oLI = document.createElement('li');
+				oLI.innerHTML = oTxt.value;
+				//追加一个li
+				oUli.appendChild(oLI);
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" name="" id="txt">
+	<input type="button" name="" value="create" id="btn">
+	<ul id="uli">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>for循环</title>
+	<style type="text/css">
+		li{
+			width: 200px;
+			height: 200px;
+			margin-right: 10px;
+			float: left;
+			border: 1px solid #000;
+			list-style: none;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var aLi=document.getElementsByTagName('li');
+			aLi[1].style.backgroundColor='pink';//单一样式
+		}
+		window.onload=function(){
+			var aLi=document.getElementsByTagName('li');
+			for (var i = 0; i < aLi.length; i++) {
+				aLi[i].style.backgroundColor='pink';//总体设置样式
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

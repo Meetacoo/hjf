@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.02-事件-滚动条</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 500px;
+			height: 50px;
+			margin: 100px 0  0 100px;
+			border: 1px solid #000;
+			box-sizing: border-box;
+			position: relative;
+		}
+		#btn{
+			width: 48px;
+			height: 48px;
+			background-color: olive;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		#div1{
+			width: 0px;
+			height: 0px;
+			/*border: 1px solid #000;*/
+			background-color: orange;
+			margin-left: 100px;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			var oBtn = document.getElementById('btn');
+			var oDiv1 = document.getElementById('div1');
+			oBtn.onmousedown = function(ev){
+				var oEvent = ev || event;
+				disx = oEvent.clientX - oBtn.offsetLeft;
+				document.onmousemove = function(ev){
+					var oEvent = ev || event;
+					var l = oEvent.clientX - disx;
+					if (l < 0) {
+						l = 0;
+					} else if(l >= oBox.offsetWidth - oBtn.offsetWidth){
+						l = oBox.offsetWidth - oBtn.offsetWidth;
+					}
+					// console.log(l);
+					var scale = l / (oBox.offsetWidth - oBtn.offsetWidth);
+					console.log(scale);
+					oDiv1.style.width = 500 * scale + 'px';
+					oDiv1.style.height = 500 * scale + 'px';
+					oDiv1.style.opacity = scale;
+					oBtn.style.left = l + 'px';
+				}
+				document.onmouseup = function(){
+					document.onmousemove = null;
+					document.onmouseup = null;
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<div id="btn"></div>
+	</div>
+	<div id="div1"></div>
+</body>
+</html>

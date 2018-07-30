@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>18.05.20-05-闭包3-函数节流2-闭包和原型构建对象.html</title>
+	<script type="text/javascript">
+		/*
+		function Person(name,age) {
+			this.name = name;
+			this.age = age;
+		}
+		Person.prototype.showName = function() {
+			console.log('i am ' + this.name);
+		};
+		Person.prototype.showAge = function(){
+			console.log('i am '+ this.age + ' years old');
+		}
+		var P1 = new Person('Metara',20);
+		P1.showName();
+		P1.showAge();
+		*/
+		// function Person(name,age) {
+		// 	// this.name = name;
+		// 	// this.age = age;
+		// 	// console.log(Person);
+		// }
+		(function(w){
+			function Person(name,age){
+				this.name = name;
+				this.age = age;
+			}
+			Person.prototype = {
+				constructor:Person,
+				__proto__:Object.prototype,
+				name:this.name,
+				age:this.age,
+				showName:function(){
+					console.log('i am ' + this.name);
+				},
+				showAge:function(){
+					console.log('i am '+ this.age + ' years old');
+				}
+			}
+			w.Person = Person;
+		})(window);
+		var P1 = new Person('Metara',20);
+		P1.showName();
+		console.log(Person.prototype)
+	</script>
+</head>
+<body>
+
+</body>
+</html>

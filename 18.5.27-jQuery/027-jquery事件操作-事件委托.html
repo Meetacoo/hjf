@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>027-jquery事件操作-事件委托.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			// $('li').click(function(){
+			// 	console.log(this);
+			// 	alert(this);
+			// })
+			//事件委托方法
+			//用这种委托方法去做函数，创建的DOM或者jQuery对象也可以有事件，有this
+			$('ul').delegate('li','click',function(){
+				console.log(this);
+				alert($(this).html())
+			})
+			$('button').click(function(){
+				var $li = $('<li>创建一个li</li>');
+				$('ul').append($li);
+			})
+		})
+	</script>
+</head>
+<body>
+	<button>创建</button>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+</body>
+</html>

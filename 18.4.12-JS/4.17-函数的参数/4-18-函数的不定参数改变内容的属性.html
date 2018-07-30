@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4-18-函数的不定参数改变内容的属性.html</title>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			function css(obj,attr,value) {
+				// body...
+				// obj.style[attr] = value;
+				if (arguments.length == 2) {
+					// return getComputedStyle(obj,false)[attr];
+					//getComputedStyle(arguments[0].style[arguments[1]]);//必须要有 return ，不然用alert（css（））的方法调用不出来
+					 // return getComputedStyle(arguments[0].style[arguments[1]]);
+					 //加了return后，如果用alert（css（））的方法调用，getComputedStyle便不可以再使用了
+					 return arguments[0].style[arguments[1]];
+				} else {
+					//obj.style[attr] = value;
+					// getComputedStyle(arguments[0].style[arguments[1]] = arguments[2]);
+					// 此时getComputedStyle无意义，只是向里面加了一个参数，但不影响使用
+					arguments[0].style[arguments[1]] = arguments[2];
+				}
+			}
+			var oBtn1 = document.getElementById('btn1');
+			var oBtn2 = document.getElementById('btn2');
+			var oBtn3 = document.getElementById('btn3');
+			var oBox = document.getElementById('box');
+			oBtn1.onclick = function(){
+				css(oBox,'width','200px');
+			}
+			oBtn2.onclick = function(){
+				css(oBox,'width','300px');
+			}
+			oBtn3.onclick = function(){
+				// css(oBox,'width','200px');
+				//alert(getComputedStyle(oBox,false)['width']);//获取属性的格式，系统提供的
+				 alert(css(oBox,'width'));
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" name="" id="btn1" value="设置样式">
+	<input type="button" name="" id="btn2" value="设置宽度">
+	<input type="button" name="" id="btn3" value="获取样式">
+	<div id="box"></div>
+</body>
+</html>

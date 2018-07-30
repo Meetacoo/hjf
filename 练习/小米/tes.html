@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<style type="text/css">
+		.loading{
+			width: 4px;
+			height: 20px;
+			background-color: #ff6700;
+			margin: 20px auto;
+			position: relative;
+			transform: scale(1,1);
+			animation: loading 0.3s linear 0s infinite alternate-reverse; 
+		}
+		.loading:after,
+		.loading:before{
+			position: absolute;
+			content: '';
+			width: 4px;
+			height: 20px;
+			background-color: #ff6700;
+		}
+		.loading:before{
+			margin: 0 0 0 -10px; 
+			transform: scale(1,0.5);
+			animation: loading 0.3s linear 0.5s infinite alternate-reverse;
+		}
+		.loading:after{
+			margin: 0 0 0 10px; 
+			transform: scale(1,0.3);
+			animation: loading 0.3s linear 0.2s infinite alternate-reverse;
+		}
+		@keyframes loading{
+			from{
+				opacity: 0.2;
+				transform: scale(1,0.5);
+			}
+			to{
+				opacity: 1;
+				transform: scale(1,1);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="loading"></div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>021-jquery事件操作-绑定事件.html</title>
+	<style>
+		.box3{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+			background-color: orange;
+		}
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('.box3').click(function(){
+				alert('click');
+			})
+			$('.box3').mouseover(function(){
+				alert('mouseover');
+			})
+			$('.box3').on('mouseover',function(){
+				alert('mouseover');
+			})
+			/*
+			// 待定
+			function test(){
+				alert('test');
+				// console.log('aaa');
+			}
+			$('.box3').click(test());
+			*/
+			// 事件移除
+			// $('.box3').off();
+			$('.box3').off('click');
+			// $('.box3').off('click',test);
+		})
+	</script>
+</head>
+<body>
+	<div class="box3"></div>
+</body>
+</html>

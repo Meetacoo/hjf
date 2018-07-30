@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>2018.05.24-001-Ajax</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			var oBtn = document.getElementById('btn');
+			oBtn.onclick = function(){
+				// alert('aa');
+				//function ajax(method,url,data,fnSucc,fnFailed){
+					//1.客户端创建一个ajax对象
+					var oAjax = new XMLHttpRequest();//XHR
+					console.log('var oAjax:::',oAjax.readyState);
+					//2.用ajax对象和服务器建立连接
+					// oAjax.open(method,url,是否异步);
+					oAjax.open('GET','http://127.0.0.1:3000/test.txt',true);
+					// oAjax.open('GET','http://127.0.0.1:3000/test1.txt',true);
+					// oAjax.open('GET','http://127.0.0.1:3000/',true);
+					console.log('oAjax.open:::',oAjax.readyState);
+					//3.用ajax对象发送请求到服务端
+					oAjax.send();
+					console.log('oAjax.send:::',oAjax.readyState);
+					//4.用ajax对象接收服务端返回的数据
+					//即监听方法，返回数据
+					oAjax.onreadystatechange = function(){
+						console.log('oAjax.onreadystatechange:::',oAjax.readyState);
+						if (oAjax.readyState == 4) {//数据完全返回
+							// console.log('oAjax.status:::',oAjax.status);// 得到的状态码是server中自己设置的res.statusCode
+							// console.log('get data:::',oAjax.responseText);
+							// responseText返回一个TXT，打印出来为oAjax.open()中URL的文件内容
+							// readyState有四种状态
+							// 0 还没有初始化
+							// 1 已经初始化，但是还没有调用open方法
+							// 2 send方法已经调用
+							// 3 返回了部分数据
+							// 4 数据完全返回
+							if (oAjax.status == 200) {
+								console.log('get data sucess::',oAjax.responseText);
+							}else{
+								console.log('get data failed::',oAjax.status);
+							}
+						}
+					}
+				}
+			//}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="btn" value="获取数据" name="">
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>008-jquery对象的其他静态方法-holdReady.html</title>
+</head>
+<body>
+	<button>恢复</button>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	var oBtn = document.getElementsByTagName('button')[0];
+	//停止执行下面的函数
+	$.holdReady(true);
+	$(function(){
+		alert('执行');
+	})
+	//释放
+	oBtn.onclick = function(){
+		$.holdReady(false);
+	}
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.20-关闭定时器.html</title>
+	<script type="text/javascript">
+		window.onload = function (){
+			var oBtn1 = document.getElementById('open');
+			var oBtn2 = document.getElementById('close');
+			var timer = null;
+			oBtn1.onclick = function(){
+				/*timer = setTimeout(function(){
+					console.log('aaa');
+				},1000);*/
+				timer = setInterval(function(){
+					console.log('aaa');
+				},1000);
+			}
+			oBtn2.onclick = function(){
+				//clearTimeout(timer);
+				clearInterval(timer);
+				console.log('close timeout');
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="open" value="开启" name="">
+	<input type="button" id="close" value="關閉" name="">
+</body>
+</html>

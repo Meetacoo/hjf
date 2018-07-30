@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.20-DOM创建并删除元素.html</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			var oBtn = document.getElementById('btn');
+			var oTxt = document.getElementById('txt');
+			oBtn.onclick = function(){
+				var oLi = document.createElement('li');
+				oLi.innerHTML = oTxt.value;
+				var oA = document.createElement('a');
+				oA.href = "javascript:;"
+				// oA.content = 'del';
+				oA.innerHTML = 'del';
+				oLi.appendChild(oA);
+				oA.onclick = function(){
+					// oBox.removeChild(oLi);
+					oBox.removeChild(this.parentNode);
+				}
+				oBox.appendChild(oLi);
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="txt" name="">
+	<input type="button" id="btn" name="" value="点一下">
+	<ul id="box">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+</body>
+</html>

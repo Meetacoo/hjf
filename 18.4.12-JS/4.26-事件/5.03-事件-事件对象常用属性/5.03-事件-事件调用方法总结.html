@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.03-事件-事件调用方法总结.html</title>
+	<style type="text/css">
+		div{
+			width: 300px;
+			height: 300px;
+			border: 1px solid #000;
+		}
+	</style>
+	<script type="text/javascript">
+		function show(){
+			alert(2);
+		}
+		window.onload = function(){
+			var oDiv1 = document.getElementById('div1');
+			/*oDiv1.onclick = function(){
+				alert(3);
+			}*/
+			//只能调取最后一个，代码覆盖
+			/*oDiv1.onclick = function(){
+				alert(4);
+			}
+			alert(5);*/
+
+			//时间绑定
+			oDiv1.addEventListener('click',function(ev){
+				alert(7);
+			},false);
+			oDiv1.addEventListener('click',function(ev){
+				alert(8);
+			},false);
+			/*
+			//移除不掉匿名函数，只能移除掉有名字的函数
+			oDiv1.removeEventListener('click',function(){
+				alert(7);
+			},false);
+			*/
+			function show(){
+				alert(9);
+			};
+			//先绑定，后移除
+			oDiv1.addEventListener('click',show,false);
+			oDiv1.removeEventListener('click',show,false);
+		}
+		//只能调取最后一个，代码覆盖
+		/*
+		window.onload = function(){
+			alert(6);
+		}
+		*/
+	</script>
+</head>
+<body>
+	<!-- <div onclick = 'alert(1)'></div> -->
+	<!-- <div onclick = 'show()'></div> -->
+	<div id="div1"></div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.27-事件-拖拽碰撞检测.html</title>
+	<style type="text/css">
+		#box1{
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		#box2{
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+			position: absolute;
+			left: 600px;
+			top: 200px;
+		}
+	</style>
+	<script type="text/javascript">
+		// 封装检测碰撞函数
+		function checkCrash(obj1,obj2){
+			if (((obj1.offsetTop+obj1.offsetHeight)>obj2.offsetTop) && 
+				((obj1.offsetLeft+obj1.offsetWidth)>obj2.offsetLeft) && 
+				((obj2.offsetTop+obj2.offsetHeight)>obj1.offsetTop) && 
+				((obj2.offsetLeft+obj2.offsetWidth)>obj1.offsetLeft)) 
+			{
+				// obj2.style.backgroundColor = 'skyblue';
+				return true;
+			} else {
+				// obj2.style.backgroundColor = 'pink';
+				return false;
+			}
+		}
+		window.onload = function(){
+			var oBox1 = document.getElementById('box1');
+			var oBox2 = document.getElementById('box2');
+			var disX = 0;
+			var disY = 0;
+			oBox1.onmousedown = function(ev){
+				var oEvent = ev || event;
+				disX = (oEvent.clientX - oBox1.offsetLeft);
+				disY = (oEvent.clientY - oBox1.offsetTop);
+				document.onmousemove = function(ev){
+					var oEvent = ev || event;
+					oBox1.style.left = oEvent.clientX - disX + 'px';
+					oBox1.style.top = oEvent.clientY - disY + 'px';
+
+					/*
+					if (((oBox1.offsetTop+oBox1.offsetHeight)>oBox2.offsetTop) && 
+						((oBox1.offsetLeft+oBox1.offsetWidth)>oBox2.offsetLeft) && 
+						((oBox2.offsetTop+oBox2.offsetHeight)>oBox1.offsetTop) && 
+						((oBox2.offsetLeft+oBox2.offsetWidth)>oBox1.offsetLeft)) 
+					{
+						oBox2.style.backgroundColor = 'skyblue';
+					} else {
+						oBox2.style.backgroundColor = 'pink';
+					}
+					*/
+
+					if (checkCrash(oBox1,oBox2)) {
+						oBox2.style.backgroundColor = 'skyblue';
+					} else {
+						oBox2.style.backgroundColor = 'pink';
+					}
+				}
+				document.onmouseup = function(){
+					document.onmousemove = null;
+					document.onmouseup = null;
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box1"></div>
+	<div id="box2"></div>
+</body>
+</html>

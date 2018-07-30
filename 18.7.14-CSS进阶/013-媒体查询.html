@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>013-媒体查询</title>
+	<link rel="stylesheet" href="css/005-mediaSearch.css" media="screen and (max-width: 500px)">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		/*width, 浏览器窗口的宽度,可以有min/max前缀*/
+		/*最小宽度*/
+		/* @media screen and (min-width:320px){
+ 			body{
+ 				background: skyblue;
+ 			}
+ 			h1{
+ 				color: orange;
+ 			}
+ 		} */
+ 		/*最大宽度*/
+		/* @media screen and (max-width:320px){
+ 			body{
+ 				background: skyblue;
+ 			}
+ 			h1{
+ 				color: orange;
+ 			}
+ 		} */
+		/*大于最小宽度小于最大宽度*/
+		/* @media screen and (min-width:320px) and (max-width:960px){
+			body{
+				background: skyblue;
+			}
+			h1{
+				color: orange;
+			}
+		} */
+		/*orientation,移动设备窗口的方向,portrait(纵向),landscape(横向)*/
+		/*纵向*/
+		/* @media screen and (orientation: portrait){
+			body{
+				background: skyblue;
+			}
+			h1{
+				color: orange;
+			}
+		} */
+		/*横向*/
+		/*@media screen and (orientation: landscape){
+			body{
+				background: skyblue;
+			}
+			h1{
+				color: orange;
+			}
+		}*/
+		/*device-width,分辨率宽度,可以有min/max前缀*/
+		/*@media screen and (device-width:320px) and (orientation: portrait){
+			body{
+				background: skyblue;
+			}
+			h1{
+				color: orange;
+			}
+		} */
+	</style>
+</head>
+<body>
+	<h1>媒体类型</h1>
+</body>
+</html>

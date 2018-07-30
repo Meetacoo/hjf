@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>014-jquery对象如何操作-原生js.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1" id="box1"></div>
+</body>
+
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	var oDiv = document.getElementById('box1');
+	
+	//原生js获取属性
+	console.log(oDiv.getAttribute('id'));
+	console.log(oDiv.id);
+	console.log(oDiv['id']);
+
+	//原生js设置属性
+	oDiv.setAttribute('name','aaa');
+	oDiv.name = 'bbb';
+	oDiv['name'] = 'ccc';
+	
+	//原生js删除属性
+	//可删除自定义
+	oDiv.removeAttribute('name');
+</script>
+</html>

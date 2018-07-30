@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4-27-事件-键盘事件-左右键移动物体.html</title>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+			/*position: absolute;*/
+			/*left: 0;
+			top: 0;*/
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			window.onkeydown = function(ev){
+				var oEvent = ev || event;
+				console.log(oEvent.keyCode);
+				if (oEvent.keyCode == 37) {
+					oBox.style.marginLeft = oBox.offsetLeft - 10 + 'px';
+				} else if(oEvent.keyCode == 39){
+					oBox.style.marginLeft = oBox.offsetLeft + 10 + 'px';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

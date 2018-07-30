@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Json语言用for-in循环执行</title>
+	<script type="text/javascript">
+		var arr = [11,22,33,44];
+		var obj = {
+			a:1,
+			b:2,
+			c:3,
+			d:4
+		}
+		// console.log(obj);
+		// console.log(arr);
+		// console.log(obj.b);
+		// console.log(obj['c']);
+		// console.log(arr.length);
+		/*console.log(obj.length);
+		Json语言中没有length，所以输不出来*/
+		for( key in obj){
+			console.log(key);
+			console.log(obj[key]);
+		}
+		for( i in arr){
+			console.log(arr[i]);
+			console.log(i);
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

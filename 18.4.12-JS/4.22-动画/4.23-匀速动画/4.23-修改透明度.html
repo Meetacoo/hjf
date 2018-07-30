@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.23-修改透明度.html</title>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+			opacity: 0.3;
+		}
+	</style>
+	<script type="text/javascript">
+		var timer = null;
+		function animotion(obj,attr,iTarget){
+			clearInterval(timer);
+			var iSpeed = 0;
+			timer = setInterval(function(){
+				var curr = parseFloat(getComputedStyle(obj,false)[attr]);
+				if (iTarget < curr) {
+					iSpeed = -0.1;
+				} else {
+					iSpeed = 0.1;
+				}
+
+				if (Math.abs(iTarget - curr) <= Math.abs(iSpeed)) {
+					clearInterval(timer);
+					obj.style.opacity = iTarget;
+				} else {
+					obj.style.opacity = curr*1 + iSpeed;
+				}
+			},30);
+		}
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			
+			oBox.onmouseover = function(){
+				// oBox.style.opacity = 1;
+				animotion(this,'opacity',1);
+			}
+			oBox.onmouseout = function(){
+				animotion(this,'opacity',0.3);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

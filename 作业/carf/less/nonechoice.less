@@ -1,0 +1,30 @@
+@rem: 32;
+@border-color: #aaa;
+@col: #fe002b;
+
+.rem(@attr,@px1){
+	@{attr}: unit(@px1 / @rem, rem);
+}
+.rem(@attr,@px1,@px2){
+	@{attr}: unit(@px1 / @rem, rem) unit(@px2 / @rem, rem);
+}
+.rem(@attr,@px1,@px2,@px3){
+	@{attr}: unit(@px1 / @rem, rem) unit(@px2 / @rem, rem) unit(@px3 / @rem, rem);
+}
+.rem(@attr,@px1,@px2,@px3,@px4){
+	@{attr}: unit(@px1 / @rem, rem) unit(@px2 / @rem, rem) unit(@px3 / @rem, rem) unit(@px4 / @rem, rem);
+}
+.selfRun .nocheck:before,
+.main .main-check .nocheck:before,
+.footer .nocheck:before{
+	color: #fff;
+	border: 2px solid #9e9e9e;
+	.rem(border-radius,50%);
+}
+.footer .footer-go,
+.footer .footer-go .go-account,
+.footer .footer-go .go-num
+{
+	background: #d7d7d7;
+	color: #999;
+}

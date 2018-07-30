@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>2018.05.24-001-Ajax</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			var oBtn = document.getElementById('btn');
+			var oUl = document.getElementById('box');
+			oBtn.onclick = function(){
+				var oAjax = new XMLHttpRequest();//XHR
+				console.log('var oAjax:::',oAjax.readyState);
+				oAjax.open('GET','http://127.0.0.1:3000/s?name=Meta&age=20',true);
+				console.log('oAjax.open:::',oAjax.readyState);
+				//3.用ajax对象发送请求到服务端
+				oAjax.send();
+				console.log('oAjax.send:::',oAjax.readyState);
+				//4.用ajax对象接收服务端返回的数据
+				//即监听方法，返回数据
+				oAjax.onreadystatechange = function(){
+					console.log('oAjax.onreadystatechange:::',oAjax.readyState);
+					if (oAjax.readyState == 4) {
+						if (oAjax.status == 200) {
+							console.log('get data sucess::',oAjax.responseText);
+						}else{
+							console.log('get data failed::',oAjax.status);
+						}
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="btn" value="获取数据" name="">
+	<!-- <ul id="box"></ul> -->
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.20-延迟菜单.html</title>
+	<style type="text/css">
+		#left-box{
+			width: 100px;
+			height: 50px;
+			background-color: pink;
+			float: left;
+		}
+		#right-box{
+			width: 300px;
+			height: 300px;
+			background-color: skyblue;
+			float: left;
+			margin-left: 20px;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function (){
+			var oLeft = document.getElementById('left-box');
+			var oRight = document.getElementById('right-box');
+			var timer = null;
+			oLeft.onmouseover = function(){
+				clearTimeout(timer);
+				oRight.style.display = 'block';
+			}
+			oLeft.onmouseout = function(){
+				timer = setTimeout(function(){
+					oRight.style.display = 'none';
+				},400);
+				// oRight.style.display = 'none';
+			}
+			oRight.onmouseout = function(){
+				// oRight.style.display = 'none';
+				timer = setTimeout(function(){
+					oRight.style.display = 'none';
+				},400);
+			}
+			oRight.onmouseover = function(){
+				clearTimeout(timer);
+				oRight.style.display = 'block';
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="left-box"></div>
+	<div id="right-box"></div>
+</body>
+</html>

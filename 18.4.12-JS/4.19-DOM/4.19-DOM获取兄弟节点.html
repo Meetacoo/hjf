@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.19-DOM获取兄弟节点.html</title>
+	<script type="text/javascript">
+		window.onload = function (){
+		var oInbox = document.getElementById('inbox');
+		console.log(oInbox.nextSibling);
+		console.log(oInbox.previousSibling);
+		console.log(oInbox.nextElementSibling);
+		oInbox.nextElementSibling.style.color = 'pink';
+		console.log(oInbox.previousElementSibling);
+		}
+		oInbox.previousElementSibling.style.color = 'green';
+	</script>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li id="inbox">2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+</html>

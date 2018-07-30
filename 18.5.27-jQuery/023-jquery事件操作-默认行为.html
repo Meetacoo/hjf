@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>023-jquery事件操作-默认行为.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('a').click(function(ev){
+				// return false;
+				ev.preventDefault();
+			})
+			$('input').eq(1).click(function(ev){
+				// return false;
+				ev.preventDefault();
+			})
+		})
+	</script>
+</head>
+<body>
+	<a href="https://www.baidu.com">zou</a>
+	<form action="https://www.baidu.com">
+		<input type="text" value="input">
+		<input type="submit" value="提交">
+	</form>
+</body>
+</html>

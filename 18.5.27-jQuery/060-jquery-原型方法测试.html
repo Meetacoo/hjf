@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>060-jquery-原型方法测试.html</title>
+	<script src="myjs/myQuery-1.0.0.js"></script>
+	<!-- <script src="js/jquery-1.12.4.js"></script> -->
+	<script>
+		$(function(){
+			var aLi = document.getElementsByTagName('li');
+			// console.log($('li').html());
+			// console.log($('li').html('hhh'));
+			// console.log($('li').html('<p>段落</p>'));
+			// console.log($('li').text());
+			// console.log($('li').text('hhh'));
+			console.log($('li').text('<p>段落</p>'));
+		})
+	</script>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+</body>
+</html>

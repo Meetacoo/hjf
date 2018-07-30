@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>029-canvas-drawCurve</title>
+	<style>
+		#canvas{
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="600" id="canvas"></canvas>
+</body>
+<script>
+	// 获取画布
+	var oCanvas = document.getElementById('canvas');
+	// 获取画布 2d 环境
+	var ctx = oCanvas.getContext('2d');
+	ctx.beginPath();
+	ctx.lineWidth = 6;
+	ctx.strokeStyle = "#333";
+	ctx.beginPath();
+	ctx.moveTo(200,200);
+	ctx.quadraticCurveTo(388,88,300,300);
+	ctx.stroke();
+
+</script>
+</html>

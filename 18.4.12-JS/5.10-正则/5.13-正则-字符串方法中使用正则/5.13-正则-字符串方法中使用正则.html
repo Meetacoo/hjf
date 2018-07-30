@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.13-正则-字符串方法中使用正则</title>
+	<script type="text/javascript">
+		var str = 'abcdefe';
+		var str1 = 'a b c d e';
+		var str2 = 'a1b2c3d4e';
+		var str3 = '2018-05-13';
+		var reg = /e/;
+		//找到对应字符的下标，只能匹配到第一个
+		console.log(str.search(/e/g));
+		console.log(str.search([6]));
+		//返回一个数组，非全局下匹配结果与exec方法一致
+		console.log(str.match(/e/));
+		console.log(reg.exec(str));
+		//全局变量下返回结果仍然为数组，但是没有index/groups/input
+		console.log(str.match(/e/g));
+		console.log(str3.match(/\d{4}-\d{2}-\d{2}/g));
+		//非全局模式下返回分组
+		console.log(str3.match(/(\d{4})-(\d{2})-(\d{2})/));
+		// console.log(str1.split(' '));
+		// console.log(str2.split(/\d/));
+		// console.log(str2.replace(/\d/g,'*'));
+		console.log(str2.replace(/\d/g,function(match){
+			// console.log(match);
+			return match * 1 + 1;
+		}));
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

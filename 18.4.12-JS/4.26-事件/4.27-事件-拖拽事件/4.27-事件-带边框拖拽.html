@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.27-事件-带边框拖拽.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		.box{
+			border: 1px dashed #000;
+			position: absolute;
+			box-sizing: border-box;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			var disX = 0;
+			var disY = 0;
+			oBox.onmousedown = function(ev){
+				var oEvent = ev || event;
+				disX = (oEvent.clientX - oBox.offsetLeft);
+				disY = (oEvent.clientY - oBox.offsetTop);
+
+				//当拖动时动态添加边框
+				var oBd = document.createElement('div');
+				oBd.className = 'box';
+				oBd.style.width = oBox.offsetWidth + 'px';
+				oBd.style.height = oBox.offsetHeight + 'px';
+
+				oBd.style.left = oBox.offsetLeft + 'px';
+				oBd.style.top = oBox.offsetTop + 'px';
+
+				document.body.appendChild(oBd);
+
+				document.onmousemove = function(ev){
+					var oEvent = ev || event;
+					oBd.style.left = oEvent.clientX - disX + 'px';
+					oBd.style.top = oEvent.clientY - disY + 'px';
+				}
+				document.onmouseup = function(){
+					document.onmousemove = null;
+					document.onmouseup = null;
+					oBox.style.left = oBd.offsetLeft + 'px';
+					oBox.style.top = oBd.offsetTop + 'px';
+					document.body.removeChild(oBd);
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.13-表单脚本-表单验证案例2.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		label{
+			color: #666;
+			font-size: 13px;
+			font-weight: bold;
+		}
+		#password-box label{
+			margin-left: 13px;
+		}
+		.common{
+			width: 350px;
+			height: 40px;
+			padding-left: 10px;
+			box-sizing: border-box;
+			color: #757575;
+		}
+		.box{
+			position: relative;
+			height: 40px;
+		}
+		.cancel{
+			background: url(images/reg_icons.png) -32px -24px no-repeat;
+			position: absolute;
+			top: 12px;
+			left: 365px;
+			width: 16px;
+			height: 16px;
+			cursor: pointer;
+		}
+		.cancel:hover{
+			background-position: -48px -24px;
+		}
+		#verify{
+			width: 180px;
+			height: 40px;
+			margin-right: 5px;
+			padding-left: 10px;
+			box-sizing: border-box;
+			color: #757575;
+		}
+		#verify-box .cancel{
+            left: 200px;
+        }
+		#smsBtn{
+			width: 160px;
+			height: 40px;
+			color: #666;
+			background-color: #f7f7f7;
+		}
+		div{
+			margin-top: 22px;
+		}
+		#reg{
+			/*width: 800px;*/
+			height: 340px;
+			margin-left: 310px;
+			margin-top: 100px;
+		}
+		.msg{
+			font-size: 12px;
+			color: #999;
+			display: none;
+		}
+		#checkbox{
+			width: 12px;
+			height: 12px;
+		}
+		button,input{
+			font-size: 14px;
+			border: 1px solid #ddd;
+		}
+		#subBtn:focus{
+			border: 0px;
+		}
+		#smsBtn:hover{
+			background-color: #eee;
+		}
+		
+		input:focus{
+			border: none;
+			border: 1px solid #488ee7;
+			outline: 0;
+		}
+		#smsBtn:focus{
+			border: 1px solid #ddd;
+			outline: 0;
+		}
+		a{
+			text-decoration: none;
+			color: #1b66c7;
+			font-size: 11px;
+		}
+		#acpt{
+			font-size: 11px;
+			vertical-align: 2px;
+			font-weight: normal;
+		}
+		#subBtn,#acpt-box{
+			margin-left: 45px;
+		}
+		#subBtn{
+			width: 350px;
+			height: 50px;
+			background-color: #3f89ec;
+			color: #fff;
+			border: none;
+			border-radius: 3px;
+			font-size: 16px;
+		}
+		#subBtn:hover{
+			background: #4490f7;
+		}
+		.err,.msgF,.msgP{
+			font-size: 11px;
+			display: block;
+			position: relative;
+			left: 400px;
+			top: -40px;
+		}
+		.err{
+			color: #fc4343;
+			padding-left: 20px;
+			margin-top: 10px;
+			/*height: 16px;*/
+			background: url(images/reg_icons.png) -80px -23px no-repeat;
+		}
+		.msgF{
+			color: #999;
+			line-height: 18px;
+		}
+		.msgP{
+			color: #999;
+			line-height: 40px;
+		}
+		.ok {
+			display: inline-block;
+			position: relative;
+			top: 2px;
+			width: 16px;
+			height: 16px;
+			line-height: 12px;
+			left: 0px;
+			background: url(images/reg_icons.png) -80px 0 no-repeat;
+		}
+		#username-box .tiptext{
+			line-height: 18px;
+			width: 250px;
+			float: left;
+        }
+		#pwdChecklist{
+			padding: 5px 10px;
+			border: 1px solid #ddd;
+			box-shadow: 1px 1px 1px #efefef;
+			background: #f9f9f9;
+			width: 200px;
+			font-size: 12px;
+			position: absolute;
+			top: -22px;
+			left: 410px;
+        }
+		.pwd-checklist li{
+			list-style: none;
+        }
+		.pwd-checklist .pwd-checklist-item-success {
+			background-position: -86px -128px;
+        }
+		.pwd-checklist  .pwd-checklist-item-error {
+			color: rgb(252, 67, 67);
+			background-position: -86px -144px;
+		}
+		.pwd-checklist-item {
+			line-height: 20px;
+			padding-left: 18px;
+			background: url(images/reg_icons.png) no-repeat -86px -112px;
+			color: #666;
+		}
+		.pwd-checklist-arrow{
+			width: 14px;
+			height: 14px;
+			background: #f9f9f9;
+			position: absolute;
+			top: 12px;
+			left: -8px;
+			transform: rotateZ(45deg);
+			border-bottom: 1px solid #ddd;
+			border-left: 1px solid #ddd;       
+        }
+		#agree-box{
+			font-size: 12px;
+		}
+		#agree-box a{
+			text-decoration: none;
+			vertical-align: 2px;
+		}
+		#agree-box a:hover{
+			text-decoration: underline;
+		}
+		#agree-box label{
+			vertical-align: 2px;
+			display: inline;
+			font-size: 12px;
+			color: #666;
+			font-weight: normal;
+		}
+		#agree-box input{
+			width: 20px;
+			margin: 1px 0px 0px 42px;
+		}
+		#agree-box .msg{
+			float: none;
+			top: 0;
+			color: #fc4343;
+		}
+		#agree-box .fonta{
+			vertical-align: 2px;
+		}
+	</style>
+	<script type="text/javascript">
+		function getLen(str){
+			return str.replace(/[\u4e00-\u9fa5]/g,'aa').length;
+		}
+		function setErr(oMsg,sMsg,oInput){
+			oMsg.className = 'err';
+			oMsg.innerHTML = sMsg;
+			oInput.style.borderColor = '#fc4343';
+		}
+		function setOk(oMsg,oInput){
+			oMsg.className = 'ok';
+			oMsg.innerHTML = '';
+			oInput.style.borderColor = '#ddd';
+		}
+		window.onload = function () {
+			var oForm = document.forms[0];
+			var oUserName = oForm.username;
+			var oPhone = oForm.phone;
+			var oPwd = oForm.pwd;
+			var oPwdCheckList = document.getElementById('pwdChecklist');
+			var aPwdCheckListLi = document.getElementsByTagName('li');
+			var oVerify = oForm.verify;
+			var oIsAgree = oForm.isAgree;
+			var oSmsBtn = document.getElementById('smsBtn');
+			var oSubBtn = document.getElementById('subBtn');
+			var aCancel = document.querySelectorAll('.cancel');
+			var aMsg = document.querySelectorAll('.msg');
+
+			//全局验证位
+			var bUserName = false;
+			var bPhone = false;
+			var bPwd = false;
+			var bVerify = false;
+			var bChecked = false;
+			init();
+			checkUserName();
+			checkPhone();
+			checkPwd();
+			checkVerify();
+			handleSub();
+			//初始化
+			function init(){
+				oUserName.focus();
+				oUserName.style.className = 'focus';
+				aMsg[0].className = 'msgF';
+				aMsg[0].innerHTML = '设置后不可更改<br>中英文均可,最长14个英文或7个汉字';
+				//通过事件冒泡委托父元素处理添加取消按钮功能
+				oForm.oninput = function(ev){
+					var oEvent = ev || event;
+					var oInput = oEvent.target;
+					var oCancel = oInput.nextElementSibling;
+					// console.log(oCancel);
+					// console.log(oInput);
+					if (oCancel.name == 'read') {
+						return false;
+						// console('a')；
+						if (oInput.value.length>0) {
+							console.log(oCancel)
+							oCancel.style.display = 'block';
+						} 
+						else {
+							oCancel.style.display = 'none';
+						}
+					}
+				}
+				//通过事件冒泡委托父元素处理添加取消按钮功能
+				oForm.onclick = function(ev){
+					var oEvent = ev || event;
+					var oSpan = oEvent.target;
+					/*
+					//方法一,有缺点
+					var oInput = oSpan.previousElementSibling;
+					console.log(oInput);
+					// var oCancel = oInput.nextElementSibling;
+					//oInput拿出来可能是null，所以要首先保证oInput存在
+					if (oInput && (oInput.name == 'username' || oInput.name == 'phone' || oInput.name == 'pwd' || oInput.name == 'verify')) {
+						oInput.value = '';
+						oInput.focus();
+						oSpan.style.display = 'none';
+					}
+					*/
+					//方法二
+					var sInput = oSpan.dataset.obj;
+					console.log(sInput);
+					if (sInput == 'username' || sInput == 'phone' || sInput == 'pwd' || sInput == 'verify') {
+						oForm[sInput].value = '';
+						oForm[sInput].focus();
+						oSpan.style.display = 'none';
+					}
+				}
+			}
+
+			//验证用户名
+			function checkUserName(){
+				/*
+				//监听用户名的输入事件
+				oUserName.oninput = function(){
+					if (oUserName.value.length>0) {
+						aCancel[0].style.display = 'block';
+					} else {
+						aCancel[0].style.display = 'none';
+					}
+				}
+				*/
+
+				//监听获取焦点事件
+				oUserName.onfocus = function(){
+					oUserName.style.className = 'focus';
+					aMsg[0].className = 'msgF';
+					aMsg[0].innerHTML = '设置后不可更改<br>中英文均可,最长14个英文或7个汉字';
+					oUserName.style.borderColor = '#488ee7';
+				}
+				//监听用户名的失去焦点事件
+				oUserName.onblur = function(){
+					aMsg[0].className = 'msg';
+					oUserName.style.borderColor = '#ddd';
+					var sVal = oUserName.value;
+					var reg1 = /[^\u4e00-\u9fa5|a-z|0-9_]/;
+					var reg2 = /^\d+$/;
+					var reg3 = /^\s+$/;
+
+					if(sVal == ''){
+						bUserName = false;
+						// aMsg[0].style.display = 'none';
+					}
+					else if (getLen(sVal)>14) {
+						setErr(aMsg[0],'用户名不能超过7个汉字或14个字符',oUserName);
+						bUserName = false;
+					} 
+					else if(reg3.test(sVal)){
+						setErr(aMsg[0],'请输入用户名',oUserName);
+						bUserName = false;
+					}
+					//用户名仅支持中英文、数字和下划线,且不能为纯数字
+					else if(reg1.test(sVal) || reg2.test(sVal)) {
+						setErr(aMsg[0],'用户名仅支持中英文、数字和下划线,且不能为纯数字',oUserName);
+						bUserName = false;
+					}else{
+						/*
+						aMsg[0].className = 'ok';
+						aMsg[0].innerHTML = '';
+						oUserName.style.borderColor = '#ddd';
+						*/
+						setOk(aMsg[0],oVerify);
+						bUserName = true;
+					}
+				}
+
+				/*
+				//监听用户名的取消事件
+				aCancel[0].onclick = function(){
+					oUserName.value = '';
+					oUserName.focus();
+					aCancel[0].style.display = 'none';
+				}
+				*/
+				// console.log(aMsg);
+			}
+			
+			//验证手机
+			function checkPhone(){
+				/*
+				//监听手机的输入事件
+				oPhone.oninput = function(){
+					if (oPhone.value.length>0) {
+						aCancel[1].style.display = 'block';
+					} else {
+						aCancel[1].style.display = 'none';
+					}
+				}
+				*/
+
+				//监听获取焦点事件
+				oPhone.onfocus = function(){
+					oPhone.style.className = 'focus';
+					aMsg[1].className = 'msgP';
+					aMsg[1].innerHTML = '请输入中国大陆手机号,其他用户不可见';
+					aMsg[1].className.top = '10px';
+					oPhone.style.borderColor = '#488ee7';
+				}
+				//监听手机的失去焦点事件
+				oPhone.onblur = function(){
+					aMsg[1].className = 'msg';
+					oPhone.style.borderColor = '#ddd';
+					var sVal = oPhone.value;
+					var reg1 = /^\s+$/;
+					var reg2 = /^1[35789]\d{9}$/;
+
+					if(sVal == ''){
+						// aMsg[0].style.display = 'none';
+						bPhone = false;
+					}
+					else if(reg1.test(sVal)){
+						setErr(aMsg[1],'请您输入手机号',oPhone);
+						bPhone = false;
+					}
+					else if(!reg2.test(sVal)){
+						setErr(aMsg[1],'手机号码格式不正确',oPhone);
+						bPhone = false;
+					}
+					else{
+						/*
+						aMsg[1].className = 'ok';
+						aMsg[1].innerHTML = '';
+						oPhone.style.borderColor = '#ddd';
+						*/
+						setOk(aMsg[1],oVerify);
+						bPhone = true;
+					}
+				}
+
+				/*
+				//监听手机的取消事件
+				aCancel[1].onclick = function(){
+					oPhone.value = '';
+					oPhone.focus();
+					aCancel[1].style.display = 'none';
+				}
+				console.log(aMsg);
+				*/
+			}
+
+			//验证密码
+			function checkPwd(){
+				var sSucc = 'pwd-checklist-item pwd-checklist-item-success';
+				var sErr = 'pwd-checklist-item pwd-checklist-item-error';
+				var bPwd1 = false;
+				var bPwd2 = false;
+				var bPwd3 = false;
+				oPwd.onfocus = function(){
+					oPwd.style.className = 'focus';
+					aMsg[2].className = 'msgP';
+					oPwdCheckList.style.display = 'block';
+					oPwd.style.borderColor = '#488ee7';
+				}
+				oPwd.oninput = function(){
+					var sVal = oPwd.value;
+					//长度为6~14个字符
+					var reg1 = /^.{6,14}$/;
+					//支持数字,大小写字母和标点符号
+					var reg2 = /[^0-9a-z\^\$\%\*\?\[\]\#\(\)]/i;
+					//不允许有空格
+					var reg3 = /\s/;
+					if(reg1.test(sVal)){
+						aPwdCheckListLi[0].className = sSucc;
+						bPwd1 = true;
+					}else{
+						aPwdCheckListLi[0].className = sErr;
+						bPwd1 = false;
+					}
+
+					if(reg2.test(sVal)){
+						aPwdCheckListLi[1].className = sErr;
+						bPwd2 = false;
+					}else{
+						aPwdCheckListLi[1].className = sSucc;
+						bPwd2 = true;
+					}
+					
+					if(reg3.test(sVal)){
+						aPwdCheckListLi[2].className = sErr;
+						bPwd3 = false;
+					}else{
+						aPwdCheckListLi[2].className = sSucc;
+						bPwd3 = true;
+					}
+				}
+				oPwd.onblur = function(){
+					aMsg[2].className = 'msg';
+					oPwd.style.borderColor = '#ddd';
+					if(bPwd1 && bPwd2 && bPwd3){
+						oPwdCheckList.style.display = 'none';
+						/*
+						aMsg[2].className = 'ok';
+						aMsg[2].innerHTML = '';
+						oPwd.style.borderColor = '#ddd';
+						*/
+						setOk(aMsg[2],oVerify);
+						bPwd = true;
+					}else{
+						bPwd = false;
+					}
+					if (oPwd.value == '') {
+						oPwdCheckList.style.display = 'none';
+						bPwd = false;
+					}
+				}
+				aCancel[2].onclick = function(){
+					//不然会默认正确
+					var bPwd1 = false;
+					var bPwd2 = false;
+					var bPwd3 = false;
+					for (var i = 0; i < aPwdCheckListLi.length; i++) {
+						aPwdCheckListLi[i].className = 'pwd-checklist-item';
+					}
+				}
+			}
+
+			//验证验证码
+			function checkVerify(){
+				oSmsBtn.onclick = function(){
+					if(oPhone.value == ''){
+						setErr(aMsg[1],'请您输入手机号',oPhone);
+					}
+					if (!bPhone) {
+						return false;
+					}
+					console.log('get sms...')
+					// to do .....get sms获取验证码
+				}
+				oVerify.onfocus = function(){
+					oVerify.style.className = 'focus';
+					oVerify.style.borderColor = '#488ee7';
+				}
+				oVerify.onblur = function(){
+					aMsg[3].className = 'msg';
+					oVerify.style.borderColor = '#ddd';
+
+					if (oVerify.value.length != 6) {
+						setErr(aMsg[3],'验证有误',oVerify);
+						bVerify = false;
+					}else{
+						/*
+						aMsg[3].className = 'ok';
+						aMsg[3].innerHTML = '';
+						oVerify.style.borderColor = '#ddd';
+						*/
+						setOk(aMsg[3],oVerify);
+						bVerify = true;
+					}
+					if (oVerify.value == '') {
+						bVerify = false;
+						oVerify.style.borderColor = '#ddd';
+						aMsg[3].className = 'msg';
+					}
+				}
+			}
+
+			//提交
+			function handleSub(){
+				oSubBtn.onclick = function(){
+					if (oUserName.value == '') {
+						setErr(aMsg[0],'请您输入用户名',oUserName);
+					}
+					if (oPhone.value == '') {
+						setErr(aMsg[1],'请您输入手机号',oPhone);
+					}
+					if (oPwd.value == '') {
+						setErr(aMsg[2],'请输入密码',oPwd);
+					}
+					if (oVerify.value == '') {
+						setErr(aMsg[3],'请您输入验证码',oVerify);
+					}
+					if (!oIsAgree.checked) {
+						// setErr(aMsg[4],'请勾选“阅读并接受百度用户协议”',oIsAgree);
+						aMsg[4].style.display = 'inline';
+					}else{
+						aMsg[4].style.display = 'none';
+					}
+					if (bUserName && bPhone && bPwd && bVerify && oIsAgree.checked) {
+						oForm.submit();
+					}
+					
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="reg" id="reg">
+		<form action="https://kuazhu.com">
+			<div id="username-box" class='box'>
+				<label for="username">用户名</label>
+				<input type="text" name="username" placeholder="请设置用户名" class='common' id="username">
+				<span class="cancel" data-obj='username' style="display: none;"></span>
+				<span class="err" name='user' style="display: none;">用户名仅支持中英文、数字和下划线,且不能为纯数字</span>
+				<span class="msg"></span>
+			</div>
+			<div id="phone-box" class='box'>
+				<label for="phone">手机号</label>
+				<input type="text" name="phone" placeholder="可用于登录和找回密码" class='common' id="phone">
+				<span class="cancel" data-obj='phone' style="display: none;"></span>
+				<span class="msg"></span>
+			</div>
+			<div id="password-box" class='box'>
+				<label for="pwd">密码</label>
+				<input type="password" name="pwd" placeholder="请设置登录密码" class='common' id="pwd">
+				<span class="cancel" data-obj='pwd' style="display: none;"></span>
+				<span class="msg"></span>
+				<div id="pwdChecklist" class="pwd-checklist" style="display:none">
+					<ul>
+						<li class="pwd-checklist-item ">长度为6~14个字符</li>
+						<li class="pwd-checklist-item ">支持数字,大小写字母和标点符号</li>
+						<li class="pwd-checklist-item ">不允许有空格</li>
+					</ul>
+					<span class="pwd-checklist-arrow"></span>
+				</div>
+			</div>
+			<div id="verify-box" class='box'>
+				<label for="verify" style="display: inline-block;">验证码</label>
+				<input type="text" name="verify" placeholder="请输入验证码" id="verify">
+				<span class="cancel" data-obj='verify' style="display: none;"></span>
+				<input type="button" id="smsBtn" value="获取短信验证码">
+				<span class="msg"></span>
+			</div>
+			<div id="agree-box">
+				<input type="checkbox" name="isAgree" id="isAgree">
+				<label for="isAgree" name = 'read'>阅读并接受</label>
+				<a href="file:///D:/LiyuWeb/18.4.12-JS/5.13-%E4%BB%BF%E7%99%BE%E5%BA%A6%E6%B3%A8%E5%86%8C%E9%A1%B5%E9%9D%A2/5.13-%E4%BB%BF%E7%99%BE%E5%BA%A6%E6%B3%A8%E5%86%8C%E9%A1%B5%E9%9D%A2.html#">《百度用户协议》</a>及<a href="file:///D:/LiyuWeb/18.4.12-JS/5.13-%E4%BB%BF%E7%99%BE%E5%BA%A6%E6%B3%A8%E5%86%8C%E9%A1%B5%E9%9D%A2/5.13-%E4%BB%BF%E7%99%BE%E5%BA%A6%E6%B3%A8%E5%86%8C%E9%A1%B5%E9%9D%A2.html#">《百度隐私权保护声明》</a>
+				<span class="msg" id="agreeErr">选“阅读并接受百度用户协议”</span>
+			</div> 
+			<div class="subBtn">
+				<input type="button" id="subBtn" value="注册">
+			</div>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>003-jquery冲突.html</title>
+	<script type="text/javascript">
+		(function(w){
+			function test(){
+				alert('test');
+			}
+			w.$ = test;
+		})(window);
+		// $();
+	</script>
+	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		$();
+
+		jQuery.noConflict();//代表jQuery自动放弃$用法,只能用jQuery
+
+		$(function(){
+			alert('aaa');
+		})
+		var bd = jQuery.noConflict();//代表jQuery自动放弃$用法，但是可以用自定义来使用
+		
+		//当$不能用时，可以用jQuery
+		jQuery(function(){
+			alert('bbb');
+		})
+		//可以用自定义来使用
+		bd(function(){
+			alert('ccc');
+		})
+		console.log(bd == jQuery);//true
+		console.log(bd == $);//false
+		/*
+		bd(function(){
+			alert('aaa');
+		})
+		*/
+	</script>
+</head>
+<body>
+
+</body>
+</html>

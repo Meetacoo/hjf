@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>048-jquery-ajax-fn.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$(document).ajaxStart(function(){
+				console.log('ajaxStart');
+			});
+			$(document).ajaxStop(function(){
+				console.log('ajaxStop');
+			});
+			$(document).ajaxSuccess(function(){
+				console.log('ajaxScuccss');
+			});
+			$(document).ajaxComplete(function(){
+				console.log('ajaxComplete');
+			});
+			$(document).ajaxError(function(){
+				console.log('ajaxError');
+			});
+			$(document).ajaxSend(function(){
+				console.log('ajaxSend');
+			});
+			$('button').eq(0).click(function(){
+				$.ajax({
+					url:'http://127.0.0.1:3000/046-data.json',
+					type:'POST',
+					data:{"name":"Metara","age":20},
+					dataType:"json",
+					success:function(data,stasusMsg,jqXHR){
+						console.log('success',data,stasusMsg,jqXHR);
+						console.log(data.name);
+					},
+					error:function(jqXHR,stasusMsg){
+						console.log('error',jqXHR,stasusMsg);
+					},
+				})
+			})
+			$('button').eq(1).click(function(){
+				$.ajax({
+					url:'http://127.0.0.1:3000/046-data.json',
+					type:'POST',
+					data:{"name":"Metara","age":20},
+					dataType:"json",
+					success:function(data,stasusMsg,jqXHR){
+						console.log('success',data,stasusMsg,jqXHR);
+						console.log(data.name);
+					},
+					error:function(jqXHR,stasusMsg){
+						console.log('error',jqXHR,stasusMsg);
+					},
+					global:false
+				})
+			})
+		})
+	</script>
+</head>
+<body>
+	<button>全局回调1</button>
+	<button>全局回调2</button>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004-SessionStorage.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	sessionStorage.setItem('name','Metara');
+	sessionStorage.setItem('age',20);
+	console.log(sessionStorage.getItem('name'));
+	// 移除掉为 'name' 的 key 值
+	sessionStorage.removeItem('name');
+	// 移除掉全部 key 值
+	sessionStorage.clear();
+	// 可输入索引
+	console.log(sessionStorage.key(0));
+	console.log(sessionStorage.key(1));
+	// 可输入字符串，若输入字符串，则默认输入索引 "0"
+	console.log(sessionStorage.key('name'));
+	// sessionStorage.length();
+	console.log(sessionStorage.length);
+</script>
+</html>

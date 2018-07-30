@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.22-基础动画.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			position: absolute;
+			/*left: 0;*/
+			left: 600px;
+			margin-top: 100px;
+		}
+		.line{
+			width: 1px;
+			height: 500px;
+			background-color: black;
+			position: absolute;
+			left: 300px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBtn = document.getElementById('btn');
+			var oBox = document.getElementById('box');
+			var timer = null;
+			// var iSpeed = 9;
+			var iSpeed = 0;
+			oBtn.onclick = function(){
+				clearInterval(timer);
+				if (oBox.offsetLeft < 300) {
+					iSpeed = 9;
+				} else {
+					iSpeed = -9;
+				}
+				timer = setInterval(function(){
+					/*if ((oBox.offsetLeft+iSpeed)<300) {
+						oBox.style.left = oBox.offsetLeft + iSpeed + 'px';
+					} else {
+						oBox.style.left = oBox.offsetLeft + (300 - oBox.offsetLeft) + 'px';
+						clearInterval(timer);
+					}*/
+
+					/*if ((oBox.offsetLeft)>300) {
+						oBox.style.left = oBox.offsetLeft - iSpeed + 'px';
+					} else {
+						oBox.style.left = 300 + 'px';
+						clearInterval(timer);
+					}*/
+					/*if (oBox.offsetLeft>300) {
+						oBox.style.left = oBox.offsetLeft - iSpeed + 'px';
+					} else {
+						oBox.style.left = 300 + 'px';
+						clearInterval(timer);
+					}*/
+					if (Math.abs(300 - oBox.offsetLeft) <= Math.abs(iSpeed)) {
+						oBox.style.left = '300px'
+						clearInterval(timer);
+					} else {
+						oBox.style.left = oBox.offsetLeft + iSpeed + 'px';
+					}
+					console.log(oBox.offsetLeft + '$$' + iSpeed);
+				},30)
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="btn" name="" value="go">
+	<div id="box"></div>
+	<div class="line"></div>
+</body>
+</html>

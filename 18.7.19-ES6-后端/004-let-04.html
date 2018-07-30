@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004-let-04</title>
+</head>
+<body>
+	<button>1</button>
+	<button>2</button>
+	<button>3</button>
+	<button>4</button>
+</body>
+<script>
+	var oBtn = document.getElementsByTagName('button');
+	// 用这种方法会出错
+	/*for (var i = 0; i < oBtn.length; i++) {
+		oBtn[i].onclick = function(){
+			console.log(i);
+		}
+	}*/
+	
+	// 存一个变量解决
+	/*for (var i = 0; i < oBtn.length; i++) {
+		oBtn[i].index = i;
+		oBtn[i].onclick = function(){
+			console.log(this.index);
+		}
+	}*/
+	
+	// 闭包解决
+	/*for (var i = 0; i < oBtn.length; i++) {
+		(function(i){
+			oBtn[i].onclick = function(){
+				console.log(i);
+			}
+		})(i);
+	}*/
+	
+	// 用 let 声明变量解决
+	for (let i = 0; i < oBtn.length; i++) {
+		oBtn[i].onclick = function(){
+			console.log(i);
+		}
+	}
+</script>
+</html>

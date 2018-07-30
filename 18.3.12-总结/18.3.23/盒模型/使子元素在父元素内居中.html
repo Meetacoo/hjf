@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>使子元素在父元素内居中</title>
+	<style type="text/css">
+		.one{
+			width: 300px;
+			height: 300px;
+			background-color: skyblue;
+			/*便如此做便水平、垂直都居中*/
+			/*第一种方法
+			padding: 100px;
+			box-sizing: border-box;*/
+			/*第二种方法
+			overflow: hidden;*/
+		}
+		.two{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			/*或者，但只是水平居中，垂直居中不可以用auto*/
+			margin: 0 auto;
+			/*第二种方法
+			margin: 100px;*/
+			/*padding:-top: 1px; */
+		}
+	</style>
+</head>
+<body>
+	<div class="one">
+		<div class="two"></div>
+	</div>
+</body>
+</html>

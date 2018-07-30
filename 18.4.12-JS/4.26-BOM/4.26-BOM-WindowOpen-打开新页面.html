@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.26-BOM-WindowOpen-打开新页面.html</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBtn1 = document.getElementById('btn1');
+			var oBtn2 = document.getElementById('btn2');
+			oBtn1.onclick = function(){
+				// window.open();//新打开一个无标题的空页面
+				// window.open('about:blank');//默认就是新打开个页面
+				//window.open('about:blank','_blank');//新打开个页面
+				//window.open('about:blank','_self');//在当前页面上打开个页面
+				window.open('https://www.baidu.com');//引号内可写入完整的URL实现跳转
+			}
+			oBtn2.onclick = function(){
+				window.close();
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="btn1" value="打开新页面" name="">
+	<input type="button" id="btn2" value="关闭页面" name="">
+</body>
+</html>

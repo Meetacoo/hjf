@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>020-canvas-save-restore</title>
+	<style>
+		#canvas{
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+<script>
+	// 获取画布
+	var oCanvas = document.getElementById('canvas');
+	// 获取画布 2d 环境
+	var ctx = oCanvas.getContext('2d');
+	// 保存最初始的坐标环境
+	ctx.save();
+	ctx.beginPath();
+	// 平移坐标系
+	ctx.translate(200,50);
+	// 旋转坐标系
+	ctx.rotate(Math.PI / 4);
+	// 缩放坐标系
+	ctx.scale(1.5,1.5);
+	// 绘制矩形
+	ctx.strokeRect(0,0,100,100)
+	// 调用描边方法
+	ctx.stroke();
+	// 恢复为最初始的坐标环境
+	ctx.restore();
+	ctx.beginPath();
+	ctx.arc(50,50,50,0,2 * Math.PI,true);
+	ctx.stroke();
+</script>
+</html>

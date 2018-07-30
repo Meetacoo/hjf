@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>050-jquery插件-扩展插件.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		/*
+		$myFunc = function(){
+			alert('myFunc111');
+		}
+		$myFunc();
+		$.extend({
+			myFunc:function(){
+				alert('myFunc222');
+			}
+		})
+		$.myFunc();
+		*/
+		var obj = {
+			myFunc:function(){
+				alert('myFunc333');
+			}
+		}
+		// obj.myFunc();
+		$.myFn = obj;
+		$.myFn.myFunc();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

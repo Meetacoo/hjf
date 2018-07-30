@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4-27-事件-键盘事件-ctrl+回车提交.html</title>
+	<style type="text/css">
+		li{
+			width: 100%;
+			height: 50px;
+			border-bottom: 1px solid #000;
+		}
+	</style>
+	<script type="text/javascript" src="../../js/匀速动画&&减速动画-同时多值动画.js"></script>
+	<script type="text/javascript">
+		window.onload = function (){
+			var oTxt = document.getElementById('txt');
+			var oBtn = document.getElementById('btn');
+			var oUl = document.getElementById('ul1');
+			oBtn.onclick = function(){
+				var oL = document.createElement('li');
+				oL.innerHTML = oTxt.value;
+				oL.style.height = '0px';
+				oTxt.value = '';
+				oL.style.opacity = 0;
+				oUl.insertBefore(oL,oUl.firstElementChild);
+				animation(oL,{'height':50},true,function(){
+						animation(oL,{'opacity':100});
+				});
+			}
+			document.onkeydown = function(ev){
+				var oEvent = ev || event;
+				// console.log(oEvent.keyCode);
+				if(oEvent.keyCode == 13 && oEvent.ctrlKey){
+					oBtn.onclick();
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="txt" name="">
+	<input type="button" id="btn" value="发布" name="">
+	<ul id="ul1">
+		<li>aaa</li>
+	</ul>
+</body>
+</html>

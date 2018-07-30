@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.27-事件-限制拖拽.html</title>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+			position: absolute;
+			left: 0px;
+			top: 0;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			var disX = 0;
+			var disY = 0;
+			oBox.onmousedown = function(ev){
+				var oEvent = ev || event;
+				disX = (oEvent.clientX - oBox.offsetLeft);
+				disY = (oEvent.clientY - oBox.offsetTop);
+				document.onmousemove = function(ev){
+					var oEvent = ev || event;
+					var w = oEvent.clientX - disX;
+					var h = oEvent.clientY - disY;
+					// console.log(w);
+					if (w < 0) {
+						w = 0;
+					}else if(w>window.innerWidth - oBox.offsetWidth){
+						w = window.innerWidth - oBox.offsetWidth;
+					}
+					if (h < 0) {
+						h = 0;
+					}else if(h>window.innerHeight - oBox.offsetHeight){
+						h = window.innerHeight - oBox.offsetHeight;
+					}
+					oBox.style.left = w + 'px';
+					oBox.style.top = h + 'px';
+				}
+				document.onmouseup = function(){
+					document.onmousemove = null;
+					document.onmouseup = null;
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

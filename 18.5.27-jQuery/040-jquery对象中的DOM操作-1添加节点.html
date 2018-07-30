@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>040-jquery对象中的DOM操作-1添加节点.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			// 内部插入
+			$('button').eq(0).click(function(){
+				var $oLi = $('<li>创建一个</li>');
+				// 插入到节点后
+				$('ul').append($oLi);
+				$oLi.appendTo($('ul'));
+				// 插入到节点前
+				$('ul').prepend($oLi);
+				$oLi.prependTo($('ul'));
+			})
+			// 外部插入
+			$('button').eq(1).click(function(){
+				var $oLi = $('<li>创建一个</li>');
+				// 插入到对象后
+				// $('ul').after($oLi);
+				// 插入到对象前
+				$('ul').before($oLi);
+				//
+			})
+		})
+	</script>
+</head>
+<body>
+	<button>内部插入</button>
+	<button>外部插入</button>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+</body>
+</html>

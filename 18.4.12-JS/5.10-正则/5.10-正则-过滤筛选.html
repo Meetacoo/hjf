@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.10-正则-过滤筛选.html</title>
+	<script type="text/javascript">
+		var str = 'This is a cat, is Is yours';
+		//替换单词
+		// var reg = /\bis\b/;
+		//所有单词为is的都被替换
+		// var reg = /\bis\b/g;
+		//不区分大小写，并替换为is的所有单词
+		// var reg = /\bis\b/gi;
+		var reg = /\bis\b/gi;
+		console.log(str.replace(reg,'*'));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

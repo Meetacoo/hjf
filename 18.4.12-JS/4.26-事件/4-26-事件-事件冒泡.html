@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4-26-事件-事件冒泡</title>
+</head>
+<body>
+	<!-- 写注释 -->
+	<div id="fbox" style="width: 500px; height: 500px; background-color: orange" onclick="alert('a')">
+		<div id="sbox" style="width: 300px; height: 300px; background-color: skyblue" onclick="alert('b')">
+			<div id="tbox" style="width: 100px; height: 100px; background-color: pink" onclick="alert('c')"></div>
+		</div>
+	</div>
+</body>
+</html>

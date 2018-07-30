@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义字体</title>
+	<style type="text/css">
+		div{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			margin: 100px auto;
+			text-align: center;
+			line-height: 200px;
+			font-family: 'fontlight';
+			font-style: italic;
+			font-weight: bold;
+		}
+		@font-face{
+			font-family: fontlight;
+			src: url(./font./Sansation_Light.eot),url(./font./Sansation_Light.ttf);
+			/*font-style: italic;*/
+		}
+		@font-face{
+			font-family: fontlight;
+			src: url(./font./Sansation_Bold.eot),url(./font./Sansation_Bold.ttf);
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<div>hello 世界！</div>
+</body>
+</html>

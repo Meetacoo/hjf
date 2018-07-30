@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>015-函数的传参</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*function show(msg){
+		console.log(msg);
+	}
+	show('hello');*/
+
+	/*function show(msg){
+		msg = msg || 'hello';
+		console.log(msg);
+	}
+	show();
+	show('hey~');
+	show('');*/	
+
+	/*function show(msg){
+		if (msg == 'hello') {
+			msg = 'hello';
+		}
+		console.log(msg);
+	}
+	// show('');
+	show('hey`');*/
+
+	// 用结构解析(对象)的方式传参
+	/*function show(name,{age=21,sex='女'}={}){
+		console.log(name,age,sex);
+	}
+	show('Metara',{age:20,sex:'男'});
+	show('Metara',{age:20});*/
+
+	// 用扩展对象的方式传参
+	function show(name,...arg){
+		console.log(name,arg[0],arg[1]);
+	}
+	show('Metara',...[18]);
+	show('Metara',...[18,'男']);
+
+	let i = 99;
+	function sum(op = i + 1){
+		return op;
+	}
+	console.log(sum());
+	i = 100;
+	console.log(sum());
+</script>
+</html>

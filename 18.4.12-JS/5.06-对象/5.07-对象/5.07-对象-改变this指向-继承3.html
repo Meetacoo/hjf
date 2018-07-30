@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.07-对象-改变this指向-继承3</title>
+	<script type="text/javascript">
+		function Person(name,age) {
+			console.log('Person Class in ')
+			this.name = name;
+			this.age = age;
+		}
+		
+		Person.prototype.showName = function(){
+			console.log('i am ' + this.name);
+		}
+		/*
+		Person.prototype.showAge = function(){
+			console.log('i am ' + this.age + ' years old');
+		}
+		*/
+		//用这种方法Person.prototype将不能被循环枚举、重新定义、删除
+		Object.defineProperty(Person.prototype,'showAge',{
+			value:function(){
+				console.log('i am ' + this.age + ' years old');
+			}
+		})
+		var p1 = new Person('Metara',20);
+		p1.showName();
+		p1.showAge();
+
+		function Student(name,age,className){
+			Person.call(this,name,age);
+			// console.log(this);
+			this.className = className;
+		}
+
+		//person(){}会被执行两次，p1一次，s1一次
+		//传不传值无所谓，只是想用Person()里的__proto__
+		//改变了Student.prototype的指向，所以Student.prototype的construstor也就没有了
+		console.log(Student.prototype);
+		Student.prototype = new Person();
+		//原本Person上没有constructor，但并未解决person被调用两次的问题
+		Student.prototype.constructor = Student;
+		console.log(Student.prototype);
+
+		Student.prototype.showClassName = function(){
+			console.log('i am ' + this.className);
+		}
+		var s1 = new Student('Metala',21,'Computer');
+		//看s1是否是Student/Person的实例
+		console.log(s1 instanceof Student);
+		console.log(s1 instanceof Person);
+		s1.showName();
+		s1.showAge();
+		s1.showClassName();
+
+		//改变了S2的指向
+		var s2 = new s1.__proto__.constructor();
+		//指向Person
+		console.log(s2);
+		//原本__proto__应该指向s1的父类Student，但现在指向Person对象，因为未传值，所以在Person中的name/age为undefined，又为其添加了一个showClassName()方法
+		//在Person中的name/age为undefined又是一个问题，并不需要，并且person(){}会被执行两次,是对资源的消耗
+		//指向Student
+		console.log(s1);
+		//
+		// p1.showClassName();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

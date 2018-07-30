@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>016-canvas-drawline</title>
+	<style>
+		#canvas{
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="500" height="300" id="canvas"></canvas>
+</body>
+<script>
+	// 获取画布
+	var oCanvas = document.getElementById('canvas');
+	// 获取画布 2d 环境
+	var ctx = oCanvas.getContext('2d');
+	// 绘制起始位置
+	ctx.moveTo(0,0);
+	// 获取结束位置
+	ctx.lineTo(100,100);
+	// 可以接连写，画出连续线条
+	ctx.lineTo(100,200);
+	// 闭合路径
+	ctx.closePath();
+	// 填充颜色
+	ctx.fillStyle = '#0ff';
+	// 绘制描边颜色
+	ctx.strokeStyle = '#ff6700';
+	// 绘制描边宽度
+	ctx.lineWidth = 1;
+	// 调用描边方法
+	ctx.stroke();
+	// 调用填充方法，在填充颜色、闭合路径方法后使用,默认黑色
+	ctx.fill();
+	// 开始新的绘制会将之前的重新绘制一遍，造成描边更宽，避免重绘应该调用 beginPath() 方法
+	// 开始一条新的路径
+	ctx.beginPath();
+	// 开始新的绘制起点
+	ctx.moveTo(200,100);
+	// 开始新的绘制终点
+	ctx.lineTo(300,100);
+	ctx.lineTo(300,200);
+	ctx.closePath();
+	// 开始新的调用描边方法
+	ctx.stroke();
+	// console.log(ctx)
+</script>
+</html>

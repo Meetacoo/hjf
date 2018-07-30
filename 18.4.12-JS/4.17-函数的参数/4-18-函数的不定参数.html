@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4-17-函数的不定参数.html</title>
+	<script type="text/javascript">
+		function sum(){
+			console.log(arguments);
+			var result = 0;
+			for (var i = 0; i < arguments.length; i++) {
+				result += arguments[i];
+			}
+			alert(result);
+		}
+		sum(5,6,7,8);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,126 @@
+@color: #f10;
+@width: 200px;
+@height: 100px;
+
+div{
+	margin-top: 10px;
+}
+body{
+	background: #ddd;
+}
+h2{
+	color: @color;
+}
+a:hover{
+	color: @color;
+}
+.box1{
+	display: block;
+	width: @width;
+	height: @height;
+	background: @color;
+	margin-top: 10px;
+
+}
+.box2{
+	.box1;
+	font-size: 40px;
+}
+.border-radius(@border-radius){
+	-webkit-border-radius: @border-radius;
+	-ms-border-radius: @border-radius;
+	-o-border-radius: @border-radius;
+	border-radius: @border-radius;
+}
+.box3{
+	.box1;
+	.border-radius(20px);
+}
+.border-radius-def(@border-width: 10px){
+	-webkit-border-radius: @border-width;
+	-ms-border-radius: @border-width;
+	-o-border-radius: @border-width;
+	border-radius: @border-width;
+}
+.box4{
+	.box2;
+	border: 1px solid #000;
+	// .border-radius-def();
+	// 不传参数就是默认
+	.border-radius-def(20px);
+}
+ .triangle(top,@w:10px,@c:pink) {
+	border-width: @w;
+	border-color: @c transparent transparent transparent;
+}
+.triangle(right,@w:10px,@c:pink) {
+	border-width: @w;
+	border-color: transparent @c transparent transparent;
+}
+.triangle(bottom,@w:10px,@c:pink) {
+	border-width: @w;
+	border-color: transparent transparent @c transparent;
+}
+.triangle(left,@w:10px,@c:pink) {
+	border-width: @w;
+	border-color: transparent transparent transparent @c;
+} 
+.triangle(@_,@w:10px,@c:pink){
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	border-style: solid;
+}
+// .triangle(top,40px,pink);
+.box9{
+	.triangle(top,40px,skyblue);
+} 
+
+li{
+	list-style: none;
+	width: 100%;
+	padding: 20px;
+	box-sizing: border-box;
+	span{
+		float: left;
+	}
+	a{
+		float: right;
+	}
+	&:hover{
+		background: #333;
+	}
+}
+// 运算
+.fs(@s){
+	// font-size: @s + 10px;
+	// font-size: @s - 10px;
+	// font-size: @s * 10px;
+	font-size: @s / 10px;
+}
+.box5{
+	.box1;
+	.fs(50px);
+}
+
+// 避免编译
+.box6{
+	width: ~'calc(100px - 10px)';
+	height: @height;
+	background-color: #fff;
+}
+
+// 给混合添加 !important 后，该混合中的所有属性都会加上 !important
+.box7{
+	.box1 !important;
+	color: #ddd;
+}
+
+// 
+.setStyle(@attr,@val){
+	@{attr}: unit(@val,px);
+}
+.box8{
+	.box1; 
+	.setStyle(width,100);
+}

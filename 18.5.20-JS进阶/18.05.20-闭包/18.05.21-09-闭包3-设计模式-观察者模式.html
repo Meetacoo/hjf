@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>18.05.21-09-闭包3-设计模式-观察者模式.html</title>
+	<script type="text/javascript">
+		(function(w){
+			function Teacher(name){
+				this.name = name;
+				this.students = [];
+			}
+			Teacher.prototype = {
+				constructor:Teacher,
+				__proto__:Object.prototype,
+				name:this.name,
+				register:function(student){
+					this.students.push(student);
+				},
+				publish:function(msg){
+					for (var i = 0; i < this.students.length; i++) {
+						this.students[i].listen(msg);
+					}
+				}
+			}
+			w.Teacher = Teacher;
+		})(window);
+
+		(function(w){
+			function Student(name,Teacher){
+				teacher.register(this);
+				this.name = name;
+				this.msg = '';
+			}
+			Student.prototype = {
+				constructor:Student,
+				__proto__:Object.prototype,
+				name:this.name,
+				listen:function(msg){
+					this.msg = msg;
+				}
+			}
+			w.Student = Student;
+		})(window)
+
+		var teacher = new Teacher('Meta');
+		var Student1 = new Student('Laura');
+		var Student2 = new Student('Geoge');
+		var Student3 = new Student('Tiaotiao');
+		teacher.publish('kaishi');
+		console.log(Student1.name + ' ' + Student1.msg);
+		console.log(Student2.name + ' ' + Student2.msg);
+		console.log(Student3.name + ' ' + Student3.msg);
+
+		var teacher1 = new Teacher('Omega');
+		var Student4 = new Student('Godan');
+		var Student5 = new Student('Baby');
+		var Student6 = new Student('Honey');
+		teacher.publish('hhhhhhhh');
+		console.log(Student4.name + ' ' + Student4.msg);
+		console.log(Student5.name + ' ' + Student5.msg);
+		console.log(Student6.name + ' ' + Student6.msg);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

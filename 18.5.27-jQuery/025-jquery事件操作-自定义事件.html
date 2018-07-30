@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>026-jquery事件操作-自定义事件.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('button').on('try',function(){
+				alert('自定义事件');
+			})
+			$('button').trigger('try');
+			//自定义事件只能通过trigger命令触发
+		})
+	</script>
+</head>
+<body>
+	<button>自定义事件</button>
+</body>
+</html>

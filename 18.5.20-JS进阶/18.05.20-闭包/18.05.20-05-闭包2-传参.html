@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>18.05.20-03-闭包2-传参.html</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			/*
+			(function () {
+				var oBtn = document.getElementById('btn');
+				oBtn.onclick = function(){
+					console.log('abc'); 
+				}
+			})();
+			*/
+			(function (d,w) /*接收参数*/{
+				var oBtn = d.getElementById('btn');
+				oBtn.onclick = function(){
+					console.log('abc'); 
+				}
+				w.oBtn = oBtn;//重新定义
+			})(document,window);//传参
+			oBtn.onmouseover = function(){
+				console.log('def'); 
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="btn" value="迪阿尼但" name="">
+</body>
+</html>

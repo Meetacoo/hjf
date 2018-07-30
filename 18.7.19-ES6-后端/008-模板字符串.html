@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>008-模板字符串</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*var html = '';
+	html += '<ul>'
+	html += '<li>1</li>'
+	html += '<li>1</li>'
+	html += '<li>1</li>'
+	html += '</ul>';
+	document.body.innerHTML = html;*/
+
+	let html = '';
+	let str = 1;
+	html = `
+			<ul>
+				<li>${str}</li>
+				<li>${str}</li>
+				<li>${str}</li>
+			</ul>
+			`;
+	document.body.innerHTML = html;
+</script>
+</html>

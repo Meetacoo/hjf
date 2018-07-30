@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>017-canvas-drawcircle</title>
+	<style>
+		#canvas{
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400" id="canvas"></canvas>
+</body>
+<script>
+	// 获取画布
+	var oCanvas = document.getElementById('canvas');
+	// 获取画布 2d 环境
+	var ctx = oCanvas.getContext('2d');
+	// 绘制起始位置
+	// x,y,r,beginDeg,endDeg,顺逆时针
+	// 圆心，半径，开始角度，结束角度，顺逆时针
+	// ctx.arc(300,200,100,0,2 * Math.PI,false);
+	// ctx.arc(300,200,100,0,0.5 * Math.PI,false);
+	ctx.arc(300,200,100,0,Math.PI/2,false);
+	// 调用描边方法
+	ctx.stroke();
+	// ctx.closePath();
+	// ctx.fill();
+</script>
+</html>

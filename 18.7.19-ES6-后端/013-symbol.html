@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>013-symbol</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*let s1 = Symbol();
+	let s2 = Symbol();*/
+	let s1 = Symbol('name');
+	let obj = {[s1]:'baby'};
+	obj[s1] = 'John';
+	let s2 = Symbol('name');
+	obj[s2] = 'Meetacoo';
+	/*console.log(s1);
+	console.log(obj);
+	console.log(obj[s1]);
+	console.log(obj[s2]);
+	console.log(s1===s2);*/
+
+	// 不能打印出来
+	/*for(key in obj){
+		console.log(obj[key]);
+	}*/
+
+	// 遍历
+	let keys = Reflect.ownKeys(obj);
+	// console.log(keys);
+	/*for (key in keys) {
+		console.log(keys[key]);
+	}*/
+	/*for (key of keys) {
+		console.log(key);
+	}*/
+	for (key of keys) {
+		console.log(obj[key]);
+	}
+</script>
+</html>

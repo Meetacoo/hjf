@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css标签分类</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+			margin: 10px;
+			padding: 10px;	
+		}
+		span{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+			margin-left: 10px;
+			/*这是行内元素，不独占一行、不可以设置宽高、不可以设置垂直外边距
+			margin-bottom: 20px;
+			可以设置垂直内边距，但是不占空间*/
+			padding-top: 100px;
+			/*行内块状也不独占一行*/
+		}
+		img{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+			margin-top: 10px;
+			margin-left: 10px;
+			padding: 10px;
+			/*padding-left: 10px;*/
+		}
+	</style>
+</head>
+<body>
+	<div>div1</div>
+	<div>div2</div>
+	<span>span1</span>
+	<span>span2</span><br>
+	<img src="../image/bg_qq.jpg" alt=""><br>
+	<img src="../image/bg_qq.jpg" alt="">
+</body>
+</html>

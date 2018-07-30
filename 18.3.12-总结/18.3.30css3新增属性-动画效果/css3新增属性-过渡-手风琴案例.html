@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3新增属性-过渡-手风琴案例</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			width: 850px;
+			height: 300px;
+			margin: 100px auto;
+			list-style: none;
+			border: 1px solid #000;
+		}
+		ul li{
+			width: 170px;
+			height: 100%;
+			background-color: pink;
+			float: left;
+			border: 1px solid #000;
+			box-sizing: border-box;
+			overflow: hidden;
+			transition: width 1s;
+		}
+		ul:hover li{
+			width: 100px;
+		}
+		ul li:hover{
+			width: 450px;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li><img src="../image/yyqx.jpg"></li>
+		<li><img src="../image/yyqx.jpg"></li>
+		<li><img src="../image/yyqx.jpg"></li>
+		<li><img src="../image/yyqx.jpg"></li>
+		<li><img src="../image/yyqx.jpg"></li>
+	</ul>
+</body>
+</html>

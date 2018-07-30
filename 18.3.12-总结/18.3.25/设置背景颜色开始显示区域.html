@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>设置背景颜色开始显示区域</title>
+	<style type="text/css">
+		ul{
+			width: 500px;
+			margin: 150px auto;
+			list-style: none;
+			/*padding: 10px;*/
+		}
+		li{
+			width: 200px;
+			height: 200px;
+			border: 20px dotted #000;
+			margin-bottom: 10px;
+			padding: 10px;
+			/*background-image: url(http://imgsrc.baidu.com/forum/w=580;/sign=753ad9993d2ac65c6705667bcbc9b011/9a504fc2d5628535aa60d7d898ef76c6a6ef6342.jpg);*/
+			background-color: pink;
+			background-size: 100%;
+		}
+		li:nth-child(2){
+			background-clip: border-box;
+		}
+		li:nth-child(3){
+			background-clip: content-box;
+		}
+		li:nth-child(4){
+			background-clip: padding-box;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

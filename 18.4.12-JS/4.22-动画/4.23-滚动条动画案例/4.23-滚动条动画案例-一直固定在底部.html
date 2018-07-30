@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.23-滚动条动画-一直在右下方</title>
+	<style type="text/css">
+		body{
+			height: 3000px;
+		}
+		div{
+			width: 50px;
+			height: 50px;
+			background-color: orange;
+			position: absolute;
+			right: 0;
+		}
+	</style>
+
+	<!-- <script type="text/javascript" src="../js/event-attribute.js"></script> -->
+	<script type="text/javascript">
+		function animation(obj,attr,iTarget){
+			// clearInterval(timer);
+			clearInterval(obj.timer);
+			// timer = setInterval(function(){
+			obj.timer = setInterval(function(){
+				var iSpeed = 0;
+				// var curr = getComputedStyle(obj,false)[attr];//取出来的是字符
+				var curr = parseFloat(getComputedStyle(obj,false)[attr]);
+				if(attr == 'opacity'){
+					curr = curr * 100;
+				}
+				//如果有多个属性，就不能用offsetWidth了，应该用getComputed
+				//if (obj.offsetWidth > iTarget) {
+				if (curr > iTarget) {
+					iSpeed = -80;
+				} else {
+					iSpeed = 80;
+				}
+
+				/*if(Math.abs(iTarget - curr) <= Math.abs(iSpeed)){
+					clearInterval(this.timer);
+					obj.style[attr] = iTarget + 'px';
+				}else{
+					obj.style[attr] = curr + iSpeed + 'px';
+				}*/
+
+				if(Math.abs(iTarget - curr) < Math.abs(iSpeed)){
+					// clearInterval(timer);
+					clearInterval(obj.timer);
+					if (attr == 'opacity') {
+						obj.style[attr] = iTarget/100;
+					} else {
+						obj.style[attr] = iTarget + 'px';
+					}
+					
+				}else{
+					if (attr == 'opacity') {
+						obj.style[attr] = (curr + iSpeed)/100;
+					} else {
+						obj.style[attr] = curr + iSpeed + 'px';
+					}
+					
+				}
+			},30);
+		}
+		window.onresize = window.onscroll = window.onload = function(){
+			var oBox = document.getElementById('bottom');
+			// oBox.style.top = '200px';
+			// oBox.style.top = (window.innerHeight - oBox.offsetHeight + document.documentElement.scrollTop) + 'px';
+			var iTarget = (window.innerHeight - oBox.offsetHeight + document.documentElement.scrollTop) ;//+ 'px';
+			animation(oBox,'top',iTarget);
+			// console.log('window.innerHeight:' + window.innerHeight);
+			// console.log('document.documentElement.scrollTop:' + document.documentElement.scrollTop);
+		}
+	</script>
+</head>
+<body>
+	<div id="bottom"></div>
+</body>
+</html>

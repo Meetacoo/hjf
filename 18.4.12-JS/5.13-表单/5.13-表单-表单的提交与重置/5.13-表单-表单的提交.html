@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.13-表单-表单的提交</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oForm = document.forms[0];
+			var oBtn3 = document.getElementById('btn3');
+			var oFmEle = oForm.elements;
+			var oImage = oForm.image;
+			var oBtn = document.getElementById('btn2');
+			var oImage = document.getElementById('ima');
+			// oFmEle[0].onclick = function(){
+			// oFmEle[1].onclick = function(){
+			// 	// return false;
+			// 	oForm.onsubmit();
+			// }
+			//表单上有一个submit方法，可以调用
+			//input type="button"方法的submit事件不可以触发oForm.onsubmit事件
+			oBtn3.onclick = function(){
+				oForm.submit();
+			}
+			oForm.onsubmit = function(){
+				return false;
+			}
+			oBtn.onclick = function(){
+				oForm.reset();
+				console.log('asfhu')
+			}
+			console.log(oForm);
+			console.log(oFmEle);
+			console.log(oImage);
+		}
+	</script>
+</head>
+<body>
+	<form action="https://www.baidu.com">
+		<input type="text" name="">
+		<input type="submit" name="sub" value="提交1">
+		<button type="submit">提交2</button>
+		<input type="image" name="image" src="../../../image/bird.png" id="ima">
+		<!--  -->
+		<input type="button" name="" value="提交3" id="btn3">
+		<input type="button" name="" value="重置2" id="btn2">
+	</form>
+</body>
+</html>

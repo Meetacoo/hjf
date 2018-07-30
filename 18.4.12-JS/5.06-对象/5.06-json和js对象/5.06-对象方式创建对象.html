@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.06-对象方式创建对象.html</title>
+	<script type="text/javascript">
+		var person = new Array(2,3,1,5,4);
+		person.name = 'Meetacoo';
+		person.age = 20;
+		/*
+		//用系统自定义的方法创建对象不靠谱，因为如果在之后写一个如sort()函数，函数内定义新的内容，则会覆盖原有的sort()自带的排序功能
+		person.sort = function(){
+			var result = 0;
+			for (var i = 0; i < this.length; i++) {
+				result += this[i];
+			}
+			return result;
+		}*/
+		console.log(person.sort());
+		console.log(typeof person);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

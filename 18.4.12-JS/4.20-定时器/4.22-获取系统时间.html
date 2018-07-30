@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.22-获取系统时间.html</title>
+	<style type="text/css">
+		div{
+			font-size: 100px;
+			width: 1000px;
+			height: 113px;
+			line-height: 200px;
+			margin: 0 auto;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+		
+		function toStr(n){
+			// var toStr = '';
+			if (n<10) {
+				return '0' + n;
+			} else {
+				return '' + n;
+			}
+		}
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			var aImg = oBox.getElementsByTagName('img');
+			function timer(){
+				var now = new Date();
+				var h = now.getHours();
+				var m = now.getMinutes();
+				var s = now.getSeconds();
+				// var timer = h + m + s;
+				var str = toStr(h) + toStr(m) + toStr(s);
+					// alert(timer);
+				for (var i = 0; i < aImg.length; i++) {
+					aImg[i].src = '../../image/' + str.charAt(i) + '.png';
+				}
+			}
+			setInterval(timer,1000);
+			timer();
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<img src="../../image/1.png">
+		<img src="../../image/1.png">
+		:
+		<img src="../../image/1.png">
+		<img src="../../image/1.png">
+		:
+		<img src="../../image/1.png">
+		<img src="../../image/1.png">
+	</div>
+</body>
+</html>

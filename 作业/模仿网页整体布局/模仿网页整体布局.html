@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模仿网页整体布局</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		header{
+			width: 100%;
+			height: 50px;
+			background-color: #eee;
+		}
+		nav{
+			width: 80%;
+			background-color: #abc;
+			margin: 20px auto;
+			display: block;
+			/*border-top: 1px solid #000;*/
+			padding-top: 20px;
+			padding-bottom: 20px;
+			text-align: center;
+		}
+		nav a{
+			height: 80%;
+			padding: 20px;
+			color: black;
+			text-decoration: none;
+		}
+		nav a:hover{
+			text-decoration: underline;
+			color: blue;
+			background-image: url(../../image/timall.png);
+			background-size: 100% 100%;
+		}
+		section{
+			width: 90%;
+			height: 600px;
+			margin: 0 auto;
+			/*border: 1px solid #000;*/
+			position: relative;
+		}
+		aside{
+			width: 120px;
+			height: 200px;
+			margin: 85px; 
+			background: tomato;
+			position: fixed;
+		}
+		.left{
+			float: left;
+		}
+		.right{
+			float: right;
+			right: 85px;
+		}
+		article{
+			width: 60%;
+			height: 500px;
+			/*border: 1px solid #000;*/
+			position: absolute;
+			left: 20%;
+			background-image: url(../../image/bgtimall.jpg);
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+		}
+		.inleft,.inright{
+			width: 40px;
+			height: 40px;
+			background-size: 100%;
+			margin-top: 230px;
+		}
+		.inleft{
+			background-image: url(../../image/箭头左.jpg);
+			float: left;
+		}
+		.inright{
+			background-image: url(../../image/箭头右.jpg);
+			float: right;
+		}
+		ul{
+			width: 15%;
+			height: 30px;
+			position: absolute;
+			bottom: 10px;
+			right: 10px;
+			list-style: none;
+		}
+		li{
+			float: left;
+			width: 15px;
+			height: 20px;
+			margin-right: 5px;
+			padding-left: 5px;
+			background-color: rgba(50,50,50,0.5);
+			border-radius: 50%;
+		}
+		footer{
+			width: 700px;
+			height: 500px;
+			/*border: 1px solid #000;*/
+			margin: 0 auto;
+			background-color: pink;
+		}
+		.top{
+			width: 60px;
+			height: 60px;
+			background-size: 100%;
+			background-image: url(../../image/箭头上.jpg);
+			position: fixed;
+			bottom: 50px;
+			right: 50px;
+		}
+		.top a{
+			font-size: 12px;
+			text-decoration: none;
+			line-height: 60px;
+			text-align: center;
+			color: gold;
+		}
+	</style>
+</head>
+<body>
+	<header>
+	</header>
+	<section>
+		<nav>
+			<a href="#">天猫超市</a>
+			<a href="#">天猫国际</a>
+			<a href="#">天猫会员</a>
+			<a href="#">电器城</a>
+			<a href="#">喵鲜生</a>
+			<a href="#">医药馆</a>
+		</nav>
+		<aside class="left"></aside>
+		<aside class="right"></aside>
+		<article>
+			<a href="javascript:" class="inleft"></a>
+			<a href="javascript:" class="inright"></a>
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ul>
+		</article>
+	</section>
+	<div class="top"><a href="#">返回顶部</a></div>
+	<footer></footer>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.13-正则-String对象方法</title>
+	<script type="text/javascript">
+		var str = 'abc,好dea';
+		var str1 = '哈哈哈';
+
+		//根据位置返回字符
+		console.log(str.charAt(2));
+		
+		//根据位置返回字符编码
+		console.log(str.charCodeAt(4));
+
+		//根据字符返回位置-从前向后找
+		console.log(str.indexOf('a'));
+		//根据字符返回位置-从后往前找
+		console.log(str.lastIndexOf('a'));
+
+		//URI编码
+		var encodeStr = encodeURIComponent('https://www.baidu.com/?name=百度&age=20');
+		console.log(encodeStr);
+		//URI解码
+		var decodeStr = decodeURIComponent(encodeStr);
+		console.log(decodeStr);
+
+		//连接字符串
+		console.log(str.concat(str1));
+
+		//截取字符串
+		//从起始下标开始，截取至下标为8但不包括8的字符串
+		console.log(str.slice(5,8));
+		console.log(str.slice(-5,-2));
+		//从起始下标开始，截取字符长度为2的字符串
+		console.log(str.substr(-5,2));
+		//不能取负值
+		console.log(str.substring(3,5));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

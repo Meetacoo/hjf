@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>18.05.20-05-闭包3-函数节流1.html</title>
+	<script type="text/javascript">
+		function throttle(fn,dealy) {
+			var timer = null;
+			return function(){
+				// console.log('a');
+				clearTimeout(timer);
+				timer = setTimeout(fn,dealy);
+			}
+		}
+		window.onresize = throttle(function(){
+			console.log('a');
+		},400);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

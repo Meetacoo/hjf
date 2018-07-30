@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>1</title>
+	<script type="text/javascript">
+		window.onload = function () {
+		/*
+		//2
+			var oTxt1 = document.getElementById('txt1');
+			oTxt1.onblur = function(){
+				console.log(oTxt1.value);
+			}
+		
+		//4
+			var oDiv1 = document.getElementById('div1');
+			oDiv1.style.width = '200px';
+			oDiv1.style.height = '200px';
+			oDiv1.style.color = '#000';
+			oDiv1.innerHTML = 'xxxx';
+		
+		//5
+			var oBtn1 = document.getElementById('btn1');
+			oBtn1.onclick = function(){
+				// test();
+				alert(1);
+			}
+			function test(){
+				alert(1);
+			}
+		
+		//6
+			var a;
+			alert(typeof a);
+			alert(b);
+		
+		//7
+			var a = null;
+			alert(typeof a);
+		
+		//8
+			var foo = '11' + 2 - '1';
+			alert(foo);
+		
+		//9
+			var a = new Object();
+			a.value = 1;
+			alert(a.value);//1
+			b = a;
+			alert(a.value);//1
+			b.value = 2;
+			alert(a.value);//2
+		
+		//10
+			var arr = [5,10,7,8];
+			// arr.sort();
+			arr.sort(function(n1,n2){
+				return(n2-n1);
+			});
+			console.log(arr);
+		
+		//11
+			var foo = 1;
+			(function(){
+				console.log(foo);//undefined
+				var foo = 2;
+				console.log(foo);//2
+			})()
+		
+		//12
+			var arr1 = ['a','b','c'];
+			var arr2 = ['d','e','f'];
+			var arr3 = arr1.concat(arr2);
+			console.log(arr3);
+			arr3.splice(1,1);
+			console.log(arr3);
+		
+		//13
+			for (var i = 0; i <= 3; i++) {
+				setTimeout(function(){
+					console.log(i);
+				},0);//4
+			}
+		
+		//15
+			var user = {
+				count: 1,
+				getCount: function(){
+					return this .count;
+				}
+			};
+			console.log(user.getCount());//1
+			var func = user.getCount;
+			console.log(func());//undefined
+			console.log(func);//undefined
+		
+		//16
+			var foo = 'hello';
+			(function(){
+				var bar = 'World';
+				console.log(foo + bar);
+			})();
+			console.log(foo + bar);//bar is not defined
+		
+		//17
+			var foo = [];
+			foo.push(1);
+			foo.push(2);
+			console.log(foo.length);
+			console.log(foo);
+		
+		//18
+			console.log('one');
+			setTimeout(function(){
+				console.log('two')
+			});
+			console.log('three');//1 3 2
+		
+		//19
+			function foo(x){
+				x = x || 1;
+				console.log(x);
+			}
+			foo(2);
+		
+		//20
+			x = 1;
+			if (x === true) {
+				console.log('yes');			
+			} else {
+				console.log('no');
+			}
+		
+		//21
+			var obj1 = {
+				x:1,
+			};
+			var obj2 = {
+				x:2,
+			};
+			(function(obj2){
+				delete obj2.x;
+			})(obj1);
+			console.log(obj1.x,obj2.x);
+		
+		//22
+			var x = 1;
+			setTimeout(function(){
+				x = 2;
+			},0);
+			console.log(x);
+		
+		//23
+			var obj = {
+				1:'a',
+				2:'b',
+				'length':2,
+				push:Array.prototype.push,
+			};
+			obj.push('c');
+			console.log(obj[1]);//a
+			console.log(obj[2]);//c
+			console.log(obj[length]);//undefined
+		
+		//24
+			(function f(f){
+				return typeof f();
+			})(function(){return 1;})
+		
+		//25
+			for (var i = 0; i < 2; i++) {
+				console.log(i+10);
+			}
+			console.log(i);
+		
+		//26
+			function fn1(){
+				var a = 'abc';
+				alert(a);
+				function fn2(){
+					alert(a);
+				}
+				fn2();
+			}
+			fn1();
+		
+		//27
+			function test(n1){
+				if (n1<1) {
+					return 1;
+				} else {
+					return n1 = n1 * test(n1 - 1);
+				}
+			}
+			console.log(test(5));
+		*/
+		//28
+			var oUl = document.getElementById('ul1');
+			var oLi = document.createElement('li');
+			oUl.appendChild(oLi);
+		}
+
+	</script>
+</head>
+<body>
+	<!-- <input type="text" id="txt1" name=""> -->
+	<!-- <div id="div1"></div> -->
+	<!-- <input type="button" id="btn1" name="" value="btn1"> -->
+	<ul id="ul1"></ul>
+</body>
+</html>

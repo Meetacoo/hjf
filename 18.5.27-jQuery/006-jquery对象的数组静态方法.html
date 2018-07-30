@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006-jquery对象的数组静态方法.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		// window.onload = function(){
+			$(function(){
+				var arr = [22,33,44,55,66];
+				var aLi = document.getElementsByTagName('li');
+				var likearr = {0:'aa',1:'bb',2:'cc',length:2};
+				/*
+				arr.forEach(function(value,index){
+					console.log(value);
+				});
+				//不行
+				aLi.forEach(function(value,index){
+					console.log(value);
+				});
+				//不行
+				likearr.forEach(function(value,index){
+					console.log(value);
+				});
+				*/
+				//each方法
+				var $res1 = $.each(arr,function(index,value){
+					// console.log(index,value);
+				})
+				console.log('$res1:',$res1);
+				var $res2 =  $.each(aLi,function(index,value){
+					// console.log(index,value);
+				})
+				console.log('$res2:',$res2);
+				var $res3 =  $.each(likearr,function(index,value){
+					// console.log(index,value);
+				})
+				console.log('$res3:',$res3);
+				/*
+				arr.map(function(value,index){
+					console.log(value);
+				});
+				//不行
+				aLi.map(function(value,index){
+					console.log(value);
+				});
+				//不行
+				likearr.map(function(value,index){
+					console.log(value);
+				});
+				*/
+				//map方法
+				var $res4 = $.map(arr,function(value,index){
+					// console.log(index,value);
+					return value;
+				})
+				console.log('$res4',$res4);
+				var $res5 =  $.map(aLi,function(value,index){
+					// console.log(index,value);
+					return value;
+				})
+				console.log('$res5',$res5);
+				var $res6 =  $.map(likearr,function(value,index){
+					// console.log(index,value);
+					return value;
+				})
+				console.log('$res6',$res6);
+			})
+		// }
+	</script>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+</body>
+</html>

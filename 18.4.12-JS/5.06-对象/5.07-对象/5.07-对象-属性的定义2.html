@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.06-对象-属性的定义2.html</title>
+	<script type="text/javascript">
+		var obj = {};
+		//因为三属性默认都为false，所以现在用该方式重新定义时，将会报错，因为没有configurable:true的属性
+		// Object.defineProperty(obj,'name',{value:'Metara'});
+		//
+		Object.defineProperty(obj,'name',{value:'Metara',configurable:true});
+		Object.defineProperty(obj,'name',{value:'Meta',enumerable:true});
+		// obj.name = 'Meta';
+		// delete obj.name;
+		for(key in obj){
+			console.log(key + ': ' + obj[key]);
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

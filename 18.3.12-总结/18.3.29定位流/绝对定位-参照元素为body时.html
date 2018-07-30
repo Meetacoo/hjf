@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绝对定位-参照元素为body时,参考的是页面的初始位置</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.son{
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+			position: absolute;
+			right: 10px;
+			bottom: 10px;
+		}
+		.father{
+			width: 1800px;
+			height: 900px;
+			background-color: skyblue;
+			left: 10px;
+			bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="father"></div>
+	<div class="son"></div>
+</body>
+</html>

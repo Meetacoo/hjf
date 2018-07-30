@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2D转换-旋转基点的修改</title>
+	<style type="text/css">
+		ul{
+			margin: 100PX auto;
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			padding: 0;
+			position: relative;
+			list-style: none;
+		}
+		ul li{
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			/*transform-origin: 0 0;*/
+			/*transform-origin: 100px 0;*/
+			/*transform-origin: 50% 50%;*/
+			transform-origin: left bottom;
+		}
+		ul li:nth-child(1){
+			background-color: tomato;
+			transform: rotate(15deg);
+		}
+		ul li:nth-child(2){
+			background-color: pink;
+			transform: rotate(30deg);
+		}
+		ul li:nth-child(3){
+			background-color: skyblue;
+			transform: rotate(45deg);
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		
+		var obj = {};
+		/*
+		//一次定义一个属性,用这种方法定义的属性无法被遍历
+		//想要被遍历，需要在属性值后加上enumerable属性
+		//用writable方式可以使对象相应属性可以被重新定义
+		//用configurable方式可以使对象相应属性可以被删除
+		*/
+		Object.defineProperty(obj,'name',{value:'Metara',enumerable:true,writable:true,configurable:true});
+		//实例化定义方式可以被遍历
+		//如果Object.defineProperty已经定义过了，且可以遍历，那么用实例方法定义的将不会被遍历
+		obj.name = 'Meta';
+		//如果Object.defineProperty方法没有用configuable方式，将不能delete掉obj中的属性
+		delete obj.name;
+		for(key in obj){
+			console.log(key + ': ' + obj[key]);
+		}
+		/*
+		for(key in obj){
+			console.log(key);
+		}
+		*/
+		// console.log(obj);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

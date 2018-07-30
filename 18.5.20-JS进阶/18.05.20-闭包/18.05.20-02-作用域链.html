@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>作用域链</title>
+	<script type="text/javascript">
+		var name = 'Meta';
+		function na1(){
+			var name1 = 'Laura';
+			// console.log(name1);
+			function na2(){
+				var name2 = 'Apple';
+				console.log(name);
+				console.log(name1);
+				console.log(name2);
+			}
+			na2();
+		}
+		na1();
+		console.log(name);
+		// console.log(name1);
+		// console.log(name2);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

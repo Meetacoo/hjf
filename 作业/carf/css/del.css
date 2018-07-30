@@ -1,0 +1,42 @@
+.mask {
+  position: absolute;
+  width: 10rem;
+  height: 17.75rem;
+  left: 0rem;
+  top: 0rem;
+  background: rgba(100, 100, 100, 0.3);
+}
+.mask .mask-delbox {
+  width: 8.4375rem;
+  height: 5.46875rem;
+  margin-top: 6.0625rem;
+  margin-left: 0.78125rem;
+  border-radius: 0.3125rem;
+  background: #fff;
+}
+.mask .mask-delbox .sureDel {
+  width: 8.4375rem;
+  height: 4.0625rem;
+  font-size: 0.5rem;
+  padding-top: 2.8125rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+.mask .mask-delbox .sure-tab {
+  width: 8.4375rem;
+  border-top: 1px solid #ddd;
+  box-sizing: border-box;
+  font-size: 0.4375rem;
+}
+.mask .mask-delbox .sure-tab .tab-option {
+  display: inline-block;
+  width: 4.21875rem;
+  height: 1.40625rem;
+  line-height: 1.40625rem;
+  text-align: center;
+}
+.mask .mask-delbox .sure-tab .sure {
+  color: #fe002b;
+  box-sizing: border-box;
+  border-left: 1px solid #ddd;
+}

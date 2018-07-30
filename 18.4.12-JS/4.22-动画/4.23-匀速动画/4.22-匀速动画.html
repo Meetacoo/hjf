@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.22-匀速动画.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#left{
+			width: 400px;
+			height: 100px;
+			background-color: pink;
+			position: absolute;
+			left: -400px;
+			bottom: 10px;
+			/*float: left;*/
+		}
+		#right{
+			width: 100px;
+			height: 100px;
+			background-color: skyblue;
+			position: absolute;
+			right: -100px;
+			/*float: left;*/
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oLeft = document.getElementById('left');
+			var oRight = document.getElementById('right');
+			var timer = null;
+			/*function tab(){
+				clearInterval (timer);
+				timer = setInterval(function(){
+					if (oLeft.offsetLeft<0) {
+						iSpeed = 5;
+					} else {
+						iSpeed = -5;
+					}
+					if (Math.abs(0 - oLeft.offsetLeft) <= Math.abs(iSpeed)) {
+						oLeft.style.left = '0px';
+						clearInterval(timer);
+					} else {
+						oLeft.style.left = oLeft.offsetLeft + iSpeed + 'px';
+					}
+				},30);
+			}
+			function tab2(){
+				clearInterval (timer);
+				timer = setInterval(function(){
+					if (oLeft.offsetLeft <= -400) {
+						iSpeed = 5;
+					} else {
+						iSpeed = -5;
+					}
+					if (Math.abs(-400 - oLeft.offsetLeft) <= Math.abs(iSpeed)) {
+						oLeft.style.left = '-400px';
+						clearInterval(timer);
+					} else {
+						oLeft.style.left = oLeft.offsetLeft + iSpeed + 'px';
+					}
+				},30);
+			}
+			*/
+			//封装函数
+			function tab(iTarget){
+				clearInterval (timer);
+				timer = setInterval(function(){
+					if (oLeft.offsetLeft<iTarget) {
+						iSpeed = 10;
+					} else {
+						iSpeed = -10;
+					}
+					if (Math.abs(iTarget - oLeft.offsetLeft) <= Math.abs(iSpeed)) {
+						oLeft.style.left = iTarget + 'px';
+						clearInterval(timer);
+					} else {
+						oLeft.style.left = oLeft.offsetLeft + iSpeed + 'px';
+					}
+				},30);
+			}
+			oLeft.onmouseover = function(){
+				// oLeft.style.left = '0';
+				tab(0);
+			}
+			oLeft.onmouseout = function(){
+				// oLeft.style.left = '-400px';
+				tab(-400);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="left">
+		<div id="right"></div>
+	</div>
+	
+</body>
+</html>

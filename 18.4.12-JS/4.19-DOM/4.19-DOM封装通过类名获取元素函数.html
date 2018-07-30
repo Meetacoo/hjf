@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.19-DOM封装通过类名获取元素函数.html</title>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+		li{
+			list-style: none;
+			width: 100px;
+			height: 50px;
+			border: 1px solid #000;
+		}
+	</style>
+	<script type="text/javascript">
+		/*window.onload = function(){
+			var oUli = document.getElementById('uli');
+			var aLi = document.getElementsByClassName('box');
+			for(i in aLi){
+				aLi[i].style.backgroundColor = 'pink';
+			}
+		}*/
+		//第二种方法，自己写一个函数
+		//定义一个函数
+		//父对象当中接收所有具有ClassName属性的元素，将这些元素最终返回出去
+		function getElementByClass(obj/*接收一个对象-为父元素*/,sClass/*接收一个字符串ClassName*/){
+			//因为返回的肯定是一堆元素，所以定义一个空数组存元素
+			var result = [];
+			//首先要获取父元素中的子元素
+			var aEle = obj.children;
+			/*和上一句效果一样
+			var aEle = obj.getElementsByTagName('*');*/
+			//开始循环
+			for (var i = 0; i < aEle.length; i++) {
+				if (aEle[i].className == sClass) {
+					result.push(aEle[i]);
+				}
+			}
+			return result;
+		}
+		window.onload = function(){
+			var oUli = document.getElementById('uli');
+			//将父元素传进去
+			var aLi = getElementByClass(oUli,'box');
+			for(i in aLi){
+				aLi[i].style.backgroundColor = 'pink';
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul id="uli">
+		<li></li>
+		<li class="box"></li>
+		<li></li>
+		<li></li>
+		<li class="box"></li>
+		<li></li>
+		<li class="box"></li>
+		<li></li>
+	</ul>
+</body>
+</html>

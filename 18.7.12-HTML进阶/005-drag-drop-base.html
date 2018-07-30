@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>005-drag-drop-base.html</title>
+	<style>
+		.container{
+			width: 400px;
+			height: 400px;
+			border: 1px solid #000;
+		}
+		.target{
+			width: 100px;
+			height: 100px;
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="container" id="container"></div>
+	<div class="target" id="target" draggable = "true"></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('#target')
+		.on('dragstart',function(ev){
+			ev.originalEvent.dataTransfer.setData('idName',ev.target.id);
+		})
+		.on('drag',function(){
+			console.log('target ondrag...')
+		})
+		.on('dragend',function(){
+			console.log('target ondragend...')
+		})
+
+		$('#container')
+		.on('drop',function(ev){
+			var iTarget = ev.originalEvent.dataTransfer.getData('idName');
+			$('#container').append($('#' + iTarget));
+		})
+		.on('dragover',function(ev){
+			ev.preventDefault();
+		})
+		.on('dragenter',function(){
+			$('#container').css({
+				background:'skyblue',
+			})
+			console.log("$('#container') ondragenter...")
+		})
+		.on('dragleave',function(ev){
+			console.log("$('#container') ondragleave...")
+		})
+		.on('dragend',function(ev){
+			console.log("$('#container') ondragend...")
+		})
+		.on('drag',function(ev){
+			console.log("$('#container') ondrag...")
+		})
+	})
+</script>
+</html>

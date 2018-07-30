@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>015-jquery对象如何操作-jQuery.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" value="111" name="a1">
+	<input type="text" value="222" name="b2">
+	<input type="text" value="333" name="c3">
+	<input type="checkbox" checked="">
+</body>
+
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		//jQuery获取属性
+		//獲取時只能返回第一個
+		console.log($('input').attr('value'));
+		console.log($('input').prop('value'));
+		console.log($('input').attr('name'));
+		console.log($('input').prop('name'));
+		// $('input').eq(3).attr('checked',true);
+		// $('input').eq(3).prop('checked',true);
+		//jQuery设置属性
+		//設置時設置的為所有
+		$('input').attr('value','aaa');
+		$('input').prop('value','ccc');
+
+		//jQuery删除属性
+		$('input').removeAttr('name');
+		$('input').removeProp('name');
+		$('input').eq(3).removeAttr('checked');
+		$('input').eq(3).removeProp('checked');
+	})
+</script>
+</html>

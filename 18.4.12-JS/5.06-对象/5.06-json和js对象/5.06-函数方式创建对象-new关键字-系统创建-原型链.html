@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.06-函数方式创建对象-new关键字-系统创建-原型链.html</title>
+	<script type="text/javascript">
+		//Object-->person-->p1 && p2
+		
+		//如果p1||p2上没有要调用的方法时，就会向它的上一级即person上寻找请求调用，如果person上也没有时，就会向person的上一级即Object上寻求调用
+
+		//当用过function后，系统会为函数自动添加一个prototype对象，prototype就是原型对象
+		function person(name,age){//构造函数/类
+			this.name = name;
+			this.age = age;
+		}
+		///*
+		person.prototype.showName = function(){
+			console.log('I am ' + this.name);
+		}
+		person.prototype.showAge = function(){
+			console.log('I am ' + this.age +' years old');
+		}
+		//*/
+		console.log("1::",person.prototype);
+		//constructor指向构造函数
+		console.log("2::",person.prototype.constructor == person);
+		//__proto__指向对象，即function Object(){}
+		console.log("3::",person.prototype.__proto__);
+		console.log("4::",person.prototype.__proto__ == Object.prototype);
+		console.log("5::",Object.prototype.constructor == Object);
+		console.log("6::",Object.prototype.__proto__);
+
+		var p1 = new person('metara',20);
+		p1.showName = function(){
+			console.log('hello i am ' + this.name);
+		}
+		//用的是p1上的showName()方法
+		p1.showName();
+		console.log("7::",p1);
+		console.log("8::",p1.__proto__);
+		console.log("9::",p1.__proto__ == person.prototype);
+
+		var p2 = new person('meta',20);
+		//用的是person上的showName()方法
+		p2.showName();
+		console.log("10::",p2);
+		console.log("11::",p2.__proto__);
+		console.log("12::",p2.__proto__ == person.prototype);
+
+		console.log("13::",p1.__proto__ == p2.__proto__);
+		console.log("14::",p1.__proto__ == p2.__proto__);
+		//用的是Object上的toString()方法
+		p1.toString();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

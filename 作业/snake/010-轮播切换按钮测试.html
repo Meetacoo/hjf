@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010-轮播切换按钮测试</title>
+	<link rel="shortcut icon" href="images/Snake.ico">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/fontawesome-all.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/index.css">
+	<style>
+		button{
+			width: 100px;
+			height: 50px;
+			font-size: 30px;
+		}
+		.box{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background: #ff6700;
+			left: 0px;
+			top: 100px;
+		}
+	</style>
+</head>
+<body>
+	<button class="left">&lt;</button><button class="right">&gt;</button>
+	<div class="box"></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/transition.js"></script>
+<script>
+	;(function($){
+	/*Slient开始*/
+		function Slient($elem){
+			this.$elem = $elem;
+			this.$elem.removeClass('transition');
+			this.currentX = parseFloat(this.$elem.css('left'));
+			this.currentY = parseFloat(this.$elem.css('top'));
+			console.log($elem);
+		}
+		Slient.prototype = {
+			constructor:Slient,
+			to:function(x,y){
+				x = (typeof x == 'number') ? x : this.currentX;
+				y = (typeof y == 'number') ? y : this.currentY;
+				if (this.currentX == x && this.currentY == y) return;
+				console.log('move...');
+				this.$elem.trigger('move');
+				this.$elem.css({
+					top:y,
+					left:x
+				});
+				this.currentX = x;
+				this.currentY = y;
+				this.$elem.trigger('moved');
+				console.log(this.currentX);
+				console.log(this.currentY);
+			},
+			x:function(x){
+				// this.$elem.to(x);
+				this.to(x);
+			},
+			y:function(y){
+				// this.$elem.to(null,y);
+				this.to(null,y);
+			}
+		}
+		var move = new Slient($('.box'));
+	/*Slient结束*/
+
+	/*Css3开始*/
+		function Css3($elem){
+			this.$elem = $elem;
+			this.currentX = parseFloat(this.$elem.css('left'));
+			this.currentY = parseFloat(this.$elem.css('top'));
+			this.$elem.addClass('transition');
+			//初始化添加left和top
+			this.$elem.css({
+				left:this.currentX,
+				top:this.currentY
+			});
+		}
+		Css3.prototype = {
+			constructor:Css3,
+			to:function(x,y){
+				var self = this;
+				x = (typeof x == 'number') ? x : this.currentX;
+				y = (typeof y == 'number') ? y : this.currentY;
+				if (this.currentX == x && this.currentY == y) return;
+				this.$elem.trigger('move');
+
+				//监听过渡完成事件
+				this.$elem
+				.off(snake.transition.end)//为了解决用户频繁点击触发事件多次执行
+				.one(snake.transition.end,function(){//用one绑定事件是为了事件只触发一次后就移除
+					self.$elem.trigger('moved');
+				});
+
+				this.$elem.css({
+					top:y,
+					left:x
+				});
+				this.currentX = x;
+				this.currentY = y;
+			},
+			x:function(x){
+				this.$elem.to(x);
+			},
+			y:function(y){
+				this.$elem.to(null,y);
+			}
+		}
+		var move = new Css3($('.box'));
+	/*Css3结束*/
+
+	/*js开始*/
+		function Js($elem){
+			this.$elem = $elem;
+			this.currentX = parseFloat(this.$elem.css('left'));
+			this.currentY = parseFloat(this.$elem.css('top'));
+			this.$elem.removeClass('transition');
+		}
+		Js.prototype = {
+			constructor:Js,
+			to:function(x,y){
+				var self = this;
+				x = (typeof x == 'number') ? x : this.currentX;
+				y = (typeof y == 'number') ? y : this.currentY;
+				if (this.currentX == x && this.currentY == y) return;
+				this.$elem.trigger('move');
+				this.$elem
+				.stop()
+				.animate({
+					top:y,
+					left:x
+				},function(){
+					self.$elem.trigger('moved');
+				});
+
+				this.currentX = x;
+				this.currentY = y;
+			},
+			x:function(x){
+				this.to(x);
+			},
+			y:function(y){
+				this.to(null,y);
+			}
+		}
+		var move = new Js($('.box'));
+	/*js结束*/
+
+	/*调用开始*/
+		$('.box').on('move moved',function(ev){
+			console.log(ev.type);
+		})
+		$('button').eq(0).on('click',function(){
+			move.to(0);
+			// move.to(0,100);
+			// move.x(0);
+			// move.y(50);
+		});
+		$('button').eq(1).on('click',function(){
+			move.to(250);
+			// move.to(200,200);
+			// move.x(100);
+			// move.y(200);
+		});
+	/*调用结束*/
+	})(jQuery)
+</script>
+</html>

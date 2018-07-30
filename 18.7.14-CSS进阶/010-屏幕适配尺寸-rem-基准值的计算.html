@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>010-屏幕适配尺寸-rem-基准值的计算</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			font-size: 15px;
+		}
+		img{
+			float: left;
+			width: 15rem;
+		}
+		h1{
+			font-size: 2rem;
+		}
+	</style>
+</head>
+<body>
+	<img src="../image/l-1-l.jpg" alt="">
+	<h1>基准值的计算</h1>
+</body>
+<script>
+	(function(win,doc){
+		var oRoot = doc.getElementsByTagName('html')[0];
+		function reFontSize(){
+			var iWid = doc.body.clientWidth || doc.documentElement.clientWidth;
+			var iFontSize = iWid / 10;
+			oRoot.style.fontSize = iFontSize + 'px';
+			// console.log(iReSize);
+		}
+		
+
+		win.addEventListener('resize',reFontSize,false);
+		doc.addEventListener('DOMContentLoaded',reFontSize,false);
+	})(window,document);
+</script>
+</html>

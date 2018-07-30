@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>014-class</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// ES5 方法
+	/*function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype = {
+		constructor:Person,
+		showName: function(){
+			console.log('I am ' + this.name);
+		},
+		showAge: function(){
+			console.log('I am ' + this.age + ' years old');
+		}
+	}
+	var p = new Person('Metara',21);
+	// console.log(p);
+	p.showName();
+	p.showAge();*/
+
+	// ES6 方法
+	class Person{
+		constructor(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		showName(){
+			console.log('I am ' + this.name);
+		}
+		showAge(){
+			console.log('I am ' + this.age + ' years old');
+		}
+		// 添加静态方法，不属于原型链，属于该构造函数，可以被子类继承
+		static sayHi(){
+			console.log('Hi~~');
+		}
+	}
+	let p = new Person('Metara',21);
+	/*console.log(p);
+	p.showName();
+	p.showAge();
+	Person.sayHi();*/
+
+	class Student extends Person{
+		// 一定要调用 super() 方法，调用后才可以使用 this 关键字
+		/*constructor(){
+			super();
+		}*/
+		// 想要使用父类的方法，需要将父类中传的参数也传过来
+		/*constructor(name,age){
+			super(name,age);
+		}*/
+		constructor(name,age,major){
+			super(name,age,major);
+			this.major = major;
+		}
+		showMajor(){
+			console.log('I am from ' + this.major);
+		}
+		// 可重新定义从父类上继承的方法，以达到覆盖的效果
+		showName(){
+			console.log('I am ' + this.name + ' and I am from ' + this.major);
+		}
+	}
+	let s = new Student('Metara',21,'computer');
+	console.log(s);
+	s.showMajor();
+	s.showName();
+	// 子类直接继承父类的静态方法
+	Student.sayHi();
+</script>
+</html>

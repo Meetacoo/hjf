@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2D转换-旋转菜单</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			width: 650px;
+			height: 00px;
+			margin: 100px auto;
+			border: 1px solid #000;
+			position: relative;
+		}
+		.box1{
+			width: 650px;
+			height: 50px;
+			list-style: none;
+			background-color: tomato;
+			text-align: center;
+		}
+		.box1>li{
+			width: 150px;
+			height: 50px;
+			line-height: 50px;
+			background-color: skyblue;
+			float: left;
+			margin-left: 50px;
+		}
+		.box2>li{
+			list-style: none;
+			width: 150px;
+			height: 50px;
+			line-height: 50px;
+			background-color: pink;
+			float: left;
+			opacity: 0;
+			transform: rotateY(180deg);
+			transition: all 2s;
+		}
+		.box1>li:hover .box2>li{
+			opacity: 1;
+			transform: rotateY(0deg);
+		}
+		.box2>li:nth-child(5){
+			transition-delay: 0ms;
+		}
+		.box2>li:nth-child(4){
+			transition-delay: 200ms;
+		}
+		.box2>li:nth-child(3){
+			transition-delay: 400ms;
+		}
+		.box2>li:nth-child(2){
+			transition-delay: 600ms;
+		}
+		.box2>li:nth-child(1){
+			transition-delay: 800ms;
+		}
+		.box1>li:hover .box2>li:nth-child(1){
+			transition-delay: 0ms;
+		}
+		.box1>li:hover .box2>li:nth-child(2){
+			transition-delay: 200ms;
+		}
+		.box1>li:hover .box2>li:nth-child(3){
+			transition-delay: 400ms;
+		}
+		.box1>li:hover .box2>li:nth-child(4){
+			transition-delay: 600ms;
+		}
+		.box1>li:hover .box2>li:nth-child(5){
+			transition-delay: 800ms;
+		}
+		.content{
+			width: 650px;
+			height: 250px;
+			background-color: lime;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<ul class="box1">
+			<li>
+				菜单
+				<ul class="box2">
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+			<li>
+				菜单
+				<ul class="box2">
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+			<li>
+				菜单
+				<ul class="box2">
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+		</ul>
+		<div class="content">背景文字背景文字背景文字背景文字背景文字背景文字背景文字背景文字背景文字背景文字背景文字背景文字背景文字背景文字背景文字背景文字
+		</div>
+	</div>
+</body>
+</html>

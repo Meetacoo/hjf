@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>041-jquery对象中的DOM操作-删除节点.html</title>
+	<style>
+		div{
+			width: 150px;
+			height: 150px;
+			border: 1px solid #000;
+		}
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('div').click(function(){
+				alert('click');
+			})
+			// DOM结构被删除，无事件
+			$('button').eq(0).click(function(){
+				var $oDiv = $('div').remove();
+				$('body').append($oDiv);
+			})
+			// DOM内容被删除，有事件
+			$('button').eq(1).click(function(){
+				var $oDiv = $('div').empty();
+				$('body').append($oDiv);
+			})
+			// DOM结构被删除，有事件
+			$('button').eq(2).click(function(){
+				var $oDiv = $('div').detach();
+				$('body').append($oDiv);
+			})
+		})
+	</script>
+</head>
+<body>
+	<button>删除节点remove</button>
+	<button>删除节点empty</button>
+	<button>删除节点detach</button>
+	<div>这是一个div</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4-26-事件-事件中body和document区别.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 100px;
+			border: 1px solid #000;
+			margin-top: 100px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onclick = function(){
+			//body默认没有内容，为空，只有当body有内容或可视属性时，才可被触发事件
+			//当点击body后会触发当前alert('abc');事件，随后因为事件冒泡会触发alert('defg');事件
+			//因为body为document的子元素
+			//冒泡只在相同事件下进行
+			document.body.onclick = function(){
+				// console.log(body);
+				alert('abc');
+			}
+			//document默认为当前页面，内有第一个子元素firstChildNode:<!DOCTYPE html>
+			// document.onclick = function(){
+			document.onmousewheel = function(){
+				alert('defg');
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

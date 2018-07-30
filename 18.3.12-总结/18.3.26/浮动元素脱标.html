@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>浮动元素脱标</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			background-color: pink;
+			/*float: left;*/
+		}
+		span{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			background-color: skyblue;
+			float: left;
+			/*margin: 0 auto;*/
+			margin: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div>div</div>
+	<span>margin: 0 auto在浮动流中不管用，但是关于margin的其他操作仍然管用<br><br>在浮动流中不区分行内、块状、行内块状元素，即使是span也可以有自己的宽高内容</span>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.22-轮播图</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		img{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		div{
+			width: 1226px;
+			height: 500px;
+			border: 1px solid #000;
+			box-sizing: border-box;
+			margin: 50px auto;
+			position: relative;
+		}
+		#imgbox{
+			width: 6130px;
+			height: 100%;
+		}
+		#imgbox li{
+			width: 1226px;
+			height: 100%;
+			list-style: none;
+			float: left;
+			margin-left: 0px;
+		}
+		#btnbox{
+			position: absolute;
+			bottom: 20px;
+			right: 50px;
+			z-index: 31;
+		}
+		#btnbox li{
+			list-style: none;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			border: 2px solid #000;
+			float: left;
+			margin-left: 20px;
+			cursor: pointer;
+		}
+		span{
+			position: absolute;
+			display: inline-block;
+			top: 50%;
+			margin-top: -25px;
+			width: 30px;
+			height: 50px;
+			text-align: center;
+			line-height: 50px;
+			transition: all 0.5s;
+			z-index: 666;
+			font-weight: 400;
+		}
+		span:hover{
+			color: #fff;
+			background-color: rgba(100,100,100,0.6);
+		}
+		#right{
+			right: 0;
+		}
+		.active{
+			background-color: red;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			//var oImgbox = document.getElementById('imgbox');
+			var oBtn = document.getElementById('btnbox');
+			var oLeft = document.getElementById('left');
+			var oRight = document.getElementById('right');
+			var aImg = oBox.getElementsByTagName('img');
+			var aBtngo = oBtn.children;
+			var now = 0;
+			var index = i;
+			var timer = null;
+			oRight.onclick = function(){
+				/*for (var i = 0; i < aImg.length; i++) {
+					// now++;
+					aImg[i].style.zIndex = 0;
+					aBtngo[i].className = '';
+				}*/
+				now++;
+				if(now >= aBtngo.length){
+					now = 0;
+					//aImg[i].style.marginLeft = '1226px'+aImg[i];
+				}
+				/*aImg[now].style.zIndex = 30;
+				aBtngo[now].className = 'active';*/
+				tab();
+			}
+			oLeft.onclick = function(){
+				// var index = i;
+				/*for (var i = 0; i < aImg.length; i++) {
+					// now++;
+					aImg[i].style.zIndex = 0;
+					aBtngo[i].className = '';
+				}*/
+				now--;
+				if(now < 0){
+					now = aBtngo.length - 1;
+					//aImg[i].style.marginLeft = '-1226px'+aImg[i];
+				}
+				aImg[now].style.zIndex = 30;
+				aBtngo[now].className = 'active';
+				tab();
+			}
+			function tab(){
+				for (var i = 0; i < aImg.length; i++) {
+					// now++;
+					aImg[i].style.zIndex = 0;
+					aBtngo[i].className = '';
+				}
+				aImg[now].style.zIndex = 30;
+				aBtngo[now].className = 'active';
+			}
+			for (var i = 0; i < aImg.length; i++) {
+				aBtngo[i].index = i;
+				aBtngo[i].onclick = function(){
+					now = this.index;
+					tab();
+				}
+			}
+			timer = setInterval(function(){
+				oRight.onclick();
+			},2000)
+			oBox.onmouseover = function(){
+				clearInterval (timer);
+			}
+			oBox.onmouseout = function(){
+				timer = setInterval(function(){
+				oRight.onclick();
+				},2000);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<img src="images/lunbo1.jpg" style="z-index: 30">
+		<img src="images/lunbo2.jpg">
+		<img src="images/lunbo3.jpg">
+		<img src="images/lunbo4.jpg">
+		<img src="images/lunbo5.jpg">
+		<ul id="btnbox">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<span id="left">&lt;</span>
+		<span id="right">&gt;</span>
+	</div>
+</body>
+</html>

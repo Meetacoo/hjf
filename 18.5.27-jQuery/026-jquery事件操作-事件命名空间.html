@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>026-jquery事件操作-事件命名空间</title>
+	<style>
+		.box1{
+			width: 300px;
+			height: 300px;
+			border: 1px solid #000;
+			background-color: skyblue;
+		}
+		.box2{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			background-color: pink;
+		}
+		.box3{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+			background-color: orange;
+		}
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('.box3').on('click.hjf',function(){
+				alert('box3');
+			})
+			$('.box3').on('click.zs',function(){
+				alert('box3');
+			})
+			$('.box2').on('click',function(){
+				alert('box2');
+			})
+			$('.box1').on('click',function(){
+				alert('box1');
+			})
+			$('.box3').trigger('click.hjf');
+		})
+	</script>
+</head>
+<body>
+	<div class="box1">
+		<div class="box2">
+			<div class="box3"></div>
+		</div>
+	</div>
+</body>
+</html>

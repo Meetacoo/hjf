@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.2-事件-跟随鼠标移动的物体-补充</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 50px;
+			height: 50px;
+			background-color: orange;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		body{
+			height: 2000px;
+		}
+	</style>
+	<script type="text/javascript">
+		//封装函数
+		function getPoint(ev){
+			var iLeft = document.body.scrollLeft || document.documentElement.scrollLeft;
+			var iTop = document.body.scrollTop || document.documentElement.scrollTop;
+			return {x:ev.clientX + iLeft,y:ev.clientY + iTop};
+		}
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			document.onmousemove = function(ev){
+				var oEvent = ev || event;
+				/*var iLeft = document.body.scrollLeft || document.documentElement.scrollLeft;
+				var iTop = document.body.scrollTop || document.documentElement.scrollTop;*/
+				var oPoint = getPoint(oEvent);
+				oBox.style.left = oPoint.x + 'px';
+				oBox.style.top = oPoint.y + 'px';
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

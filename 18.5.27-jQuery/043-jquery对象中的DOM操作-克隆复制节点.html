@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>043-jquery对象中的DOM操作-克隆复制节点.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('div').click(function(){
+				alert('aaa');
+			})
+			$('button').click(function(){
+				//克隆出来的没有事件,默认为false,可以不传参数
+				var $res = $('div').clone(false);
+
+				//克隆出来的有事件
+				var $res = $('div').clone(true);
+
+				$('body').append($res);
+			})
+		})
+	</script>
+</head>
+<body>
+	<button>克隆</button>
+	<div>有内容</div>
+</body>
+</html>

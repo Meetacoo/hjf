@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.19-DOM获取父节点的元素定位节点.html</title>
+</head>
+<body>
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.19-DOM获取父节点.html</title>
+	<style type="text/css">
+		#box1{
+			width: 500px;
+			height: 500px;
+			border: 1px solid #000;
+			background-color: pink;
+			margin: 50px auto;
+			position: relative;
+		}
+		#box2{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			background-color: skyblue;
+			position: absolute;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBox1 = document.getElementById('box1');
+			var oBox2 = document.getElementById('box2');
+			var oBtn = document.getElementById('btn');
+			// console.log(oBox2.parentNode);
+			// console.log(oBox2.parentNode.parentNode);
+			console.log(oBox2.offsetParent);
+			oBtn.onclick = function(){
+				oBox2.offsetParent.style.backgroundColor = 'orange';
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box1">
+		<input type="button" name="" value="为定位元素设置背景色" id="btn">
+		<div id="box2"></div>
+	</div>
+	
+</body>
+</html>
+
+</body>
+</html>

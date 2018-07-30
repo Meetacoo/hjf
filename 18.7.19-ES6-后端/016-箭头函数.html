@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>016-箭头函数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*function sum (x){
+		return x + 10;
+	}*/
+	/*let sum = (x,y) => {
+		return x + y;
+	}
+	console.log(sum(1,2));*/
+
+	// 函数内只有 return 时可简写
+	/*let sum = (x,y) => x + y;
+	console.log(sum(1,2));*/
+
+	// 只有一个参数时
+	/*let sum = x => {
+		return x + 10;
+	}
+	console.log(sum(1));*/
+
+	/*let sum = x => x + 10;
+	console.log(sum(1));*/
+
+	// 无参数
+	/*let show = () => {
+		console.log('hello')
+	}
+	show();*/
+
+	// 排序
+	/*let arr = [11,23,43,52,77,12,39];
+	arr.sort(function(n1,n2){
+		return n1 - n2;
+	})
+	console.log(arr);*/
+
+	/*let arr = [11,23,43,52,77,12,39];
+	arr.sort(function(n1,n2){
+		return n2 - n1;
+	})
+	console.log(arr);
+
+	arr.sort((n1,n2) => n1-n2);
+	console.log(arr);*/
+
+	/*function Timer(id){
+		this.id = id;
+		setTimeout(function(){
+			console.log(this.id);
+		},1000)
+	}
+	var timer = new Timer('hai');*/
+
+	/*function Timer(id){
+		this.id = id;
+		setTimeout(function(){
+			console.log(this.id);
+		}.bind(this),1000)
+	}
+	var timer = new Timer('hai');*/
+
+	/*function Timer(id){
+		this.id = id;
+		setTimeout((id) => {
+			console.log(this.id);
+		},1000)
+	}
+	var timer = new Timer('hai');*/
+	
+	/*function Timer(id){
+		this.id = id;
+		setTimeout((id) => {
+			console.log(this.id);
+		}.bind(this),1000)
+	}
+	var timer = new Timer('hai');*/
+
+	/*function Timer(id){
+		this.id = id;
+		setTimeout((id) => {
+			console.log(this.id);
+		}.bind({id:'go'}),1000)
+	}*/
+	function Timer(id){
+		this.id = id;
+		setTimeout(function(){
+			console.log(this.id);
+		}.bind({id:'go'}),1000)
+	}
+	var timer = new Timer('hai');
+
+</script>
+</html>

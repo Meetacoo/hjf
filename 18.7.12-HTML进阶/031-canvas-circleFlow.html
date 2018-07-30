@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>031-canvas-circleFlow</title>
+	<style>
+		#canvas{
+			border: 1px solid #000;
+			background: #000;
+			margin-left: 300px;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+</body>
+<script>
+	// 获取画布
+	var oCanvas = document.getElementById('canvas');
+	oCanvas.width = 1000;
+	oCanvas.height = 600;
+	// 获取画布 2d 环境
+	var ctx = oCanvas.getContext('2d');
+	ctx.beginPath();
+
+	// 随机数函数
+	function getRandom(min,max){
+		return Math.round((min + (max - min)*Math.random()));
+	}
+
+	function Ball(x,y,color){
+		this.x = x;
+		this.y = y;
+		this.color = color;
+		this.r = 40;
+
+		// 初始化一组小球的变量
+		this.dX = getRandom(-5,5);
+		this.dY = getRandom(-5,5);
+		this.dR = getRandom(1,3);
+	}
+	Ball.prototype = {
+		constructor:Ball,
+		render:function(){
+			ctx.save();
+			ctx.beginPath();
+			// 绘制圆
+			ctx.fillStyle = this.color;
+			ctx.arc(this.x,this.y,this.r,0,2*Math.PI,true);
+			ctx.fill();
+			ctx.restore();
+		},
+		update:function(){
+			this.x += this.dX;
+			this.y += this.dY;
+			this.r -= this.dR;
+			if (this.r < 0) {
+				this.r = 0;
+			}
+		}
+	}
+
+	/*var ball = new Ball(100,100,'red');
+	ball.render();*/
+	
+	var colorArr = ['red','blue','green','pink','tomato','orange','yellow','skyblue','brown','lime','white','#5f0'];
+	var ballArr = [];
+
+	// 监听鼠标移动事件
+	oCanvas.addEventListener('mousemove',function(ev){
+		// 创建小球
+		var ball = new Ball(ev.offsetX,ev.offsetY,colorArr[getRandom(0,colorArr.length-1)]);
+		// 将新建的带有颜色小球 push 到小球数组 ballArr 中
+		ballArr.push(ball);
+	});
+
+	// 创建定时器，更新并渲染小球
+	setInterval(function(){
+		ctx.clearRect(0,0,oCanvas.width,oCanvas.height);
+		for (var i = 0; i < ballArr.length; i++) {
+			ballArr[i].render();
+			ballArr[i].update();
+		}
+	},50)
+
+</script>
+</html>

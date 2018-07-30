@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>007-drag-drop-questionnaire.html</title>
+	<style>
+		.page{
+			width: 1200px;
+			margin: 50px auto;
+		}
+		.container{
+			width: 600px;
+			height: 500px;
+			float: left;
+			box-sizing: border-box;
+		}
+		.container h2{
+			text-align: center;
+		}
+		.target-list{
+			float: left;
+			width: 600px;
+			height: 600px;
+			border-left: 1px solid skyblue;
+			box-sizing: border-box;
+			/*background: pink;*/
+		}
+		.box{
+			width: 80%;
+			border: 1px solid gray;
+			margin-bottom: 20px;
+			height: 50px;
+			line-height: 50px;
+			padding-left: 20px;
+			box-sizing: border-box;
+			margin-left: 20px;
+		}
+		.hide{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="page">
+		<div class="container">
+			<h2>调查问卷</h2>
+		</div>
+		<div class="target-list">
+			<div class="box" draggable='true'>
+				<label for="">姓名</label>
+				<input type="text" name="username">
+			</div>
+			<div class="box" draggable='true'>
+				<label for="">年龄</label>
+				<input type="text" name="age">
+			</div>
+			<div class="box" draggable='true'>
+				<label for="">性别</label>
+				<input type="radio" name='sex'>
+				男
+				<input type="radio" name='sex'>
+				女
+			</div>
+			<div class="box" draggable='true'>
+				<label for="">爱好</label>
+				<input type="checkbox" name="hobby">
+				琴
+				<input type="checkbox" name="hobby">
+				棋
+				<input type="checkbox" name="hobby">
+				书
+				<input type="checkbox" name="hobby">
+				画
+			</div>
+		</div>
+	</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('.target-list')
+		.on('dragstart','.box',function(ev){
+			$box = $(this);
+		})
+
+		$('.container')
+		.on('drop',function(ev){
+			$('.container').append($box.clone());
+		})
+		.on('dragover',function(ev){
+			ev.preventDefault();
+		})
+	})
+</script>
+</html>

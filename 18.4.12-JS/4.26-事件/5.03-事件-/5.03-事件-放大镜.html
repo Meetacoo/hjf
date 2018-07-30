@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.03-事件-放大镜</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 300px;
+			height: 200px;
+			float: left;
+			margin-top: 20px;
+			background-image: url('../../../image/yyqx.jpg');
+			background-size: 100%;
+		}
+		.great{
+			width: 500px;
+			height: 500px;
+			/*background-color: rgba(55,55,5,0.3);*/
+			float: left;
+			margin-left: 20px;
+			margin-top: 20px;
+		}
+		.big{
+			width: 150px;
+			height: 100px;
+			background-color: rgba(50,30,3,0.2);
+			margin-top: 20px;
+			position: absolute;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			oBox.onmouseover = function(){
+				var oBigBox = document.createElement('div')
+				oBigBox.className = 'big';
+				document.body.appendChild(oBigBox);
+				document.onmousemove = function(){
+
+				}
+				oBox.onmouseout = function(){
+					document.body.removeChild(oBigBox);
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+	<div class="great"></div>
+</body>
+</html>

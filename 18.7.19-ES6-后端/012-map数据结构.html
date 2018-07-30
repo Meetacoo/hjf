@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>012-map数据结构</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let obj1 = {name:'Metara'};
+	console.log(obj1);
+	let map = new Map();
+	map.set('age',18);
+	let map1 = {[obj1]:'hafugau'};
+	console.log(map1);
+	map.set(obj1,'heiman');
+	console.log(map);
+	console.log(map1[obj1]);
+	console.log(map.get(obj1));
+	// console.log(map.delete(obj1));
+	console.log(map.has(obj1));
+	// map.clear();
+	// console.log(map.clear());
+	console.log(map);
+	console.log(map.size);
+	
+	// map 的遍历
+	/*for(key of map.keys()){
+		console.log(key);
+	}*/
+	/*for(value of map.values()){
+		console.log(value);
+	}*/
+	for(entry of map.entries()){
+		console.log(entry);
+		console.log(entry[0],entry[1]);
+	}
+
+</script>
+</html>
